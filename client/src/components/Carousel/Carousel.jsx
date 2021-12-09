@@ -11,7 +11,7 @@ function ControlledCarousel() {
           <img
             className="d-block w-100"
             src="https://img.the-village.me/the-village.me/post-cover/-k0NDtajdfoONfacIAqvoA-default.jpg"
-            alt="First slide"
+            alt="First slide" width="200" height="500"
           />
           <Carousel.Caption>
             <h3>First slide label</h3>
@@ -22,7 +22,7 @@ function ControlledCarousel() {
           <img
             className="d-block w-100"
             src="https://kidpassage.com/images/publications/eda-kemere-chto-poprobovat-skolko-stoit/eda-kemere-chto-poprobovat-skolko-stoit-photo1_899275124.jpg"
-            alt="Second slide"
+            alt="Second slide" width="300" height="500"
           />
           <Carousel.Caption>
             <h3>Second slide label</h3>
@@ -33,7 +33,7 @@ function ControlledCarousel() {
           <img
             className="d-block w-100"
             src="https://img.the-village.me/the-village.me/post-cover/-k0NDtajdfoONfacIAqvoA-default.jpg"
-            alt="Third slide"
+            alt="Third slide" width="300" height="500"
           />
           <Carousel.Caption>
             <h3>Third slide label</h3>
