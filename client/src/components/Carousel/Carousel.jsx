@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Carousel } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function ControlledCarousel() {
 
@@ -9,7 +10,7 @@ function ControlledCarousel() {
         <Carousel.Item interval={1000}>
           <img
             className="d-block w-100"
-            src="holder.js/800x400?text=First slide&bg=373940"
+            src="https://img.the-village.me/the-village.me/post-cover/-k0NDtajdfoONfacIAqvoA-default.jpg"
             alt="First slide"
           />
           <Carousel.Caption>
@@ -20,7 +21,7 @@ function ControlledCarousel() {
         <Carousel.Item interval={500}>
           <img
             className="d-block w-100"
-            src="holder.js/800x400?text=Second slide&bg=282c34"
+            src="https://kidpassage.com/images/publications/eda-kemere-chto-poprobovat-skolko-stoit/eda-kemere-chto-poprobovat-skolko-stoit-photo1_899275124.jpg"
             alt="Second slide"
           />
           <Carousel.Caption>
@@ -31,7 +32,7 @@ function ControlledCarousel() {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="holder.js/800x400?text=Third slide&bg=20232a"
+            src="https://img.the-village.me/the-village.me/post-cover/-k0NDtajdfoONfacIAqvoA-default.jpg"
             alt="Third slide"
           />
           <Carousel.Caption>
