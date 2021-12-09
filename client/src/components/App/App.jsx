@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <Navigation/>
-      <ControlledCarousel/>
+      {/* <ControlledCarousel/> */}
       DELIVERY RESTAURANT
     </div>
   );
