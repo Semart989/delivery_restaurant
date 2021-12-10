@@ -1,17 +1,19 @@
 import './App.css';
-import ControlledCarousel from '../Carousel/Carousel'
-import ResponsiveAppBar from '../Nav/Nav'
-import DishCategory from '../DishCategory/DishCategory'
-import SFooter from '../SFooter/SFooter'
-
+import MainPage from '../MainPage/MainPage'
+import CartList from '../CartList/CartList'
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-      <ResponsiveAppBar />
-      <ControlledCarousel />
-      <DishCategory />
-      <SFooter />
+      <BrowserRouter>
+        <Route path="/" exact>
+          <MainPage />
+        </Route>
+        <Route path="/cart" exact>
+          <CartList />
+        </Route>
+      </BrowserRouter>
     </div>
   );
 }
