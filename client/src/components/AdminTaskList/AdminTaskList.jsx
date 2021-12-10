@@ -17,11 +17,12 @@ function AdminTaskList(props) {
   return (
     <div className={styles.adminTaskList}>
       <h2 className={styles.adminTaskList__title}>
-        {title.submit}
+        {title.await}
       </h2>
 
-      <div className={ styles.adminTaskList__container } style={{backgroundColor: color.submit}}>
-        
+      <div className={ styles.adminTaskList__container } style={{backgroundColor: color.await}}>
+        <TaskRoom />
+        <TaskRoom />
       </div>
     </div>
   );

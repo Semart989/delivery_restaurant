@@ -1,12 +1,18 @@
 .adminTaskList {
-  width: 24%;
+  max-width: 24%;
   height: 85vh;
+  background-color: #E0FFFF;
   margin: 5px;
+  border: 2px solid white;
+  border-radius: 2%;
 }
 .adminTaskList__title {
   height: 70px;
+  color: black;
 }
 .adminTaskList__container {
-  width: 100%;
+  width: 97%;
   margin: 5px;
+  padding: 1px 0;
+  border-radius: 3%;
 }
