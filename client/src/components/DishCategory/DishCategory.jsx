@@ -19,7 +19,7 @@ export default function DishCategory() {
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          Вкусная сочная пицца
+          Вкусная сочная пиццаа
         </Typography>
       </CardContent>
     </Card>
