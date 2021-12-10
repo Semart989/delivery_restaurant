@@ -9,8 +9,8 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate(models) {
-      // define association here
+    static associate({ Order }) {
+      Order_Status.belongsTo(Order, {foreignKey: 'order_id'});
     }
   };
   Order_Status.init({
@@ -24,12 +24,13 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'Order',
+        model: 'Orders',
         key: 'id',
       }
     },
     status: {
       type: DataTypes.STRING,
+      allowNull: false,
     },
     createdAt: {
       allowNull: false,
