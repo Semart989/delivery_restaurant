@@ -11,6 +11,20 @@ import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import SkipNextIcon from '@mui/icons-material/SkipNext';
 import Badge from '@mui/material/Badge';
+import { styled } from '@mui/material/styles';
+import ButtonGroup from '@mui/material/ButtonGroup';
+import Button from '@mui/material/Button';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
+
+const StyledBadge = styled(Badge)(({ theme }) => ({
+  '& .MuiBadge-badge': {
+    right: 10,
+    top: 10,
+    border: `2px solid ${theme.palette.background.paper}`,
+    padding: '0 4px',
+  },
+}));
 
 export default function CartView({ product }) {
   const theme = useTheme();
@@ -20,14 +34,14 @@ export default function CartView({ product }) {
 
     <Card sx={{ display: 'flex', margin: '10px', borderRadius: '10px' }}>
 
-      <Badge color="secondary" badgeContent={count}>
+      <StyledBadge badgeContent={4} color="secondary">
         <CardMedia
           component="img"
-          sx={{ width: 150, margin: '10px', borderRadius: '10px', pading: '10px' }}
+          sx={{ width: 150, margin: '10px', borderRadius: '10px' }}
           image={product.picture}
           alt="Live from space album cover"
         />
-      </Badge>
+      </StyledBadge>
 
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
 
@@ -41,19 +55,24 @@ export default function CartView({ product }) {
           </Typography>
         </CardContent>
 
-        <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
-          <IconButton aria-label="previous">
-            {theme.direction === 'rtl' ? <SkipNextIcon /> : <SkipPreviousIcon />}
-          </IconButton>
-
-          <IconButton aria-label="play/pause">
-            <PlayArrowIcon sx={{ height: 38, width: 38 }} />
-          </IconButton>
-          
-          <IconButton aria-label="next">
-            {theme.direction === 'rtl' ? <SkipPreviousIcon /> : <SkipNextIcon />}
-          </IconButton>
-        </Box>
+        <ButtonGroup>
+          <Button
+            aria-label="reduce"
+            onClick={() => {
+              setCount(Math.max(count - 1, 0));
+            }}
+          >
+            <RemoveIcon fontSize="small" />
+          </Button>
+          <Button
+            aria-label="increase"
+            onClick={() => {
+              setCount(count + 1);
+            }}
+          >
+            <AddIcon fontSize="small" />
+          </Button>
+        </ButtonGroup>
 
       </Box>
 
