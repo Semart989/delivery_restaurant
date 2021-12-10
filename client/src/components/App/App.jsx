@@ -24,17 +24,12 @@ function App() {
         <LoginWrapper>
           <BrowserRouter>
             <Switch>
-              <Route path="/" exact>
-                <MainPage />
-              </Route>
-            </Switch>
-            <Switch>
-              <Route path="/cart" exact>
-                <CartList />
-              </Route>
+              <Route path="/" exact component={MainPage}/>
+              <Route path="/cart" exact component={CartList}/>
             </Switch>
           </BrowserRouter>
         </LoginWrapper>
+        
       </Provider>
 
 
