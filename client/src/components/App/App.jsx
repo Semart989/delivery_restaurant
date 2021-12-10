@@ -1,14 +1,18 @@
 import './App.css';
-import Navigation from '../Navigation/Navigation'
+// import Navigation from '../Navigation/Navigation'
 import ControlledCarousel from '../Carousel/Carousel'
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import ResponsiveAppBar from '../Nav/Nav'
+import StickyFooter from '../Footer/Footer'
+import DishCategory from '../DishCategory/DishCategory'
+
 
 function App() {
   return (
     <div className="App">
-      <Navigation/>
-      <ControlledCarousel/>
-      DELIVERY RESTAURANT
+      <ResponsiveAppBar />
+      <ControlledCarousel />
+      <DishCategory/>
+      <StickyFooter/>
     </div>
   );
 }
