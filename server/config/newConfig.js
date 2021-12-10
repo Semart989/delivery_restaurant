@@ -4,7 +4,6 @@ const morgan = require('morgan');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
-const cors = require('cors');
 const sessionConfig = require('./sessionConfig');
 const userMiddleware = require('../middleware/user');
 
@@ -27,10 +26,6 @@ const config = (app) => {
   app.use(express.static('public'));
   app.use(morgan('dev'));
   app.use(cookieParser());
-  app.use(cors({
-    origin: ['http://localhost:3000', 'http://127.0.0.1:5501/'],
-    credentials: true,
-  }));
   app.use(session(sessionConfig));
   app.use(cors(corsOptions));
   app.use('/', indexRouter);
