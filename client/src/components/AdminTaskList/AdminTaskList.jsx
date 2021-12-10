@@ -20,9 +20,8 @@ function AdminTaskList(props) {
         {title.submit}
       </h2>
 
-      <div className={ styles.adminTaskList__container } style={{backgroundColor: color.submit}} >
-        <TaskRoom />
-        <TaskRoom />
+      <div className={ styles.adminTaskList__container } style={{backgroundColor: color.submit}}>
+        
       </div>
     </div>
   );
