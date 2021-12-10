@@ -3,12 +3,14 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     
-      await queryInterface.bulkInsert('Dish', [{
+      await queryInterface.bulkInsert('Dishes', [{
         name: 'Борщ',
         picture: "/img/soups/борщ.jpg",
         price: 210,
         time: 20,
         category_id: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         name: 'Овощной суп',
@@ -16,6 +18,8 @@ module.exports = {
         price: 220,
         time: 20,
         category_id: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         name: 'Щи',
@@ -23,6 +27,8 @@ module.exports = {
         price: 220,
         time: 20,
         category_id: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         name: 'Уха',
@@ -30,6 +36,8 @@ module.exports = {
         price: 200,
         time: 20,
         category_id: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         name: 'Томатный суп',
@@ -37,6 +45,8 @@ module.exports = {
         price: 180,
         time: 20,
         category_id: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         name: 'Крем суп',
@@ -44,6 +54,8 @@ module.exports = {
         price: 170,
         time: 20,
         category_id: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         name: 'Coca-Cola 0,33 л',
@@ -51,6 +63,8 @@ module.exports = {
         price: 140,
         time: 2,
         category_id: 2,
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         name: 'Club Mate Сola 0,33 л.',
@@ -58,6 +72,8 @@ module.exports = {
         price: 190,
         time: 2,
         category_id: 2,
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         name: 'Red Bull 0,25 л.',
@@ -65,6 +81,8 @@ module.exports = {
         price: 160,
         time: 2,
         category_id: 2,
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         name: 'Морс из чёрной смородины 1 л.',
@@ -72,6 +90,8 @@ module.exports = {
         price: 220,
         time: 2,
         category_id: 2,
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         name: 'Морс из клубники и черники 1 л.',
@@ -79,6 +99,8 @@ module.exports = {
         price: 220,
         time: 2,
         category_id: 2,
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         name: 'Морс из клюквы 1 л.',
@@ -86,6 +108,8 @@ module.exports = {
         price: 220,
         time: 2,
         category_id: 2,
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         name: 'Салат Овощной',
@@ -93,6 +117,8 @@ module.exports = {
         price: 320,
         time: 10,
         category_id: 3,
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         name: 'Салат Оливье',
@@ -100,6 +126,8 @@ module.exports = {
         price: 280,
         time: 10,
         category_id: 3,
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         name: 'Салат с ростбифом и вешенками',
@@ -107,6 +135,8 @@ module.exports = {
         price: 400,
         time: 10,
         category_id: 3,
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         name: 'Цезарь с куриной грудкой',
@@ -114,6 +144,8 @@ module.exports = {
         price: 380,
         time: 10,
         category_id: 3,
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         name: 'Салат с цыплёнком и запеченным картофелем',
@@ -121,6 +153,8 @@ module.exports = {
         price: 380,
         time: 10,
         category_id: 3,
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         name: 'Салат чука с ореховым соусом',
@@ -128,6 +162,8 @@ module.exports = {
         price: 410,
         time: 10,
         category_id: 3,
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         name: 'Спагетти карбонара',
@@ -135,6 +171,8 @@ module.exports = {
         price: 420,
         time: 20,
         category_id: 4,
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         name: 'Куриная грудка с пюре',
@@ -142,6 +180,8 @@ module.exports = {
         price: 400,
         time: 20,
         category_id: 4,
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         name: 'Плов с бараниной',
@@ -149,6 +189,8 @@ module.exports = {
         price: 370,
         time: 20,
         category_id: 4,
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         name: 'Лазанья аль форно',
@@ -156,6 +198,8 @@ module.exports = {
         price: 520,
         time: 20,
         category_id: 4,
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         name: 'Бифштекс из баранины',
@@ -163,6 +207,8 @@ module.exports = {
         price: 560,
         time: 20,
         category_id: 4,
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         name: 'Рис с цыплёнком в соусе унаги',
@@ -170,6 +216,8 @@ module.exports = {
         price: 410,
         time: 20,
         category_id: 4,
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         name: 'Пицца четыре сыра',
@@ -177,6 +225,8 @@ module.exports = {
         price: 560,
         time: 20,
         category_id: 5,
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         name: 'Пицца с ветчиной и грибами',
@@ -184,6 +234,8 @@ module.exports = {
         price: 580,
         time: 20,
         category_id: 5,
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         name: 'Пицца Маргарита',
@@ -191,6 +243,8 @@ module.exports = {
         price: 420,
         time: 20,
         category_id: 5,
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         name: 'Пицца с грибами',
@@ -198,6 +252,8 @@ module.exports = {
         price: 480,
         time: 20,
         category_id: 5,
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         name: 'Пицца с вешенками, беконом и куриным филе',
@@ -205,6 +261,8 @@ module.exports = {
         price: 520,
         time: 20,
         category_id: 5,
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         name: 'Пицца с грушей и горгонзолой',
@@ -212,6 +270,8 @@ module.exports = {
         price: 580,
         time: 20,
         category_id: 5,
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         name: 'Тирамису',
@@ -219,6 +279,8 @@ module.exports = {
         price: 260,
         time: 5,
         category_id: 6,
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         name: 'Торт Чизкейк',
@@ -226,6 +288,8 @@ module.exports = {
         price: 1500,
         time: 5,
         category_id: 6,
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         name: 'Торт Медовый кейк',
@@ -233,6 +297,8 @@ module.exports = {
         price: 1500,
         time: 5,
         category_id: 6,
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         name: 'Малиновый сорбет',
@@ -240,6 +306,8 @@ module.exports = {
         price: 490,
         time: 5,
         category_id: 6,
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         name: 'Джелато йогурт страчателла',
@@ -247,6 +315,8 @@ module.exports = {
         price: 550,
         time: 5,
         category_id: 6,
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         name: 'Донатс Yami',
@@ -254,12 +324,14 @@ module.exports = {
         price: 100,
         time: 5,
         category_id: 6,
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
     ], {});
 
   },
 
   down: async (queryInterface, Sequelize) => {
-      await queryInterface.bulkDelete('Dish', null, {});
+      await queryInterface.bulkDelete('Dishes', null, {});
   }
 };
