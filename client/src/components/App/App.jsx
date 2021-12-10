@@ -22,21 +22,22 @@ function App() {
 
       <Provider store={store}>
         <LoginWrapper>
-          <ResponsiveAppBar />
-          <ControlledCarousel />
-          <DishCategory />
-          <SFooter />
+          <BrowserRouter>
+            <Switch>
+              <Route path="/" exact>
+                <MainPage />
+              </Route>
+            </Switch>
+            <Switch>
+              <Route path="/cart" exact>
+                <CartList />
+              </Route>
+            </Switch>
+          </BrowserRouter>
         </LoginWrapper>
       </Provider>
 
-      <BrowserRouter>
-        <Route path="/" exact>
-          <MainPage />
-        </Route>
-        <Route path="/cart" exact>
-          <CartList />
-        </Route>
-      </BrowserRouter>
+
 
     </div>
   );
