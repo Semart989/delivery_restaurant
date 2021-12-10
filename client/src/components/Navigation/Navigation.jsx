@@ -6,7 +6,7 @@ function Navigation(props) {
     <div className={styles.navigationBlock}>
       <div className={styles.nav}>
         <ul>
-          <li>Меню1</li>
+          <li>Меню</li>
           <li>Корзина</li>
           <li>Позвонить</li>
         </ul>
