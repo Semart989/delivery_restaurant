@@ -1,15 +1,10 @@
 import * as React from 'react';
-import { useTheme } from '@mui/material/styles';
 
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
-import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-import SkipNextIcon from '@mui/icons-material/SkipNext';
 import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
 import ButtonGroup from '@mui/material/ButtonGroup';
@@ -17,24 +12,26 @@ import Button from '@mui/material/Button';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 
+// кастомный бэйдж через метод {style} из MUI-styles
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
     right: 10,
-    top: 10,
+    top: 14,
     border: `2px solid ${theme.palette.background.paper}`,
-    padding: '0 4px',
+    padding: '13px 10px',
+    borderRadius: '20px'
   },
 }));
 
 export default function CartView({ product }) {
-  const theme = useTheme();
+
   const [count, setCount] = React.useState(1);
 
   return (
 
     <Card sx={{ display: 'flex', margin: '10px', borderRadius: '10px' }}>
-
-      <StyledBadge badgeContent={4} color="secondary">
+      
+      <StyledBadge badgeContent={count} color="secondary">
         <CardMedia
           component="img"
           sx={{ width: 150, margin: '10px', borderRadius: '10px' }}
@@ -55,7 +52,7 @@ export default function CartView({ product }) {
           </Typography>
         </CardContent>
 
-        <ButtonGroup>
+        <ButtonGroup sx={{ paddingBottom: '10px', paddingLeft: '20px' }} >
           <Button
             aria-label="reduce"
             onClick={() => {
@@ -64,6 +61,7 @@ export default function CartView({ product }) {
           >
             <RemoveIcon fontSize="small" />
           </Button>
+
           <Button
             aria-label="increase"
             onClick={() => {
