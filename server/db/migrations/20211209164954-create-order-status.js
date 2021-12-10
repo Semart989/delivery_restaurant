@@ -13,7 +13,7 @@ module.exports = {
         references: {
           model: 'Orders',
           key: 'id',
-        }
+        },
       },
       status: {
         type: Sequelize.STRING,
@@ -26,10 +26,10 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
-      }
+      },
     });
   },
   down: async (queryInterface) => {
     await queryInterface.dropTable('Order_Statuses');
-  }
+  },
 };
