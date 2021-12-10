@@ -1,34 +1,18 @@
-import React from 'react';
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 
-function SFooter(props) {
-
-  var style = {
-    backgroundColor: "#F8F8F8",
-    borderTop: "1px solid #E7E7E7",
-    textAlign: "center",
-    padding: "20px",
-    position: "fixed",
-    left: "0",
-    bottom: "0",
-    height: "60px",
-    width: "100%",
-}
-
-var phantom = {
-  display: 'block',
-  padding: '20px',
-  height: '60px',
-  width: '100%',
-}
-
+function SFooter() {
   return (
-    <div style={phantom}>
-      <div style={style}>
-      <h1>Hello</h1>
-      </div>
-    
-    </div>
+    <>
+    <Box
+      sx={{
+        minWidth: 300,
+        minHeight: 100,
+        backgroundColor: '#e9ecef',
+      }}
+    />
+    </>
   );
 }
-
 export default SFooter;

@@ -7,15 +7,16 @@ import Typography from '@mui/material/Typography';
 
 export default function DishCategory() {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345, margin: 4}}>
       <CardHeader
         title="Пицца"
       />
       <CardMedia
         component="img"
-        height="250"
+        maxHeight="200"
+        maxWidth="200"
         image="https://www.retail.ru/upload/medialibrary/527/pitstsar.jpg"
-        alt="Paella dish"
+        alt="Food"
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
