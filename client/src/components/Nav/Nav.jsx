@@ -9,8 +9,10 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-// import Avatar from '@mui/material/Avatar';
-// import Tooltip from '@mui/material/Tooltip';
+import Tooltip from '@mui/material/Tooltip';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import Badge from '@mui/material/Badge';
+import { styled } from '@mui/material/styles';
 
 
 const pages = ['Меню', 'Корзина', 'Позвонить'];
@@ -34,6 +36,15 @@ const ResponsiveAppBar = () => {
   // const handleCloseUserMenu = () => {
   //   setAnchorElUser(null);
   // };
+
+  const StyledBadge = styled(Badge)(({ theme }) => ({
+    '& .MuiBadge-badge': {
+      right: -3,
+      top: 13,
+      border: `2px solid ${theme.palette.background.paper}`,
+      padding: '0 4px',
+    },
+  }));
 
   return (
     <AppBar position="static">
@@ -103,12 +114,17 @@ const ResponsiveAppBar = () => {
             ))}
           </Box>
 
+              {/* Корзина  */}
           <Box sx={{ flexGrow: 0 }}>
-            {/* <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+            <Tooltip title="Open settings">
+              <IconButton sx={{ p: 0 }}>
+                <IconButton aria-label="cart">
+                  <StyledBadge badgeContent={4} color="secondary">
+                    <ShoppingCartIcon />
+                  </StyledBadge>
+                </IconButton>
               </IconButton>
-            </Tooltip> */}
+            </Tooltip>
             {/* <Menu
               sx={{ mt: '45px' }}
               id="menu-appbar"
