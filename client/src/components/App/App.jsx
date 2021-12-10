@@ -1,9 +1,8 @@
 import './App.css';
-// import Navigation from '../Navigation/Navigation'
 import ControlledCarousel from '../Carousel/Carousel'
 import ResponsiveAppBar from '../Nav/Nav'
-import StickyFooter from '../Footer/Footer'
 import DishCategory from '../DishCategory/DishCategory'
+import SFooter from '../SFooter/SFooter'
 
 
 function App() {
@@ -12,7 +11,7 @@ function App() {
       <ResponsiveAppBar />
       <ControlledCarousel />
       <DishCategory/>
-      <StickyFooter/>
+     <SFooter/>
     </div>
   );
 }
