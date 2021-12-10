@@ -1,0 +1,12 @@
+.adminTaskList {
+  width: 24%;
+  height: 85vh;
+  margin: 5px;
+}
+.adminTaskList__title {
+  height: 70px;
+}
+.adminTaskList__container {
+  width: 100%;
+  margin: 5px;
+}
