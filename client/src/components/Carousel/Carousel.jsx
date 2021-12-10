@@ -30,7 +30,7 @@ function ControlledCarousel() {
           <img
             className="d-block w-100"
             src="https://img.the-village.me/the-village.me/post-cover/-k0NDtajdfoONfacIAqvoA-default.jpg"
-            alt="Third slide" width="200" height="500"
+            alt="Third slide" width="200" height="501"
           />
           <Carousel.Caption>
             <p>Высокое качество</p>
