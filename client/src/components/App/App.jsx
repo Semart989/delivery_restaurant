@@ -1,15 +1,49 @@
+
 // import ViewContainer from '../ViewContainer/ViewContainer';
-import AdminCardOrder from '../AdminCardOrder/AdminCardOrder';
-import AdminEditCardOrder from '../AdminEditCardOrder/AdminEditCardOrder';
+
+
+import { Provider } from 'react-redux';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
+
 import './App.css';
+import store from '../../redux/store';
+
+// import AdminCardOrder from '../AdminCardOrder/AdminCardOrder';
+// import AdminEditCardOrder from '../AdminEditCardOrder/AdminEditCardOrder';
+
+import LoginWrapper from '../LoginWrapper/LoginWrapper';
+import MainPage from '../MainPage/MainPage'
+import CartList from '../CartList/CartList'
+import ResponsiveAppBar from '../Nav/Nav'
+import SFooter from '../SFooter/SFooter'
+
 
 function App() {
+
+
   return (
     <div className="App">
-      DELIVERY RESTAURANT
-      {/* <ViewContainer/> */}
-      <AdminCardOrder />
-      <AdminEditCardOrder />
+      <Provider store={store}>
+        <LoginWrapper>
+          <BrowserRouter>
+
+            <ResponsiveAppBar />
+
+            <Switch>
+
+              <Route path="/" exact component={MainPage} />
+              <Route path="/cart" exact component={CartList} />
+
+            </Switch>
+
+            <SFooter />
+
+          </BrowserRouter>
+        </LoginWrapper>
+        
+      </Provider>
+
     </div>
   );
 }
