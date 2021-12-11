@@ -24,14 +24,17 @@ function App() {
             <ResponsiveAppBar />
 
             <Switch>
+
               <Route path="/" exact component={MainPage} />
               <Route path="/cart" exact component={CartList} />
+
             </Switch>
 
             <SFooter />
 
           </BrowserRouter>
         </LoginWrapper>
+        
       </Provider>
 
     </div>

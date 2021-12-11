@@ -1,7 +1,7 @@
-'use strict';
 const {
-  Model
+  Model,
 } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class Order_Dish extends Model {
     /**
@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
     }
-  };
+  }
   Order_Dish.init({
     order_id: {
       type: DataTypes.INTEGER,
@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
       references: {
         model: 'Orders',
         key: 'id',
-      }
+      },
     },
     dish_id: {
       type: DataTypes.INTEGER,
@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
       references: {
         model: 'Dishes',
         key: 'id',
-      }
+      },
     },
     quantity: {
       type: DataTypes.INTEGER,
@@ -41,7 +41,7 @@ module.exports = (sequelize, DataTypes) => {
     updatedAt: {
       allowNull: false,
       type: DataTypes.DATE,
-    }
+    },
   }, {
     sequelize,
     modelName: 'Order_Dish',
