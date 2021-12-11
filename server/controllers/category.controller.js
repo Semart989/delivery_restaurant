@@ -3,7 +3,6 @@ const { Category } = require('../db/models');
 
 const getCategories = async (req, res) => {
   try {
-    console.log(111111111);
     const categories = await Category.findAll({});
 
     console.log(categories);
