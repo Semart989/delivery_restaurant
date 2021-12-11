@@ -1,36 +1,36 @@
 import React from 'react';
 import { Carousel } from 'react-bootstrap';
+import styles from '../Carousel/Carousel.module.css'
 
 function ControlledCarousel() {
-
   return (
     <>
-      <Carousel>
-        <Carousel.Item interval={1000}>
+      <Carousel className={styles.carousel}>
+        <Carousel.Item interval={2500}>
           <img
             className="d-block w-100"
-            src="https://img.the-village.me/the-village.me/post-cover/-k0NDtajdfoONfacIAqvoA-default.jpg"
-            alt="First slide" width="200" height="500"
+            src="/img/soup-cat.jpg"
+            alt="First slide"
           />
           <Carousel.Caption>
             <p>Всегда свежие блюда</p>
           </Carousel.Caption>
         </Carousel.Item>
-        <Carousel.Item interval={500}>
+        <Carousel.Item interval={2500}>
           <img
             className="d-block w-100"
-            src="https://kidpassage.com/images/publications/eda-kemere-chto-poprobovat-skolko-stoit/eda-kemere-chto-poprobovat-skolko-stoit-photo1_899275124.jpg"
-            alt="Second slide" width="200" height="500"
+            src="/img/salats-cat.jpg"
+            alt="Second slide"
           />
           <Carousel.Caption>
             <p>Быстрая достава</p>
           </Carousel.Caption>
         </Carousel.Item>
-        <Carousel.Item>
+        <Carousel.Item interval={2500}>
           <img
             className="d-block w-100"
-            src="https://img.the-village.me/the-village.me/post-cover/-k0NDtajdfoONfacIAqvoA-default.jpg"
-            alt="Third slide" width="200" height="501"
+            src="/img/garnish-cat.jpg"
+            alt="Third slide"
           />
           <Carousel.Caption>
             <p>Высокое качество</p>
