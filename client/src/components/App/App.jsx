@@ -1,8 +1,16 @@
+
+// import ViewContainer from '../ViewContainer/ViewContainer';
+
+
 import { Provider } from 'react-redux';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
+
 import './App.css';
 import store from '../../redux/store';
+
+// import AdminCardOrder from '../AdminCardOrder/AdminCardOrder';
+// import AdminEditCardOrder from '../AdminEditCardOrder/AdminEditCardOrder';
 
 import LoginWrapper from '../LoginWrapper/LoginWrapper';
 import MainPage from '../MainPage/MainPage'
@@ -16,7 +24,6 @@ function App() {
 
   return (
     <div className="App">
-
       <Provider store={store}>
         <LoginWrapper>
           <BrowserRouter>
