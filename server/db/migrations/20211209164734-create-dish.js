@@ -32,11 +32,11 @@ module.exports = {
         },
       },
       description: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.TEXT,
         allowNull: false,
       },
       ingredients: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.TEXT,
         allowNull: false,
       },
       createdAt: {

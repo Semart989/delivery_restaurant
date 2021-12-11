@@ -46,11 +46,11 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     description: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     ingredients: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     createdAt: {
