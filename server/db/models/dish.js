@@ -1,7 +1,7 @@
-'use strict';
 const {
-  Model
+  Model,
 } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class Dish extends Model {
     /**
@@ -10,10 +10,10 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate({ Category, Order, Order_Dish }) {
-        Dish.belongsTo(Category, { foreignKey: 'category_id'});
-        Dish.belongsToMany(Order, {through: Order_Dish, foreignKey: 'dish_id', otherKey: 'order_id'})
+      Dish.belongsTo(Category, { foreignKey: 'category_id' });
+      Dish.belongsToMany(Order, { through: Order_Dish, foreignKey: 'dish_id', otherKey: 'order_id' });
     }
-  };
+  }
   Dish.init({
     id: {
       allowNull: false,
@@ -35,6 +35,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     time: {
       type: DataTypes.INTEGER,
+      allowNull: false,
     },
     category_id: {
       type: DataTypes.INTEGER,
@@ -42,7 +43,15 @@ module.exports = (sequelize, DataTypes) => {
       references: {
         model: 'Categories',
         key: 'id',
-      }
+      },
+    },
+    description: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
+    ingredients: {
+      type: DataTypes.TEXT,
+      allowNull: false,
     },
     createdAt: {
       allowNull: false,

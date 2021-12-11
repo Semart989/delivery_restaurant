@@ -31,6 +31,14 @@ module.exports = {
           key: 'id',
         },
       },
+      description: {
+        type: Sequelize.TEXT,
+        allowNull: false,
+      },
+      ingredients: {
+        type: Sequelize.TEXT,
+        allowNull: false,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

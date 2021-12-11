@@ -1,6 +1,7 @@
 import React from 'react';
 
 import CartView from '../CartView/CartView.jsx';
+import OrderView from '../OrderView/OrderView.jsx';
 
 function CartList() {
 
@@ -38,9 +39,12 @@ function CartList() {
   ];
 
   return (
+    
     <div className="container">
       <h1>Корзина</h1>
       {demoCart.map((product) => <CartView key={product.id} product={product} />)}
+
+      <OrderView />
     </div>
   );
 }

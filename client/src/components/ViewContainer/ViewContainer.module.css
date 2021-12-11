@@ -1,0 +1,10 @@
+.viewContainer {
+  display: flex;
+  justify-content: space-evenly;
+  width: 95%;
+  margin: auto;
+  margin-top: 20px;
+  background-color: gainsboro;
+  border-radius: 2%;
+}
+

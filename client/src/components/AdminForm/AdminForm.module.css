@@ -1,0 +1,22 @@
+.adminForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 400px;
+  margin: auto;
+  margin-top: 20px;  
+}
+.adminForm__input {
+  width: 50%;
+  margin: 10px 0;
+  padding: 5px 0;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+.adminForm__button {
+  width: 50%;
+  margin: 10px 0;
+  padding: 5px 0;
+  font-size: 16px;
+}
