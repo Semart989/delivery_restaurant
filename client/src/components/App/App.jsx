@@ -1,5 +1,6 @@
 // import ViewContainer from '../ViewContainer/ViewContainer';
 import AdminCardOrder from '../AdminCardOrder/AdminCardOrder';
+import AdminEditCardOrder from '../AdminEditCardOrder/AdminEditCardOrder';
 import './App.css';
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
       DELIVERY RESTAURANT
       {/* <ViewContainer/> */}
       <AdminCardOrder />
+      <AdminEditCardOrder />
     </div>
   );
 }
