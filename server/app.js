@@ -3,13 +3,13 @@ const config = require('./config/newConfig');
 
 const isAuthRouter = require('./routes/isAuth.router');
 const categoryRouter = require('./routes/category.router');
-//const dishRouter = require('./routes/dish.router');
+const dishRouter = require('./routes/dish.router');
 
 const app = express();
 
 app.use('/isauth', isAuthRouter);
-app.use('/category', categoryRouter);
-//app.use('/dish', isAuthRouter);
+app.use('/categories', categoryRouter);
+app.use('/dishes', dishRouter);
 
 const port = process.env.PORT ?? 4000;
 

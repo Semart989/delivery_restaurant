@@ -47,6 +47,6 @@ const newOrder = async (req, res) => {
   }
 };
 
-newOrder();
+//newOrder();
 
-// module.exports = { newOrder };
+module.exports = { newOrder };
