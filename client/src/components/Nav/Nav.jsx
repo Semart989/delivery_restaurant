@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
+
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -117,13 +119,15 @@ const ResponsiveAppBar = () => {
               {/* Корзина  */}
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
-              <IconButton sx={{ p: 0 }}>
-                <IconButton aria-label="cart">
-                  <StyledBadge badgeContent={4} color="secondary">
-                    <ShoppingCartIcon />
-                  </StyledBadge>
+              <Link to="/cart" underline="none">
+                <IconButton sx={{ p: 0 }}>
+                  <IconButton aria-label="cart">
+                    <StyledBadge badgeContent={4} color="secondary">
+                      <ShoppingCartIcon />
+                    </StyledBadge>
+                  </IconButton>
                 </IconButton>
-              </IconButton>
+              </Link>
             </Tooltip>
             {/* <Menu
               sx={{ mt: '45px' }}
