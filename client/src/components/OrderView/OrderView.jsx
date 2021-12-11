@@ -1,48 +1,67 @@
 import * as React from 'react';
-import { styled } from '@mui/material/styles';
+// import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
-import ButtonBase from '@mui/material/ButtonBase';
+import Button from '@mui/material/Button';
 
-const Img = styled('img')({
-  margin: 'auto',
-  display: 'block',
-  maxWidth: '100%',
-  maxHeight: '100%',
-});
+import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+
+import cartAT from '../../redux/actionTypes/cartAT';
+
+// const Img = styled('img')({
+//   margin: 'auto',
+//   display: 'block',
+//   maxWidth: '100%',
+//   maxHeight: '100%',
+// });
 
 export default function OrderView() {
+
+  const user = useSelector((state) => state.user.user);
+  const totalCart = useSelector((state) => state.cart.cart);
+  const totalSum = totalCart.reduce((a, b) => a + b.price, 0);
+  const totalQuantity = totalCart.reduce((a, b) => a + b.quantity, 0);
+  const history = useHistory();
+
+  const dispatch = useDispatch();
+
+  const sendOrder = (event) => {
+    event.preventDefault();
+
+    dispatch({ type: cartAT.POST_SEND_ORDER, payload: {totalCart, totalSum, totalQuantity, user} });
+
+    history.push('/orders');
+  }
+
   return (
     <Paper sx={{ p: 2, margin: 'auto', maxWidth: 500, flexGrow: 1 }}>
+
       <Grid container spacing={2}>
-        <Grid item>
-          <ButtonBase sx={{ width: 128, height: 128 }}>
-            <Img alt="complex" src="/static/images/grid/complex.jpg" />
-          </ButtonBase>
-        </Grid>
+
         <Grid item xs={12} sm container>
           <Grid item xs container direction="column" spacing={2}>
             <Grid item xs>
               <Typography gutterBottom variant="subtitle1" component="div">
-                Standard license
+                ОБЩАЯ СУММА ЗАКАЗА:
               </Typography>
               <Typography variant="body2" gutterBottom>
-                Full resolution 1920x1080 • JPEG
+                Количество блюд: {totalQuantity}
               </Typography>
               <Typography variant="body2" color="text.secondary">
                 ID: 1030114
               </Typography>
             </Grid>
             <Grid item>
-              <Typography sx={{ cursor: 'pointer' }} variant="body2">
-                Remove
-              </Typography>
+              <Button onClick={() => sendOrder} variant="contained" color="success">
+                ОФОРМИТЬ ЗАКАЗ
+              </Button>
             </Grid>
           </Grid>
           <Grid item>
             <Typography variant="subtitle1" component="div">
-              $19.00
+              {totalSum} руб.
             </Typography>
           </Grid>
         </Grid>

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useDispatch } from 'react-redux';
 
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -11,6 +12,8 @@ import ButtonGroup from '@mui/material/ButtonGroup';
 import Button from '@mui/material/Button';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
+
+import cartAT from '../../redux/actionTypes/cartAT';
 
 // кастомный бэйдж через метод {style} из MUI-styles
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -25,13 +28,13 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 
 export default function CartView({ product }) {
 
-  const [count, setCount] = React.useState(1);
+  const dispatch = useDispatch();
 
   return (
 
     <Card sx={{ display: 'flex', margin: '10px', borderRadius: '10px' }}>
       
-      <StyledBadge badgeContent={count} color="secondary">
+      <StyledBadge badgeContent={product.quantity} color="secondary">
         <CardMedia
           component="img"
           sx={{ width: 150, margin: '10px', borderRadius: '10px' }}
@@ -56,7 +59,7 @@ export default function CartView({ product }) {
           <Button
             aria-label="reduce"
             onClick={() => {
-              setCount(Math.max(count - 1, 0));
+              dispatch({ type: cartAT.DECREMENT_CART, payload: product.id });
             }}
           >
             <RemoveIcon fontSize="small" />
@@ -65,7 +68,7 @@ export default function CartView({ product }) {
           <Button
             aria-label="increase"
             onClick={() => {
-              setCount(count + 1);
+              dispatch({ type: cartAT.INCREMENT_CART, payload: product.id });
             }}
           >
             <AddIcon fontSize="small" />

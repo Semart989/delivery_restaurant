@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -21,6 +22,10 @@ const pages = ['Меню', 'Корзина', 'Позвонить'];
 // const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const ResponsiveAppBar = () => {
+
+  // получение длины массива корзины клиента для изменения бэйджа
+  const lengthTotalCart = useSelector((state) => state.cart.cart).length;
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   // const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -122,7 +127,7 @@ const ResponsiveAppBar = () => {
               <Link to="/cart" underline="none">
                 <IconButton sx={{ p: 0 }}>
                   <IconButton aria-label="cart">
-                    <StyledBadge badgeContent={4} color="secondary">
+                    <StyledBadge badgeContent={lengthTotalCart} color="secondary">
                       <ShoppingCartIcon />
                     </StyledBadge>
                   </IconButton>
