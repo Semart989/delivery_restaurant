@@ -1,12 +1,13 @@
 import { Card, CardContent, CardHeader, CardMedia, Typography } from '@mui/material';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function CategoryItem({category}) {
 
-  // console.log(category.picture);
-
   return (
-    <Card sx={{ maxWidth: 345, margin: 4}}>
+    <Card 
+    sx={{ maxWidth: 345, margin: 4}}>
+      <Link to={`/categories/:${category.id}`}>
       <CardHeader
         title={category.name}
       />
@@ -19,9 +20,10 @@ function CategoryItem({category}) {
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          {category.description}
+ Текст
         </Typography>
       </CardContent>
+      </Link>
     </Card>
   );
 }

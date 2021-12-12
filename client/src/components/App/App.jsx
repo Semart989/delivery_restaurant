@@ -28,7 +28,7 @@ function App() {
       <Provider store={store}>
         <LoginWrapper>
           <BrowserRouter>
-
+        
             <ResponsiveAppBar />
 
             <Switch>
@@ -39,7 +39,7 @@ function App() {
 
             </Switch>
 
-            <SFooter />
+            {/* <SFooter /> */}
 
           </BrowserRouter>
         </LoginWrapper>

@@ -2,10 +2,11 @@ import styles from './CookTaskList.module.css';
 import CookTask from '../CookTask/CookTask';
 
 function CookTaskList(props) {
-  const title = { 
+  const title = {
     await: 'Задачи, ожидающие подтверждения',
     submit: 'Задачи, отправленные в работу',
-    success: 'Исполненные задачи' };
+    success: 'Исполненные задачи'
+  };
   const color = {
     await: 'red',
     submit: 'yellow',
@@ -18,7 +19,7 @@ function CookTaskList(props) {
         {title.await}
       </h2>
 
-      <div className={ styles.cookTaskList__container } style={{backgroundColor: color.await}}>
+      <div className={styles.cookTaskList__container} style={{ backgroundColor: color.await }}>
         <CookTask />
         <CookTask />
         <CookTask />
