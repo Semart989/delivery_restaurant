@@ -15,9 +15,9 @@ const order = {
 };
 
 const newOrder = async (req, res) => {
-  // const { order } = req.body;
-  console.log(order.user_id);
-
+  const { totalCart } = req.body;
+  // console.log(order.user_id);
+  console.log('total', totalCart);
   try {
     await Order.create({
       user_id: order.user_id,
@@ -47,6 +47,6 @@ const newOrder = async (req, res) => {
   }
 };
 
-//newOrder();
+// newOrder();
 
 module.exports = { newOrder };

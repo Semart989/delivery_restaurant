@@ -30,7 +30,7 @@ export default function OrderView() {
   const sendOrder = (event) => {
     event.preventDefault();
 
-    dispatch({ type: cartAT.POST_SEND_ORDER, payload: {totalCart, totalSum, totalQuantity, user} });
+    dispatch({ type: cartAT.POST_SEND_CART, payload: {totalCart, totalSum, totalQuantity, user} });
 
     history.push('/orders');
   }
@@ -54,7 +54,7 @@ export default function OrderView() {
               </Typography>
             </Grid>
             <Grid item>
-              <Button onClick={() => sendOrder} variant="contained" color="success">
+              <Button onClick={sendOrder} variant="contained" color="success">
                 ОФОРМИТЬ ЗАКАЗ
               </Button>
             </Grid>
