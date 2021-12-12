@@ -16,7 +16,7 @@ import LoginWrapper from '../LoginWrapper/LoginWrapper';
 import MainPage from '../MainPage/MainPage'
 import CartList from '../CartList/CartList'
 import ResponsiveAppBar from '../Nav/Nav'
-import SFooter from '../SFooter/SFooter'
+// import SFooter from '../SFooter/SFooter'
 
 
 function App() {
@@ -27,7 +27,7 @@ function App() {
       <Provider store={store}>
         <LoginWrapper>
           <BrowserRouter>
-
+        
             <ResponsiveAppBar />
 
             <Switch>
@@ -37,7 +37,7 @@ function App() {
 
             </Switch>
 
-            <SFooter />
+            {/* <SFooter /> */}
 
           </BrowserRouter>
         </LoginWrapper>
