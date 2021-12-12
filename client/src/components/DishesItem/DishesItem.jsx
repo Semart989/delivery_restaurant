@@ -4,24 +4,28 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import dishesAT from '../../redux/actionTypes/dishesAT';
 
-function CategoryItem({category}) {
+function DishesItem({dish}) {
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
- 
+  // useEffect(() => {
+  //   fetch(`http://localhost:4000/categories/${category.id}`)
+  //     .then(data => data.json())
+  //     .then(data => (dispatch({ type: dishesAT.INIT_DISHES, payload: data })))
+  // }, [])
 
   return (
-    <Card  
+    <Card 
     sx={{ maxWidth: 345, margin: 4}}>
-      <Link to={`/categories/${category.id}`}>
+      {/* <Link to={`/categories/${category.id}`}> */}
       <CardHeader
-        title={category.name}
+        title={dish.name}
       />
       <CardMedia
         component="img"
         maxHeight="200"
         maxWidth="200"
-        image={category.picture}
+        image={dish.picture}
         alt="Food"
       />
       <CardContent>
@@ -29,9 +33,9 @@ function CategoryItem({category}) {
  Текст
         </Typography>
       </CardContent>
-      </Link>
+      {/* </Link> */}
     </Card>
   );
 }
 
-export default CategoryItem;
+export default DishesItem;

@@ -7,25 +7,27 @@ import Typography from '@mui/material/Typography';
 import CategoryItem from '../CategoryItem/CategoryItem';
 import { useDispatch, useSelector } from 'react-redux';
 import categoriesAT from '../../redux/actionTypes/categoriesAT';
+import DishesItem from '../DishesItem/DishesItem';
+import dishesAT from '../../redux/actionTypes/dishesAT';
+import { useParams } from 'react-router-dom';
 
-export default function DishCategory() {
+export default function DishesList() {
 
   const dispatch = useDispatch()
-  const state = useSelector(state => state.categories.categories.categories)
-
+  const state = useSelector(state => state.dishes.dishes.dishes)
+const {id} = useParams()
   console.log(state,);
 
   useEffect(() => {
-
-    fetch('http://localhost:4000/categories')
+    fetch(`http://localhost:4000/categories/${id}`)
       .then(data => data.json())
-      .then(data => dispatch({ type: categoriesAT.INIT_CATEGORIES, payload: data }))
-  }, []);
+      .then(data => (dispatch({ type: dishesAT.INIT_DISHES, payload: data })))
+  }, [])
 
   return (
 
     <>
-      {state && state.map(category => <CategoryItem key={category.id} category={category} />)}
+      {state && state.map(dish => <DishesItem key={dish.id} dish={dish} />)}
     </>
 
   );
