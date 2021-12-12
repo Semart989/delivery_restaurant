@@ -5,39 +5,27 @@ import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import CategoryItem from '../CategoryItem/CategoryItem';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import categoriesAT from '../../redux/actionTypes/categoriesAT';
 
 export default function DishCategory() {
 
   const dispatch = useDispatch()
+  const state = useSelector(state => state.categories.categories.categories)
+
+  console.log(state, );
 
 useEffect( () => {
   
   fetch('http://localhost:4000/categories')
   .then(data => data.json())
   .then(data => dispatch({ type: categoriesAT.INIT_CATEGORIES, payload: data }))
-}, [dispatch]);
+}, []);
 
   return (
-
-    <CategoryItem />
-    // <Card sx={{ maxWidth: 345, margin: 4}}>
-    //   <CardHeader
-    //     title="Пицца"
-    //   />
-    //   <CardMedia
-    //     component="img"
-    //     maxHeight="200"
-    //     maxWidth="200"
-    //     image="https://www.retail.ru/upload/medialibrary/527/pitstsar.jpg"
-    //     alt="Food"
-    //   />
-    //   <CardContent>
-    //     <Typography variant="body2" color="text.secondary">
-    //       Вкусная сочная пицца
-    //     </Typography>
-    //   </CardContent>
-    // </Card>
+<>
+    {state && state.map(category => <CategoryItem key={category.id} category ={category} />)}
+    </>
+    
   );
 }
