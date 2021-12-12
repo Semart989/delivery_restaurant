@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 
 export default function DishCategory() {
   return (
-    <Card sx={{ maxWidth: 345, margin: 4}}>
+    <Card sx={{ maxWidth: 345, margin: 4 }}>
       <CardHeader
         title="Пицца"
       />
