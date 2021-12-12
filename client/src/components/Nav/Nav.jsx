@@ -1,5 +1,8 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
+
+import { useSelector } from 'react-redux';
+
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -17,6 +20,10 @@ import style from '../Nav/Nav.module.css'
 
 
 const ResponsiveAppBar = () => {
+
+  // получение длины массива корзины клиента для изменения бэйджа
+  const lengthTotalCart = useSelector((state) => state.cart.cart).length;
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
@@ -158,7 +165,7 @@ const ResponsiveAppBar = () => {
               <Link to="/cart" underline="none">
                 <IconButton sx={{ p: 0 }}>
                   <IconButton aria-label="cart">
-                    <StyledBadge badgeContent={4} color="secondary">
+                    <StyledBadge badgeContent={lengthTotalCart} color="secondary">
                       <ShoppingCartIcon />
                     </StyledBadge>
                   </IconButton>
