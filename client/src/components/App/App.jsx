@@ -17,6 +17,7 @@ import MainPage from '../MainPage/MainPage'
 import CartList from '../CartList/CartList'
 import ResponsiveAppBar from '../Nav/Nav'
 import SFooter from '../SFooter/SFooter'
+import DishCategory from '../DishCategory/DishCategory';
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
 
               <Route path="/" exact component={MainPage} />
               <Route path="/cart" exact component={CartList} />
+              <Route path="/categories" exact component={DishCategory} />
 
             </Switch>
 
