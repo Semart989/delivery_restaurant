@@ -1,18 +1,13 @@
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
-
-import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import Badge from '@mui/material/Badge';
-import { styled } from '@mui/material/styles';
-import ButtonGroup from '@mui/material/ButtonGroup';
-import Button from '@mui/material/Button';
+import { Box, Card, CardContent, CardMedia, Typography, Badge, ButtonGroup, Button, styled } from '@mui/material'
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import cartAT from '../../redux/actionTypes/cartAT';
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
+import Stack from '@mui/material/Stack';
+import styles from './CartView.module.css';
 
 // кастомный бэйдж через метод {style} из MUI-styles
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -32,7 +27,9 @@ export default function CartView({ product }) {
   return (
 
     <Card
-      sx={{ display: 'flex', margin: '10px', borderRadius: '10px' }}>
+      className={styles.card}
+      sx={{ display: 'flex', margin: '10px', borderRadius: '10px' }}
+    >
       <StyledBadge badgeContent={product.quantity} color="secondary">
         <CardMedia
           component="img"
@@ -54,25 +51,41 @@ export default function CartView({ product }) {
           </Typography>
         </CardContent>
 
-        <ButtonGroup sx={{ paddingBottom: '10px', paddingLeft: '20px' }} >
-          <Button
-            aria-label="reduce"
-            onClick={() => {
-              dispatch({ type: cartAT.DECREMENT_CART, payload: product.id });
-            }}
-          >
-            <RemoveIcon fontSize="small" />
-          </Button>
+        <Box sx={{ display: 'flex', flexDirection: 'raw' }}>
+          <ButtonGroup sx={{ paddingBottom: '10px', paddingLeft: '20px' }} >
+            <Button
+              aria-label="reduce"
+              onClick={() => {
 
-          <Button
-            aria-label="increase"
-            onClick={() => {
-              dispatch({ type: cartAT.INCREMENT_CART, payload: product.id });
-            }}
-          >
-            <AddIcon fontSize="small" />
-          </Button>
-        </ButtonGroup>
+                dispatch({ type: cartAT.DECREMENT_CART, payload: product });
+
+              }}
+            >
+              <RemoveIcon fontSize="small" />
+            </Button>
+
+            <Button
+              aria-label="increase"
+              onClick={() => {
+                dispatch({ type: cartAT.INCREMENT_CART, payload: product });
+              }}
+            >
+              <AddIcon fontSize="small" />
+            </Button>
+          </ButtonGroup>
+
+
+          <Stack sx={{ paddingBottom: '10px' }} spacing={1}>
+            <IconButton 
+              color="error" 
+              aria-label="delete"
+              onClick={() => {
+                dispatch({ type: cartAT.DELETE_ONE_POSITION, payload: product.id });
+              }}>
+              <DeleteIcon />
+            </IconButton>
+          </Stack>
+        </Box>
 
       </Box>
 

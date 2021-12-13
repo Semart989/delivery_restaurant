@@ -1,6 +1,6 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 import cartAT from '../actionTypes/cartAT';
-import categoriesAT from '../actionTypes/categoriesAT';
+// import categoriesAT from '../actionTypes/categoriesAT';
 
 // любая асинхронная функция, обычно используется для fetch()
 async function fetchData({ url, method, headers, body }) {

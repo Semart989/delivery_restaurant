@@ -20,7 +20,6 @@ import CategoryList from '../CategoryList/CategoryList';
 import DishesList from '../DishesList/DishesList';
 import MyOrdersList from '../MyOrdersList/MyOrdersList';
 
-
 function App() {
 
   return (
