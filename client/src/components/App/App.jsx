@@ -1,5 +1,5 @@
 
-// import ViewContainer from '../ViewContainer/ViewContainer';
+import ViewContainer from '../ViewContainer/ViewContainer';
 
 
 import { Provider } from 'react-redux';
@@ -23,28 +23,35 @@ import DishesList from '../DishesList/DishesList';
 function App() {
 
   return (
-    <div className="App">
+    // <div className="App">
+    //   <Provider store={store}>
+    //     <LoginWrapper>
+    //       <BrowserRouter>
+        
+    //         <ResponsiveAppBar />
+
+    //         <Switch>
+
+    //           <Route path="/" exact component={MainPage} />
+    //           <Route path="/cart" exact component={CartList} />
+    //           <Route path="/categories" exact component={CategoryList} />
+    //           <Route path="/categories/:id" exact component={DishesList} />
+
+    //         </Switch>
+
+    //       </BrowserRouter>
+    //     </LoginWrapper>
+        
+    //   </Provider>
+
+    // </div>
+    // <div className='App'>
       <Provider store={store}>
-        <LoginWrapper>
-          <BrowserRouter>
-        
-            <ResponsiveAppBar />
-
-            <Switch>
-
-              <Route path="/" exact component={MainPage} />
-              <Route path="/cart" exact component={CartList} />
-              <Route path="/categories" exact component={CategoryList} />
-              <Route path="/categories/:id" exact component={DishesList} />
-
-            </Switch>
-
-          </BrowserRouter>
-        </LoginWrapper>
-        
+        <ViewContainer />
       </Provider>
-
-    </div>
+    // </div>
+    
+    
   );
 }
 
