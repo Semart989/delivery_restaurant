@@ -10,6 +10,7 @@ function ViewContainer(props) {
         <AdminTaskList />
         <AdminTaskList />
         <AdminTaskList />
+        <AdminTaskList />
       </section>
     </>   
   );

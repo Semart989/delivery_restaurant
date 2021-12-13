@@ -6,12 +6,14 @@ function AdminTaskList(props) {
     await: 'Задачи, ожидающие подтверждения',
     submit: 'Задачи, отправленные на кухню',
     admit: 'Исполняемые на кухне задачи',
-    success: 'Исполненные кухней задачи, ожидающие подтверждения' };
+    success: 'Исполненные кухней задачи, ожидающие подтверждения',
+    send: 'Задачи на доставке' };
   const color = {
     await: 'red',
     submit: 'blue',
     admit: 'yellow',
-    success: 'green'
+    success: 'green',
+    send: 'lawnGreen'
   }
 
   return (
@@ -20,7 +22,7 @@ function AdminTaskList(props) {
         {title.await}
       </h2>
 
-      <div className={ styles.adminTaskList__container } style={{backgroundColor: color.await}}>
+      <div className={ styles.adminTaskList__container } style={{backgroundColor: color.send}}>
         <TaskRoom />
         <TaskRoom />
       </div>
