@@ -1,6 +1,7 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 import cartAT from '../actionTypes/cartAT';
 import categoriesAT from '../actionTypes/categoriesAT';
+import dishesAT from '../actionTypes/dishesAT';
 
 // любая асинхронная функция, обычно используется для fetch()
 async function fetchData({ url, method, headers, body }) {
@@ -36,7 +37,21 @@ function* getFetchInitCategories() {
   }
 }
 
+function* getFetchInitDishes(action) {
+  try {
+    const dishes = yield call(fetchData, {
+      url: `/categories/${action.payload}`,
+      method: 'GET',
+      headers: { 'content-type': 'application/json' },
+    });
+    yield put({ type: dishesAT.INIT_DISHES, payload: dishes });
+  } catch (err) {
+    yield put({ type: dishesAT.INIT_ERROR_DISHES, payload: err })
+  }
+}
+
 export function* mySaga() {
   yield takeEvery(cartAT.POST_SEND_CART, postFetchSendOrder);
   yield takeEvery(categoriesAT.GET_FETCH_CATEGORIES, getFetchInitCategories);
+  yield takeEvery(dishesAT.GET_FETCH_DISHES, getFetchInitDishes);
 }
