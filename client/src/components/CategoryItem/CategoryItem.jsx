@@ -7,7 +7,7 @@ function CategoryItem({ category }) {
 
   return (
     <Card className={styles.card}
-      sx={{ maxWidth: 345, margin: 4, display: 'flex', justifyContent: 'space-between' }}>
+      sx={{ maxWidth: 345, margin: 4, justifyContent: 'space-between' }}>
       <Link to={`/categories/${category.id}`}
         className={styles.link}>
         <CardHeader

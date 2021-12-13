@@ -1,9 +1,12 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import {AppBar, Box, Toolbar, IconButton, Typography, Menu, Container, MenuItem, Tooltip, Badge, styled} from '@mui/material';
+import { AppBar, Box, Toolbar, IconButton, Typography, Menu, Container, MenuItem, Tooltip, Badge, styled } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
+import HistoryIcon from '@mui/icons-material/History';
 import style from '../Nav/Nav.module.css'
 
 const ResponsiveAppBar = () => {
@@ -73,6 +76,7 @@ const ResponsiveAppBar = () => {
                 <Link to="/categories"
                   className={style.link}>
                   <Typography textAlign="center">
+                    <RestaurantMenuIcon style={{color: 'green', marginRight: '10px'}}></RestaurantMenuIcon>
                     Меню
                   </Typography>
                 </Link>
@@ -82,6 +86,7 @@ const ResponsiveAppBar = () => {
                 <Link to="/orders"
                   className={style.link}>
                   <Typography textAlign="center">
+                    <HistoryIcon style={{color: 'green', marginRight: '10px'}}></HistoryIcon>
                     Мои заказы
                   </Typography>
                 </Link>
@@ -91,6 +96,7 @@ const ResponsiveAppBar = () => {
                 <Link to="#"
                   className={style.link}>
                   <Typography textAlign="center">
+                    <LocalPhoneIcon style={{color: 'green', marginRight: '10px'}}> </LocalPhoneIcon>
                     Позвонить
                   </Typography>
                 </Link>
