@@ -18,6 +18,7 @@ import CartList from '../CartList/CartList'
 import ResponsiveAppBar from '../Nav/Nav'
 import CategoryList from '../CategoryList/CategoryList';
 import DishesList from '../DishesList/DishesList';
+import MyOrdersList from '../MyOrdersList/MyOrdersList';
 
 function App() {
 
@@ -35,6 +36,7 @@ function App() {
               <Route path="/cart" exact component={CartList} />
               <Route path="/categories" exact component={CategoryList} />
               <Route path="/categories/:id" exact component={DishesList} />
+              <Route path="/orders" exact component={MyOrdersList} />
 
             </Switch>
 
