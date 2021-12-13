@@ -1,10 +1,11 @@
-import { Card, CardContent, CardHeader, CardMedia, Typography } from '@mui/material';
+import { Card, CardContent, CardHeader, CardMedia, Typography, Button } from '@mui/material';
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
-import dishesAT from '../../redux/actionTypes/dishesAT';
+// import { useDispatch } from 'react-redux';
+// import { Link } from 'react-router-dom';
+// import dishesAT from '../../redux/actionTypes/dishesAT';
+import styles from '../DishesItem/DishesItem.module.css'
 
-function DishesItem({dish}) {
+function DishesItem({ dish }) {
 
   // const dispatch = useDispatch();
 
@@ -15,8 +16,8 @@ function DishesItem({dish}) {
   // }, [])
 
   return (
-    <Card 
-    sx={{ maxWidth: 345, margin: 4}}>
+    <Card className={styles.card}
+      sx={{ maxWidth: 345, margin: 4 }}>
       {/* <Link to={`/categories/${category.id}`}> */}
       <CardHeader
         title={dish.name}
@@ -30,10 +31,15 @@ function DishesItem({dish}) {
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
- Текст
+          {dish.price} ₽
         </Typography>
       </CardContent>
       {/* </Link> */}
+      <Button
+        sx={{ margin: 1 }}
+        variant="contained" color="success">
+        Добавить
+      </Button>
     </Card>
   );
 }

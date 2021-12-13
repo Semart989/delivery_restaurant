@@ -1,23 +1,10 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-
 import { useSelector } from 'react-redux';
-
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
+import {AppBar, Box, Toolbar, IconButton, Typography, Menu, Container, MenuItem, Tooltip, Badge, styled} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import MenuItem from '@mui/material/MenuItem';
-import Tooltip from '@mui/material/Tooltip';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import Badge from '@mui/material/Badge';
-import { styled } from '@mui/material/styles';
 import style from '../Nav/Nav.module.css'
-
 
 const ResponsiveAppBar = () => {
 
@@ -87,15 +74,6 @@ const ResponsiveAppBar = () => {
                   className={style.link}>
                   <Typography textAlign="center">
                     Меню
-                  </Typography>
-                </Link>
-              </MenuItem>
-
-              <MenuItem onClick={handleCloseNavMenu}>
-                <Link to="/cart"
-                  className={style.link}>
-                  <Typography textAlign="center">
-                    Корзина
                   </Typography>
                 </Link>
               </MenuItem>

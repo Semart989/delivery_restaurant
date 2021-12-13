@@ -9,7 +9,7 @@ function ControlledCarousel() {
         <Carousel.Item interval={2500}>
           <img
             className="d-block w-100"
-            src="/img/soup-cat.jpg"
+            src="/img/carousel/soup-cat.jpg"
             alt="First slide"
           />
           <Carousel.Caption>
@@ -19,7 +19,7 @@ function ControlledCarousel() {
         <Carousel.Item interval={2500}>
           <img
             className="d-block w-100"
-            src="/img/salats-cat.jpg"
+            src="/img/carousel/garnish-cat.jpg"
             alt="Second slide"
           />
           <Carousel.Caption>
@@ -29,7 +29,7 @@ function ControlledCarousel() {
         <Carousel.Item interval={2500}>
           <img
             className="d-block w-100"
-            src="/img/garnish-cat.jpg"
+            src="/img/carousel/garnish-cat.jpg"
             alt="Third slide"
           />
           <Carousel.Caption>
