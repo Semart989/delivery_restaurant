@@ -1,5 +1,10 @@
 // const axios = require('axios');
-const { Order, Dish, Order_Dish } = require('../db/models');
+const {
+  Order,
+  Dish,
+  Order_Dish,
+  Order_Status,
+} = require('../db/models');
 
 const order = {
   user_id: 1,
@@ -18,27 +23,22 @@ const newOrder = async (req, res) => {
   const {
     totalCart, totalSum, totalQuantity, user,
   } = req.body;
-  // console.log(order.user_id);
-  console.log('body', req.body);
+
   try {
-    await Order.create({
+    const createOrder = await Order.create({
       user_id: user.id,
       totalSum,
-      currentStatus: 'true',
+      currentStatus: 'awaitOrder',
     });
 
-    const lastOrder = await Order.findAll({
-      // where: { user_id: order.user_id },
-      raw: true,
-      order: [['createdAt', 'DESC']],
-      limit: 1,
+    await Order_Status.create({
+      order_id: createOrder.id,
+      status: 'awaitOrder',
     });
-
-    console.log(lastOrder[0].id);
 
     totalCart.forEach(async (dish) => {
       await Order_Dish.create({
-        order_id: lastOrder[0].id,
+        order_id: createOrder.id,
         dish_id: dish.id,
         quantity: dish.quantity,
       });
@@ -51,6 +51,34 @@ const newOrder = async (req, res) => {
   }
 };
 
+// Вынимаем из базы массив заказов для отрисовки у администратора и повара
+const getOrders = async (req, res) => {
+  try {
+    const orders = await Order.findAll({
+      raw: true,
+    });
+    console.log(orders);
+    res.status(200).json({ orders });
+  } catch (error) {
+    res.status(404).json({ error: 'error' });
+  }
+};
+
+// const submitOrder = async (req, res) => {
+//   const { order_id, dishesList } = req.body;
+//   const orderStatusList = await Order_Status.findAll({
+//     where: {
+//       order_id,
+//     },
+//   });
+//   if (orderStatusList.length === 1) {
+//     await Order_Status.create({
+//       order_id,
+//       status: 'submitOrder',
+//     });
+//   }
+// };
+
 // newOrder();
 
-module.exports = { newOrder };
+module.exports = { newOrder, getOrders };
