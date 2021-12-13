@@ -1,15 +1,15 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { userInitAC } from '../../redux/actionCreators/userAC';
-import { useEffect } from 'react';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { userInitAC } from '../../redux/actionCreators/userAC';
+// import { useEffect } from 'react';
 
 function LoginWrapper({children}) {
   
   //const state = useSelector(state => state);
   //console.log(state.isUserAuth);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
+  // useEffect(() => {
     // fetch('http://localhost:5000/isauth', {
     //   method: 'GET',
     //   credentials: 'include',
@@ -20,7 +20,7 @@ function LoginWrapper({children}) {
     //       dispatch(userInitAC(data.user));
     //     }
     //   })
-  }, []);
+  // }, []);
 
   return (
     <>
