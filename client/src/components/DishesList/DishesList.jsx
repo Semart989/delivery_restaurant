@@ -19,9 +19,9 @@ export default function DishesList() {
 
   return (
 
-    <>
+    <div style={{ display: 'flex', alignContent: 'stretch', flexWrap: 'wrap', justifyContent: 'center'}}>
       {state && state.map(dish => <DishesItem key={dish.id} dish={dish} />)}
-    </>
+    </div>
 
   );
 }
