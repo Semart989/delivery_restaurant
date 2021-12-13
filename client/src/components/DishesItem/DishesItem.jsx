@@ -1,14 +1,19 @@
 import { Card, CardContent, CardHeader, CardMedia, Typography, Button } from '@mui/material';
 import React from 'react';
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
 import styles from '../DishesItem/DishesItem.module.css'
+import cartAT from '../../redux/actionTypes/cartAT';
 
 function DishesItem({ dish }) {
 
-  const categoryID = useSelector(state => state.dishes.categoryID)
+  const dispatch = useDispatch();
+  const categoryID = useSelector(state => state.dishes.categoryID);
 
-  console.log(categoryID)
+  const addToCart = (event) => {
+    event.preventDefault();
+    dispatch({ type: cartAT.INCREMENT_CART, payload: dish });
+  };
 
   return (
     <Card className={styles.card}
@@ -31,8 +36,9 @@ function DishesItem({ dish }) {
         </CardContent>
         <Button
           sx={{ margin: 1 }}
-          variant="contained" color="success">
-          Добавить
+          variant="contained" color="success"
+          onClick={addToCart}>
+          В корзину
         </Button>
       </Link>
     </Card>
