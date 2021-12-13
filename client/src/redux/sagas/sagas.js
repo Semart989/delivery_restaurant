@@ -12,7 +12,7 @@ async function fetchData({ url, method, headers, body }) {
 function* postFetchSendOrder(action) {
   try {
     const sendOrder = yield call(fetchData, {
-      url: 'http://localhost:4000/cart',
+      url: '/cart',
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(action.payload),
