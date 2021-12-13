@@ -1,15 +1,15 @@
 import { Card, CardContent, CardHeader, CardMedia, Typography } from '@mui/material';
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import dishesAT from '../../redux/actionTypes/dishesAT';
+import styles from '../CategoryItem/CategoryItem.module.css'
 
 function CategoryItem({ category }) {
 
   return (
-    <Card
-      sx={{ maxWidth: 345, margin: 4 }}>
-      <Link to={`/categories/${category.id}`}>
+    <Card className={styles.card}
+      sx={{ maxWidth: 345, margin: 4, display: 'flex', justifyContent: 'space-between'}}>
+      <Link to={`/categories/${category.id}`}
+        className={styles.link}>
         <CardHeader
           title={category.name}
         />
@@ -20,11 +20,6 @@ function CategoryItem({ category }) {
           image={category.picture}
           alt="Food"
         />
-        <CardContent>
-          <Typography variant="body2" color="text.secondary">
-            Текст
-          </Typography>
-        </CardContent>
       </Link>
     </Card>
   );

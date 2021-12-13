@@ -1,15 +1,6 @@
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
-
-import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import Badge from '@mui/material/Badge';
-import { styled } from '@mui/material/styles';
-import ButtonGroup from '@mui/material/ButtonGroup';
-import Button from '@mui/material/Button';
+import { Box, Card, CardContent, CardMedia, Typography, Badge, ButtonGroup, Button, styled } from '@mui/material'
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import cartAT from '../../redux/actionTypes/cartAT';
