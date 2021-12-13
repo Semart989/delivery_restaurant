@@ -12,7 +12,6 @@ import ButtonGroup from '@mui/material/ButtonGroup';
 import Button from '@mui/material/Button';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
-
 import cartAT from '../../redux/actionTypes/cartAT';
 
 // кастомный бэйдж через метод {style} из MUI-styles
@@ -32,8 +31,8 @@ export default function CartView({ product }) {
 
   return (
 
-    <Card sx={{ display: 'flex', margin: '10px', borderRadius: '10px' }}>
-      
+    <Card
+      sx={{ display: 'flex', margin: '10px', borderRadius: '10px' }}>
       <StyledBadge badgeContent={product.quantity} color="secondary">
         <CardMedia
           component="img"

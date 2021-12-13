@@ -16,13 +16,11 @@ import LoginWrapper from '../LoginWrapper/LoginWrapper';
 import MainPage from '../MainPage/MainPage'
 import CartList from '../CartList/CartList'
 import ResponsiveAppBar from '../Nav/Nav'
-import SFooter from '../SFooter/SFooter'
 import CategoryList from '../CategoryList/CategoryList';
 import DishesList from '../DishesList/DishesList';
 
 
 function App() {
-
 
   return (
     <div className="App">
@@ -40,8 +38,6 @@ function App() {
               <Route path="/categories/:id" exact component={DishesList} />
 
             </Switch>
-
-            {/* <SFooter /> */}
 
           </BrowserRouter>
         </LoginWrapper>
