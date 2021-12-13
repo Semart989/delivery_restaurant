@@ -13,6 +13,9 @@ import Button from '@mui/material/Button';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import cartAT from '../../redux/actionTypes/cartAT';
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
+import Stack from '@mui/material/Stack';
 
 // кастомный бэйдж через метод {style} из MUI-styles
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -54,25 +57,38 @@ export default function CartView({ product }) {
           </Typography>
         </CardContent>
 
-        <ButtonGroup sx={{ paddingBottom: '10px', paddingLeft: '20px' }} >
-          <Button
-            aria-label="reduce"
-            onClick={() => {
-              dispatch({ type: cartAT.DECREMENT_CART, payload: product.id });
-            }}
-          >
-            <RemoveIcon fontSize="small" />
-          </Button>
+        <Box sx={{ display: 'flex', flexDirection: 'raw' }}>
+          <ButtonGroup sx={{ paddingBottom: '10px', paddingLeft: '20px' }} >
+            <Button
+              aria-label="reduce"
+              onClick={() => {
+                dispatch({ type: cartAT.DECREMENT_CART, payload: product.id });
+              }}
+            >
+              <RemoveIcon fontSize="small" />
+            </Button>
 
-          <Button
-            aria-label="increase"
-            onClick={() => {
-              dispatch({ type: cartAT.INCREMENT_CART, payload: product.id });
-            }}
-          >
-            <AddIcon fontSize="small" />
-          </Button>
-        </ButtonGroup>
+            <Button
+              aria-label="increase"
+              onClick={() => {
+                dispatch({ type: cartAT.INCREMENT_CART, payload: product.id });
+              }}
+            >
+              <AddIcon fontSize="small" />
+            </Button>
+          </ButtonGroup>
+
+          <Stack sx={{ paddingBottom: '10px' }} spacing={1}>
+            <IconButton 
+              color="error" 
+              aria-label="delete"
+              onClick={() => {
+                dispatch({ type: cartAT.DELETE_ONE_POSITION, payload: product.id });
+              }}>
+              <DeleteIcon />
+            </IconButton>
+          </Stack>
+        </Box>
 
       </Box>
 
