@@ -1,50 +1,44 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.bulkInsert('Categories', [{
-      name: 'Soups',
+      name: 'Супы',
 
       picture: '/img/categories/soup-cat.jpg',
-
       createdAt: new Date(),
       updatedAt: new Date(),
     },
     {
-      name: 'Drinks',
+      name: 'Напитки',
 
       picture: '/img/categories/drinks-cat.jpg',
-
       createdAt: new Date(),
       updatedAt: new Date(),
     },
     {
-      name: 'Salats',
+      name: 'Салаты',
 
       picture: '/img/categories/salats-cat.jpg',
-
       createdAt: new Date(),
       updatedAt: new Date(),
     },
     {
-      name: 'Garnish',
+      name: 'Вторые блюда',
 
       picture: '/img/categories/garnish-cat.jpg',
-
       createdAt: new Date(),
       updatedAt: new Date(),
     },
     {
-      name: 'Pizza',
+      name: 'Пицца',
 
       picture: '/img/categories/pizza-cat.jpg',
-
       createdAt: new Date(),
       updatedAt: new Date(),
     },
     {
-      name: 'Deserts',
+      name: 'Десерты',
 
       picture: '/img/categories/deaerts-cat.jpg',
-
       createdAt: new Date(),
       updatedAt: new Date(),
     },

@@ -1,13 +1,7 @@
 import * as React from 'react';
-// import { styled } from '@mui/material/styles';
-import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-
+import { Grid, Paper, Typography, Button } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-
 import cartAT from '../../redux/actionTypes/cartAT';
 
 // const Img = styled('img')({
@@ -30,7 +24,7 @@ export default function OrderView() {
   const sendOrder = (event) => {
     event.preventDefault();
 
-    dispatch({ type: cartAT.POST_SEND_CART, payload: {totalCart, totalSum, totalQuantity, user} });
+    dispatch({ type: cartAT.POST_SEND_CART, payload: { totalCart, totalSum, totalQuantity, user } });
 
     history.push('/orders');
   }
