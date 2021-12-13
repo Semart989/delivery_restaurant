@@ -71,8 +71,8 @@ const ResponsiveAppBar = () => {
               sx={{
                 display: { xs: 'block', md: 'none', },
               }}>
-
-              <MenuItem onClick={handleCloseNavMenu}>
+                {/* мобильная навигация  */}  
+              <MenuItem onClick={handleCloseNavMenu} >
                 <Link to="/categories"
                   className={style.link}>
                   <Typography textAlign="center">
@@ -112,9 +112,9 @@ const ResponsiveAppBar = () => {
           >
             <Link to="/"
               className={style.link_header}>Delivery Restraunt</Link>
-
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+              {/* web навигация  */}
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }} style={{ justifyContent: 'center'}}>
             <MenuItem onClick={handleCloseNavMenu}>
               <Link to="/categories"
                 className={style.link_header}>
