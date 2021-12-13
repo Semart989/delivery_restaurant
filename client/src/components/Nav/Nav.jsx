@@ -83,7 +83,7 @@ const ResponsiveAppBar = () => {
               }}>
 
               <MenuItem onClick={handleCloseNavMenu}>
-                <Link to="/menu"
+                <Link to="/categories"
                   className={style.link}>
                   <Typography textAlign="center">
                     Меню
@@ -132,7 +132,7 @@ const ResponsiveAppBar = () => {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             <MenuItem onClick={handleCloseNavMenu}>
-              <Link to="/menu"
+              <Link to="/categories"
                 className={style.link_header}>
                 <Typography textAlign="center">
                   Меню

@@ -15,12 +15,16 @@ const order = {
 };
 
 const newOrder = async (req, res) => {
-  // const { order } = req.body;
-  console.log(order.user_id);
-
+  const {
+    totalCart, totalSum, totalQuantity, user,
+  } = req.body;
+  // console.log(order.user_id);
+  console.log('body', req.body);
   try {
     await Order.create({
-      user_id: order.user_id,
+      user_id: user.id,
+      totalSum,
+      currentStatus: 'true',
     });
 
     const lastOrder = await Order.findAll({
@@ -32,10 +36,10 @@ const newOrder = async (req, res) => {
 
     console.log(lastOrder[0].id);
 
-    order.dishes.forEach(async (dish) => {
+    totalCart.forEach(async (dish) => {
       await Order_Dish.create({
         order_id: lastOrder[0].id,
-        dish_id: dish.dish_id,
+        dish_id: dish.id,
         quantity: dish.quantity,
       });
     });
@@ -47,6 +51,6 @@ const newOrder = async (req, res) => {
   }
 };
 
-//newOrder();
+// newOrder();
 
 module.exports = { newOrder };
