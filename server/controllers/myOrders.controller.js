@@ -2,7 +2,7 @@ const { Order, Dish, Order_Dish } = require('../db/models');
 
 const myOrders = async (req, res) => {
   const user = {
-    id: 4,
+    id: 3,
   };
 
   // const {user} = req.body

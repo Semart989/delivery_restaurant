@@ -6,9 +6,12 @@ import {Card, CardHeader, CardMedia, CardContent, Typography} from '@mui/materia
 
 // import CategoryItem from '../CategoryItem/CategoryItem';
 import { useDispatch, useSelector } from 'react-redux';
+import myOrdersAT from '../../redux/actionTypes/myOrders';
 // import categoriesAT from '../../redux/actionTypes/categoriesAT';
 
 function MyOrdersList(props) {
+
+  const state = useSelector(state => state)
 
 //TODO: достать юзера из сессии
 
@@ -18,8 +21,8 @@ const dispatch = useDispatch()
   useEffect(() => {
     fetch('/orders')
       .then(data => data.json())
-      .then(data => console.log(data))
-      // .then(data => dispatch({ type: categoriesAT.INIT_CATEGORIES, payload: data }))
+      // .then(data => console.log(data))
+      .then(data => dispatch({ type: myOrdersAT.INIT_MY_ORDERS, payload: data }))
   }, [dispatch]);
 
   return (
