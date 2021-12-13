@@ -11,8 +11,10 @@ import style from '../Nav/Nav.module.css'
 
 const ResponsiveAppBar = () => {
 
-  // получение длины массива корзины клиента для изменения бэйджа
-  const lengthTotalCart = useSelector((state) => state.cart.cart).length;
+  // получение количесвта товаров по ключу quantity в объекте каждого блюда 
+  // из корзины клиента для изменения бэйджа
+  const totalCart = useSelector((state) => state.cart.cart);
+  const totalQuantity = totalCart.reduce((a, b) => a + b.quantity, 0);
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
@@ -149,7 +151,7 @@ const ResponsiveAppBar = () => {
               <Link to="/cart" underline="none">
                 <IconButton sx={{ p: 0 }}>
                   <IconButton aria-label="cart">
-                    <StyledBadge badgeContent={lengthTotalCart} color="secondary">
+                    <StyledBadge badgeContent={totalQuantity} color="secondary">
                       <ShoppingCartIcon />
                     </StyledBadge>
                   </IconButton>

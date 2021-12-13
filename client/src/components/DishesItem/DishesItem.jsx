@@ -1,15 +1,24 @@
 import { Card, CardContent, CardHeader, CardMedia, Typography, Button } from '@mui/material';
 import React from 'react';
-// import { useSelector } from 'react-redux'
-// import { Link } from 'react-router-dom';
+
+
+  import { useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom';
 import styles from '../DishesItem/DishesItem.module.css'
 import IconButton from '@mui/material/IconButton';
 import { styled } from '@mui/material/styles';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Collapse from '@mui/material/Collapse';
+import cartAT from '../../redux/actionTypes/cartAT';
+
 
 function DishesItem({ dish }) {
-
+  
+const dispatch = useDispatch();
+  
+  const addToCart = (event) => {
+    event.preventDefault();
+    dispatch({ type: cartAT.INCREMENT_CART, payload: dish });
 
   // Разворачиваем состав блюда
   
@@ -32,6 +41,7 @@ function DishesItem({ dish }) {
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
+
   };
 
   return (
@@ -73,14 +83,24 @@ function DishesItem({ dish }) {
       >
         
         <Button variant="outlined">Состав</Button>
-        {/* <ExpandMoreIcon /> */}
+    
       </ExpandMore>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <Typography paragraph>Состав: {dish.ingredients}</Typography>
         </CardContent>
+
+        <Button
+          sx={{ margin: 1 }}
+          variant="contained" color="success"
+          onClick={addToCart}>
+          В корзину
+        </Button>
+     
+
       </Collapse>
-      {/* </Link> */}
+     
+
     </Card>
   );
 }
