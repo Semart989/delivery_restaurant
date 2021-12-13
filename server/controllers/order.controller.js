@@ -41,6 +41,7 @@ const newOrder = async (req, res) => {
         order_id: lastOrder[0].id,
         dish_id: dish.id,
         quantity: dish.quantity,
+        totalQuantity,
       });
     });
 

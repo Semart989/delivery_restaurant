@@ -1,5 +1,5 @@
+import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardMedia, Typography, Button } from '@mui/material';
-import React from 'react';
 
 
   import { useDispatch } from 'react-redux'
@@ -7,19 +7,18 @@ import { Link } from 'react-router-dom';
 import styles from '../DishesItem/DishesItem.module.css'
 import IconButton from '@mui/material/IconButton';
 import { styled } from '@mui/material/styles';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Collapse from '@mui/material/Collapse';
 import cartAT from '../../redux/actionTypes/cartAT';
 
 
 function DishesItem({ dish }) {
   
-const dispatch = useDispatch();
+  const dispatch = useDispatch();
   
   const addToCart = (event) => {
     event.preventDefault();
     dispatch({ type: cartAT.INCREMENT_CART, payload: dish });
-
+  }
   // Разворачиваем состав блюда
   
   const ExpandMore = styled((props) => {
@@ -37,7 +36,7 @@ const dispatch = useDispatch();
 
   // console.log(categoryID)
 
-  const [expanded, setExpanded] = React.useState(false);
+  const [expanded, setExpanded] = useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -70,8 +69,9 @@ const dispatch = useDispatch();
       </CardContent>
       <Button
         sx={{ margin: 1 }}
+        onClick={addToCart}
         variant="contained" color="success">
-        Добавить
+        В корзину
       </Button>
 
 
@@ -80,23 +80,14 @@ const dispatch = useDispatch();
         onClick={handleExpandClick}
         aria-expanded={expanded}
         aria-label="Состав"
-      >
-        
+      >        
         <Button variant="outlined">Состав</Button>
     
       </ExpandMore>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <Typography paragraph>Состав: {dish.ingredients}</Typography>
-        </CardContent>
-
-        <Button
-          sx={{ margin: 1 }}
-          variant="contained" color="success"
-          onClick={addToCart}>
-          В корзину
-        </Button>
-     
+        </CardContent>   
 
       </Collapse>
      
@@ -105,4 +96,4 @@ const dispatch = useDispatch();
   );
 }
 
-export default DishesItem;
+export default DishesItem
