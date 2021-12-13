@@ -8,6 +8,8 @@ import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Stack from '@mui/material/Stack';
 
+import styles from './CartView.module.css';
+
 // кастомный бэйдж через метод {style} из MUI-styles
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -26,7 +28,9 @@ export default function CartView({ product }) {
   return (
 
     <Card
-      sx={{ display: 'flex', margin: '10px', borderRadius: '10px' }}>
+      className={styles.card}
+      sx={{ display: 'flex', margin: '10px', borderRadius: '10px' }}
+    >
       <StyledBadge badgeContent={product.quantity} color="secondary">
         <CardMedia
           component="img"
@@ -53,7 +57,7 @@ export default function CartView({ product }) {
             <Button
               aria-label="reduce"
               onClick={() => {
-                dispatch({ type: cartAT.DECREMENT_CART, payload: product.id });
+                dispatch({ type: cartAT.DECREMENT_CART, payload: product });
               }}
             >
               <RemoveIcon fontSize="small" />
@@ -62,7 +66,7 @@ export default function CartView({ product }) {
             <Button
               aria-label="increase"
               onClick={() => {
-                dispatch({ type: cartAT.INCREMENT_CART, payload: product.id });
+                dispatch({ type: cartAT.INCREMENT_CART, payload: product });
               }}
             >
               <AddIcon fontSize="small" />
