@@ -18,7 +18,6 @@ import CartList from '../CartList/CartList'
 import ResponsiveAppBar from '../Nav/Nav'
 import CategoryList from '../CategoryList/CategoryList';
 import DishesList from '../DishesList/DishesList';
-import Test from '../Test/Test'
 
 function App() {
 
@@ -27,8 +26,6 @@ function App() {
       <Provider store={store}>
         <LoginWrapper>
           <BrowserRouter>
-
-          <Test/>
         
             <ResponsiveAppBar />
 
