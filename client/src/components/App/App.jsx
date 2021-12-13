@@ -19,7 +19,6 @@ import ResponsiveAppBar from '../Nav/Nav'
 import CategoryList from '../CategoryList/CategoryList';
 import DishesList from '../DishesList/DishesList';
 
-
 function App() {
 
   return (

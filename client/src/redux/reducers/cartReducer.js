@@ -87,6 +87,10 @@ export const cartReducer = ( state = initialState, action) => {
       });
 
       return { ...state, cart: copyCartDecrement };
+
+    case cartAT.DELETE_ONE_POSITION:
+      return { ...state, cart: [...state.cart].filter((product) => product.id !== action.payload) };
+
     
 
 
