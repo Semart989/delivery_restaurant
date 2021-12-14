@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "cd server && npm install && cd db && npx sequelize db:migrate && npx sequelize db:seed:all && cd .. && cd .. && npm start "
+    "start": "cd server && npm start "
   },
   "license": "ISC",
   "engines": {

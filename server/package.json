@@ -26,7 +26,7 @@
     "eslint-plugin-import": "^2.25.3"
   },
   "scripts": {
-    "start": "cd node app.js",
+    "start": "node app.js",
     "dev": "nodemon app.js --ignore sessions"
   },
   "keywords": [],
