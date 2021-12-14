@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardMedia, Typography, Button } from '@mui/material';
 
 
+
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom';
+
 import styles from '../DishesItem/DishesItem.module.css'
 import IconButton from '@mui/material/IconButton';
 import { styled } from '@mui/material/styles';
@@ -57,44 +59,46 @@ function DishesItem({ dish }) {
         image={dish.picture}
         alt="Food"
       />
+
       <CardContent>
-        <Typography variant="body1" color="text.primary">
+        <Typography variant="h5" color="text.primary" style={{marginBottom: -20}}>
           {dish.price} ₽
         </Typography>
       </CardContent>
+
       <CardContent>
-        <Typography variant="body2" color="text.secondary">
+        <Typography paragraph>
           {dish.description}
         </Typography>
       </CardContent>
+      
+      <Button
+        sx={{ margin: 1 }}
+        onClick={addToCart}
+        variant="contained" color="success">
+        В корзину
+      </Button>
 
-      <CardContent>
-        <Button
-          sx={{ margin: 1 }}
-          onClick={addToCart}
-          variant="contained" color="success">
-          В корзину
-        </Button>
 
+      <ExpandMore
+        expand={expanded}
+        onClick={handleExpandClick}
+        aria-expanded={expanded}
+        aria-label="Состав"
+      >        
+        <Button variant="outlined">Состав</Button>
+    
+      </ExpandMore>
 
-        <ExpandMore
-          expand={expanded}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="Состав"
-        >
-          <Button variant="outlined">Состав</Button>
+      <Collapse in={expanded} timeout="auto" unmountOnExit>
+        <CardContent>
+          <Typography variant="body2" color="text.secondary">Состав: {dish.ingredients}</Typography>
+        </CardContent>   
+      </Collapse>
+     
 
-        </ExpandMore>
-        <Collapse in={expanded} timeout="auto" unmountOnExit>
-          <CardContent>
-            <Typography paragraph>Состав: {dish.ingredients}</Typography>
-          </CardContent>
+    </Card>
 
-        </Collapse>
-      </CardContent>
-
-    </Card >
   );
 }
 
