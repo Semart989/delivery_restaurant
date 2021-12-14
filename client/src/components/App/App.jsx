@@ -2,12 +2,12 @@
 // import ViewContainer from '../ViewContainer/ViewContainer';
 
 
-import { Provider } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { useEffect } from 'react';
 
 
 import './App.css';
-import store from '../../redux/store';
 
 // import AdminCardOrder from '../AdminCardOrder/AdminCardOrder';
 // import AdminEditCardOrder from '../AdminEditCardOrder/AdminEditCardOrder';
@@ -20,31 +20,39 @@ import CategoryList from '../CategoryList/CategoryList';
 import DishesList from '../DishesList/DishesList';
 import MyOrdersList from '../MyOrdersList/MyOrdersList';
 
+
 function App() {
+
+  // вытягиваем массив товаров из корзины клиента
+  const cart = useSelector((state) => state.cart.cart)
+
+  // при изменении состояния корзины 
+  // дублируем массив товаров в LocalStorage c key = 'user_cart'
+  useEffect(
+    () => {
+      localStorage.setItem('user_cart', JSON.stringify(cart));
+    }, [cart]
+  );
 
   return (
     <div className="App">
-      <Provider store={store}>
-        <LoginWrapper>
-          <BrowserRouter>
-        
-            <ResponsiveAppBar />
+      <LoginWrapper>
+        <BrowserRouter>
 
-            <Switch>
+          <ResponsiveAppBar />
 
-              <Route path="/" exact component={MainPage} />
-              <Route path="/cart" exact component={CartList} />
-              <Route path="/categories" exact component={CategoryList} />
-              <Route path="/categories/:id" exact component={DishesList} />
-              <Route path="/orders" exact component={MyOrdersList} />
+          <Switch>
 
-            </Switch>
+            <Route path="/" exact component={MainPage} />
+            <Route path="/cart" exact component={CartList} />
+            <Route path="/categories" exact component={CategoryList} />
+            <Route path="/categories/:id" exact component={DishesList} />
+            <Route path="/orders" exact component={MyOrdersList} />
 
-          </BrowserRouter>
-        </LoginWrapper>
-        
-      </Provider>
+          </Switch>
 
+        </BrowserRouter>
+      </LoginWrapper>
     </div>
   );
 }

@@ -1,7 +1,8 @@
 import cartAT from '../actionTypes/cartAT';
 
 const initialState = {
-  cart: [],
+  // получаем данные из LocalStorage по ключу user_cart, иначе initialState = []
+  cart: JSON.parse(localStorage.getItem('user_cart') || '[]'),
   error: null,
 };
 
