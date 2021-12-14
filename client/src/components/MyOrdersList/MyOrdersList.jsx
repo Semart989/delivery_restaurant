@@ -6,26 +6,33 @@ import {Card, CardHeader, CardMedia, CardContent, Typography} from '@mui/materia
 
 // import CategoryItem from '../CategoryItem/CategoryItem';
 import { useDispatch, useSelector } from 'react-redux';
+import myOrdersAT from '../../redux/actionTypes/myOrders';
+import MyOrderItem from '../MyOrderItem/MyOrderItem';
 // import categoriesAT from '../../redux/actionTypes/categoriesAT';
 
 function MyOrdersList(props) {
+
+  const state = useSelector(state => state.myOrders.myOrders)
 
 //TODO: достать юзера из сессии
 
 const dispatch = useDispatch()
   // const state = useSelector(state => state.categories.categories.categories)
 
+console.log(state);
+
   useEffect(() => {
     fetch('/orders')
       .then(data => data.json())
-      .then(data => console.log(data))
-      // .then(data => dispatch({ type: categoriesAT.INIT_CATEGORIES, payload: data }))
+      // .then(data => console.log(data))
+      .then(data => dispatch({ type: myOrdersAT.INIT_MY_ORDERS, payload: data.objOrders }))
   }, [dispatch]);
 
   return (
-    <div>
-      MyOrdersList
+    <div style={{ display: 'flex', alignContent: 'stretch', flexWrap: 'wrap', justifyContent: 'center'}}>
+      {state && Object.entries(state).map(([key, value]) => <MyOrderItem key={key} order={value}  />)}
     </div>
+
   );
 }
 

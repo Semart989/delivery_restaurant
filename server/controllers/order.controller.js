@@ -16,7 +16,7 @@ const order = {
 
 const newOrder = async (req, res) => {
   const {
-    totalCart, totalSum, totalQuantity, user,
+    totalCart, totalSum, user,
   } = req.body;
   // console.log(order.user_id);
   console.log('body', req.body);
@@ -34,14 +34,12 @@ const newOrder = async (req, res) => {
       limit: 1,
     });
 
-    console.log('===========', lastOrder[0].id);
-
     totalCart.forEach(async (dish) => {
       await Order_Dish.create({
         order_id: lastOrder[0].id,
         dish_id: dish.id,
         quantity: dish.quantity,
-        totalQuantity,
+
       });
     });
 
