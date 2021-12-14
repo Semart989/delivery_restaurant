@@ -4,10 +4,10 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "cd server && npm install && npm start "
+    "start": "cd server && npm install && cd db && npx sequelize db:migrate && npx sequelize db:seed:all && cd .. && cd .. && npm start "
   },
   "license": "ISC",
   "engines": {
-    "node": "14.x"
+    "node": "16.x"
   }
 }
