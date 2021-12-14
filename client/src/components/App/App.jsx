@@ -19,6 +19,7 @@ import ResponsiveAppBar from '../Nav/Nav'
 import CategoryList from '../CategoryList/CategoryList';
 import DishesList from '../DishesList/DishesList';
 import MyOrdersList from '../MyOrdersList/MyOrdersList';
+import FindDishesList from '../FindDishesList/FindDishesList';
 
 
 function App() {
@@ -48,6 +49,7 @@ function App() {
             <Route path="/categories" exact component={CategoryList} />
             <Route path="/categories/:id" exact component={DishesList} />
             <Route path="/orders" exact component={MyOrdersList} />
+            <Route path="/search" exact component={FindDishesList} />
 
           </Switch>
 
