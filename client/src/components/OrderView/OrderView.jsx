@@ -20,6 +20,10 @@ export default function OrderView() {
   const sendOrder = (event) => {
     event.preventDefault();
     dispatch({ type: cartAT.POST_SEND_CART, payload: { totalCart, totalSum, totalQuantity, user } });
+
+    // чистим LocalStorage после оформления заказа
+    localStorage.clear();
+
     history.push('/orders');
   }
   return (

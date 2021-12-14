@@ -5,15 +5,16 @@ const initialState = {
   error: null,
 };
 
-export const categoriesReducer = (state = initialState, action) => {
+export const categoriesReducer = ( state = initialState, action) => {
   switch (action.type) {
 
     case categoriesAT.INIT_CATEGORIES:
-      return { ...state, categories: action.payload };
+      // console.log('CATEGORIES');
+      return { ...state, categories:action.payload };
 
     
-    case categoriesAT.INIT_ERROR_CATEGORIES:
-      return { ...state, error: action.payload };
+    // case ordersAT.INIT_ERROR_ORDER:
+    //   return { ...state, error: action.payload };
     
     default:
       return state;
