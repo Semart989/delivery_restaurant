@@ -76,8 +76,8 @@ export default function CartView({ product }) {
 
 
           <Stack sx={{ paddingBottom: '10px' }} spacing={1}>
-            <IconButton 
-              color="error" 
+            <IconButton
+              color="error"
               aria-label="delete"
               onClick={() => {
                 dispatch({ type: cartAT.DELETE_ONE_POSITION, payload: product.id });

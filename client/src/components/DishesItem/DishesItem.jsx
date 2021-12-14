@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardMedia, Typography, Button } from '@mui/material';
-
-
-  import { useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom';
 import styles from '../DishesItem/DishesItem.module.css'
 import IconButton from '@mui/material/IconButton';
@@ -57,16 +55,19 @@ function DishesItem({ dish }) {
         image={dish.picture}
         alt="Food"
       />
+
       <CardContent>
-        <Typography variant="body1" color="text.primary">
+        <Typography variant="h5" color="text.primary" style={{marginBottom: -20}}>
           {dish.price} ₽
         </Typography>
       </CardContent>
+
       <CardContent>
-        <Typography variant="body2" color="text.secondary">
+        <Typography paragraph>
           {dish.description}
         </Typography>
       </CardContent>
+      
       <Button
         sx={{ margin: 1 }}
         onClick={addToCart}
@@ -84,11 +85,11 @@ function DishesItem({ dish }) {
         <Button variant="outlined">Состав</Button>
     
       </ExpandMore>
+
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>Состав: {dish.ingredients}</Typography>
+          <Typography variant="body2" color="text.secondary">Состав: {dish.ingredients}</Typography>
         </CardContent>   
-
       </Collapse>
      
 
