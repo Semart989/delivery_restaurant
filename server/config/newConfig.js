@@ -12,7 +12,7 @@ const indexRouter = require('../routes/index.router');
 
 //Добавил API гостиницы
 const corsOptions = {
-  origin: ['http://localhost:3000', 'https://hotel-api-example.herokuapp.com'],
+  origin: ['http://localhost:3000', 'https://runner-food.herokuapp.com/', 'https://hotel-api-example.herokuapp.com'],
   credentials: true,
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };

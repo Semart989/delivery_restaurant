@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "cd server && npm install && node app.js"
+    "build": "cd client && npm install && npm run build",
+    "start": "cd server && npm install && npm start"
   },
   "license": "ISC",
   "engines": {
