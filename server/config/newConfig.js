@@ -10,8 +10,9 @@ const userMiddleware = require('../middleware/user');
 // routes
 const indexRouter = require('../routes/index.router');
 
+//Добавил API гостиницы
 const corsOptions = {
-  origin: ['http://localhost:3000'],
+  origin: ['http://localhost:3000', 'https://hotel-api-example.herokuapp.com'],
   credentials: true,
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
@@ -23,7 +24,9 @@ const config = (app) => {
   app.use(express.urlencoded({
     extended: true,
   }));
-  app.use(express.static('public'));
+
+  // Использую клиентский public для deploy
+  app.use(express.static('../client/build'));
   app.use(morgan('dev'));
   app.use(cookieParser());
   app.use(session(sessionConfig));
@@ -31,6 +34,11 @@ const config = (app) => {
   app.use('/', indexRouter);
 
   app.use(userMiddleware);
+
+  //Используем клиентский билд
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve('../client/build/index.html'))
+  })
 };
 
 module.exports = config;
