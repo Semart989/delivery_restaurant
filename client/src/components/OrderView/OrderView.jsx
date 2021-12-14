@@ -25,6 +25,8 @@ export default function OrderView() {
     event.preventDefault();
 
     dispatch({ type: cartAT.POST_SEND_CART, payload: { totalCart, totalSum, totalQuantity, user } });
+    // чистим LocalStorage после оформления заказа
+    localStorage.clear();
 
     history.push('/orders');
   }
