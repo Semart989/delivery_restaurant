@@ -9,9 +9,7 @@ export default function CategoryList() {
   const state = useSelector(state => state.categories.categories.categories)
 
   useEffect(() => {
-    fetch('/categories')
-      .then(data => data.json())
-      .then(data => dispatch({ type: categoriesAT.INIT_CATEGORIES, payload: data }))
+    dispatch({ type: categoriesAT.GET_FETCH_CATEGORIES });
   }, [dispatch]);
 
   return (
