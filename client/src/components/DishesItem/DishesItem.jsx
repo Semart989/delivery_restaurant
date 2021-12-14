@@ -47,12 +47,14 @@ function DishesItem({ dish }) {
 
   return (
     <Card className={styles.card}
-      sx={{ maxWidth: 345, margin: 4, justifyContent: 'space-between' }}>
+      sx={{ maxWidth: 350, margin: 2, justifyContent: 'space-between' }}>
       {/* <Link to={`/categories/${categoryID}/${dish.id}`}> */}
       <CardHeader
         title={dish.name}
+        sx={{ minHeight: 80 }}
       />
       <CardMedia
+       sx={{ minHeight: 185 }}
         component="img"
         maxHeight="200"
         maxWidth="200"
@@ -61,41 +63,41 @@ function DishesItem({ dish }) {
       />
 
       <CardContent>
-        <Typography variant="h5" color="text.primary" style={{marginBottom: -20}}>
+        <Typography variant="h5" color="text.primary" style={{ marginBottom: -20 }}>
           {dish.price} ₽
         </Typography>
       </CardContent>
 
-      <CardContent>
+      <CardContent  sx={{ minHeight: 300 }}>
         <Typography paragraph>
           {dish.description}
         </Typography>
       </CardContent>
-      
-      <Button
-        sx={{ margin: 1 }}
-        onClick={addToCart}
-        variant="contained" color="success">
-        В корзину
-      </Button>
+      <CardContent>
+        <Button
+          sx={{ margin: 1 }}
+          onClick={addToCart}
+          variant="contained" color="success">
+          В корзину
+        </Button>
 
 
-      <ExpandMore
-        expand={expanded}
-        onClick={handleExpandClick}
-        aria-expanded={expanded}
-        aria-label="Состав"
-      >        
-        <Button variant="outlined">Состав</Button>
-    
-      </ExpandMore>
+        <ExpandMore
+          expand={expanded}
+          onClick={handleExpandClick}
+          aria-expanded={expanded}
+          aria-label="Состав"
+        >
+          <Button variant="outlined">Состав</Button>
 
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography variant="body2" color="text.secondary">Состав: {dish.ingredients}</Typography>
-        </CardContent>   
-      </Collapse>
-     
+        </ExpandMore>
+
+        <Collapse in={expanded} timeout="auto" unmountOnExit>
+          <CardContent>
+            <Typography variant="body2" color="text.secondary">Состав: {dish.ingredients}</Typography>
+          </CardContent>
+        </Collapse>
+      </CardContent>
 
     </Card>
 
