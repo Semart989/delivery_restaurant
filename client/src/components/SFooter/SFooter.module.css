@@ -4,13 +4,10 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 59px;
-}
-.icon1{
-margin-right: 15px;
+  height: 56px;
 }
 
-.icon3{
-  margin-left: 15px;
+.icons{
+  color:aliceblue;
+  margin-top: 16px;
 }
-

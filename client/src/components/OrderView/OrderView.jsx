@@ -44,9 +44,12 @@ export default function OrderView() {
               <Typography variant="body2" gutterBottom>
                 Количество блюд: {totalQuantity}
               </Typography>
+
+              {orderTime &&
               <Typography variant="body2" color="text.secondary">
                 Время доставки: {orderTime + 5} минут
-              </Typography>
+              </Typography>}
+              
             </Grid>
             <Grid item>
               <Button onClick={sendOrder} variant="contained" color="success">

@@ -116,7 +116,7 @@ const ResponsiveAppBar = () => {
               className={style.link_header}>Delivery Restraunt</Link>
           </Typography>
               {/* web навигация  */}
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }} style={{ justifyContent: 'center'}}>
+          <Box sx={{ flexGrow: 1, color: '#6868ac', display: { xs: 'none', md: 'flex' } }} style={{ justifyContent: 'center'}}>
             <MenuItem onClick={handleCloseNavMenu}>
               <Link to="/categories"
                 className={style.link_header}>
