@@ -25,6 +25,7 @@ const newOrder = async (req, res) => {
       user_id: user.id,
       totalSum,
       currentStatus: 'true',
+      totalQuantity,
     });
 
     const lastOrder = await Order.findAll({
@@ -34,14 +35,14 @@ const newOrder = async (req, res) => {
       limit: 1,
     });
 
-    console.log('===========', lastOrder[0].id);
+    console.log('===========', totalQuantity);
 
     totalCart.forEach(async (dish) => {
       await Order_Dish.create({
         order_id: lastOrder[0].id,
         dish_id: dish.id,
         quantity: dish.quantity,
-        totalQuantity,
+
       });
     });
 
