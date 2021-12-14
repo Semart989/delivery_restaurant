@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardMedia, Typography, Button } from '@mui/material';
 import { useDispatch } from 'react-redux'
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import styles from '../DishesItem/DishesItem.module.css'
 import IconButton from '@mui/material/IconButton';
 import { styled } from '@mui/material/styles';

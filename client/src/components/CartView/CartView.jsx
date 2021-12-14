@@ -5,9 +5,10 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import cartAT from '../../redux/actionTypes/cartAT';
 import IconButton from '@mui/material/IconButton';
-import DeleteIcon from '@mui/icons-material/Delete';
+// import DeleteIcon from '@mui/icons-material/Delete';
 import Stack from '@mui/material/Stack';
 import styles from './CartView.module.css';
+import CancelIcon from '@mui/icons-material/Cancel';
 
 // кастомный бэйдж через метод {style} из MUI-styles
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -25,22 +26,23 @@ export default function CartView({ product }) {
   const dispatch = useDispatch();
 
   return (
-
     <Card
       className={styles.card}
       sx={{ display: 'flex', margin: '10px', borderRadius: '10px' }}
     >
+      
       <StyledBadge badgeContent={product.quantity} color="secondary">
         <CardMedia
           component="img"
           sx={{ width: 150, margin: '10px', borderRadius: '10px' }}
           image={product.picture}
-          alt="Live from space album cover"
+          alt="button"
         />
       </StyledBadge>
+      
 
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-
+     
         <CardContent sx={{ flex: '1 0 auto' }}>
           <Typography component="div" variant="h5">
             {product.name}
@@ -77,18 +79,17 @@ export default function CartView({ product }) {
 
           <Stack sx={{ paddingBottom: '10px' }} spacing={1}>
             <IconButton
-              color="error"
+              color="primary"
               aria-label="delete"
               onClick={() => {
                 dispatch({ type: cartAT.DELETE_ONE_POSITION, payload: product.id });
               }}>
-              <DeleteIcon />
+              {/* <DeleteIcon /> */}
+              <CancelIcon/>
             </IconButton>
           </Stack>
         </Box>
-
       </Box>
-
     </Card>
   );
 }
