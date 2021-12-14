@@ -32,19 +32,27 @@ export default function OrderView() {
   return (
     <Paper sx={{ p: 2, margin: 'auto', maxWidth: 500, flexGrow: 1 }}>
 
-      <Grid container spacing={2}>
+      <Grid container >
 
         <Grid item xs={12} sm container>
           <Grid item xs container direction="column" spacing={2}>
-            <Grid item xs>
-              <Typography gutterBottom variant="subtitle1" component="div">
+            
+            <Grid item xs >
+              <Typography variant="body1" component="div">
                 ОБЩАЯ СУММА ЗАКАЗА:
               </Typography>
+              
+              <Grid item>
+                <Typography variant="body1" component="div">
+                  {totalSum} руб.
+                </Typography>
+              </Grid>
+
               <Typography variant="body2" gutterBottom>
                 Количество блюд: {totalQuantity}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                ID: 1030114
+                Время доставки: {}
               </Typography>
             </Grid>
             <Grid item>
@@ -53,11 +61,8 @@ export default function OrderView() {
               </Button>
             </Grid>
           </Grid>
-          <Grid item>
-            <Typography variant="subtitle1" component="div">
-              {totalSum} руб.
-            </Typography>
-          </Grid>
+
+
         </Grid>
       </Grid>
     </Paper>

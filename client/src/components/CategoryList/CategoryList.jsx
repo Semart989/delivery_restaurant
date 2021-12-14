@@ -13,7 +13,7 @@ export default function CategoryList() {
   }, [dispatch]);
 
   return (
-    <div style={{ display: 'flex', alignContent: 'stretch', flexWrap: 'wrap', justifyContent: 'center'}}>
+    <div style={{ display: 'flex', alignContent: 'stretch', flexWrap: 'wrap', justifyContent: 'center', marginBottom: 80}}>
       {state && state.map(category => <CategoryItem key={category.id} category={category} />)}
     </div>
   );
