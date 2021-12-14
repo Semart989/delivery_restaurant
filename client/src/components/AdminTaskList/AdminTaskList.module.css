@@ -7,8 +7,10 @@
   border-radius: 2%;
 }
 .adminTaskList__title {
-  height: 110px;
+  height: 130px;
   color: black;
+  margin: auto;
+  text-align: center;
 }
 .adminTaskList__container {
   width: 97%;

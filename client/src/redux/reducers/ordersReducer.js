@@ -12,6 +12,8 @@ export const ordersReducer = ( state = initialState, action) => {
     case ordersAT.INIT_ORDER:
       return { ...state, orders: action.payload };
 
+    case ordersAT.GET_ORDERS:
+      return { ...state, orders: [...action.payload] };
     
     case ordersAT.INIT_ERROR_ORDER:
       return { ...state, error: action.payload };

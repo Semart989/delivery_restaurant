@@ -1,9 +1,11 @@
 // const axios = require('axios');
+const { Op } = require('sequelize');
 const {
   Order,
   Dish,
   Order_Dish,
   Order_Status,
+  User,
 } = require('../db/models');
 
 const order = {
@@ -52,12 +54,34 @@ const newOrder = async (req, res) => {
 };
 
 // Вынимаем из базы массив заказов для отрисовки у администратора и повара
+// При этом нам ещё понадобятся имя, номер комнаты и телефон клиента, для
+// этого используем цикл for в функции
 const getOrders = async (req, res) => {
   try {
-    const orders = await Order.findAll({
+    const pureOrders = await Order.findAll({
       raw: true,
     });
-    console.log(orders);
+    const users = [];
+    for (let i = 0; i < pureOrders.length; i += 1) {
+      const user = await User.findOne({
+        where: {
+          id: {
+            [Op.eq]: pureOrders[i].user_id,
+          }
+        },
+        raw: true,
+      });
+      users.push(user);
+    }
+    const orders = pureOrders.map((pureOrder, index) => {
+      const order = {
+        ...pureOrder,
+        room: users[index].room,
+        name: users[index].name,
+        phone: users[index].phone,
+      };
+      return order;
+    });
     res.status(200).json({ orders });
   } catch (error) {
     res.status(404).json({ error: 'error' });
