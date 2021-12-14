@@ -26,7 +26,7 @@ const config = (app) => {
   }));
 
   // Использую клиентский public для deploy
-  app.use(express.static('../client/build'));
+  app.use(express.static(path.resolve('../client/build')));
   app.use(morgan('dev'));
   app.use(cookieParser());
   app.use(session(sessionConfig));
