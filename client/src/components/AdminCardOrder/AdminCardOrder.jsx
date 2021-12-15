@@ -67,11 +67,12 @@ function AdminCardOrder({ order, isOpen, isClose, isEditOpen, isEditClose }) {
           <div className={styles.card__fieldButton}>       
             <button className={styles.card__button} style={{backgroundColor: 'red'}} onClick={isClose}>Отменить</button>
             {
-              (order.currentStatus === 'awaitOrder' || order.currentStatus === 'sendOrder') && 
-             <>
-             <button className={styles.card__button} style={{backgroundColor: 'yellow'}} onClick={isClose}>Редактировать</button>
-             <button className={styles.card__button} style={{backgroundColor: 'green'}} onClick={changeStatusHandler}>Отправить в работу</button>
-             </> 
+              order.currentStatus === 'awaitOrder' &&
+            <button className={styles.card__button} style={{backgroundColor: 'yellow'}} onClick={isClose}>Редактировать</button> 
+            }
+            {            
+              (order.currentStatus === 'awaitOrder' || order.currentStatus === 'sendOrder') &&                
+             <button className={styles.card__button} style={{backgroundColor: 'green'}} onClick={changeStatusHandler}>Отправить в работу</button>           
             }
             
           </div>
