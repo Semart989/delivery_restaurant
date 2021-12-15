@@ -1,6 +1,7 @@
 import userAT from '../actionTypes/userAT';
 
 const initialState = {
+  user: {},
   error: null,
 };
 

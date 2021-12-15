@@ -5,6 +5,8 @@ import styles from '../CategoryItem/CategoryItem.module.css'
 
 function CategoryItem({ category }) {
 
+  console.log(category);
+
   return (
 
     <Card className={styles.card}

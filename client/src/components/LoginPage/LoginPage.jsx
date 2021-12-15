@@ -25,7 +25,7 @@ function LoginPage(props) {
       phone: data.get('phone'),
       pincode: data.get('pincode'),
     };
-    fetch('http://localhost:4000/login', {
+    fetch('/login', {
       method: 'POST',
       credentials: 'include',
       headers: {
