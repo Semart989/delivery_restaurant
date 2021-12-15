@@ -23,6 +23,7 @@ import StaffLoginPage from '../StaffLoginPage/StaffLoginPage';
 import Logout from '../Logout/Logout';
 import FindDishesList from '../FindDishesList/FindDishesList';
 import ViewContainer from '../ViewContainer/ViewContainer';
+import AdminViewContainer from '../AdminViewContainer/AdminViewContainer';
 
 function App() {
 
@@ -57,7 +58,8 @@ function App() {
                 <Route path="/logout" exact component={Logout} />
                 <Route path="/staff" exact component={StaffLoginPage} />
                 <Route path="/cookmaster" exact component={ViewContainer} />
-                
+                <Route path="/admin" exact component={AdminViewContainer} />
+                 
               </Switch>
             </LoginWrapper>
           </BrowserRouter>
