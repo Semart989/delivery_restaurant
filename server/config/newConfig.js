@@ -38,9 +38,8 @@ const config = (app) => {
 
   app.use(userMiddleware);
 
-  //Используем клиентский билд
   app.get('*', (req, res) => {
-    res.sendFile(path.resolve('public/index.html'))
+    res.sendFile(path.resolve('../public/index.html'))
   })
 };
 
