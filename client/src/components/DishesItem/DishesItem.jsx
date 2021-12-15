@@ -19,7 +19,7 @@ function DishesItem({ dish }) {
 
   const addToCart = (event) => {
     event.preventDefault();
-    dispatch({ type: cartAT.INCREMENT_CART, payload: dish });
+    dispatch({ type: cartAT.INCREMENT_CART, payload: {...dish} });
   }
   // Разворачиваем состав блюда
 
