@@ -55,8 +55,7 @@ const newOrder = async (req, res) => {
 };
 
 // Вынимаем из базы массив заказов для отрисовки у администратора и повара
-// При этом нам ещё понадобятся имя, номер комнаты и телефон клиента, для
-// этого используем цикл for в функции
+// При этом нам ещё понадобятся имя, номер комнаты и телефон клиента
 // Также понадобятся блюда и категории.
 const getOrders = async (req, res) => {
   try {
@@ -105,31 +104,28 @@ const getOrders = async (req, res) => {
   }
 };
 
-// const statusOrder = async (req, res) => {
-//   const { id } = req.param;
-//   const order = await Order.findOne({
-//     where: {
-//       id,
-//     },
-//   });
-//   console.log(order);
-// };
+const changeStatusOrder = async (req, res) => {
+  const { id, currentStatus } = req.body;
+  try {
+    const orderUpdate = await Order.update(
+      {
+        currentStatus,
+      },
+      {
+        where: {
+          id,
+        },
+      },
+    );
 
-// const submitOrder = async (req, res) => {
-//   const { order_id, dishesList } = req.body;
-//   const orderStatusList = await Order_Status.findAll({
-//     where: {
-//       order_id,
-//     },
-//   });
-//   if (orderStatusList.length === 1) {
-//     await Order_Status.create({
-//       order_id,
-//       status: 'submitOrder',
-//     });
-//   }
-// };
+    await Order_Status.create({
+      order_id: id,
+      status: currentStatus,
+    });
+    res.status(200).json({ order: orderUpdate });
+  } catch (error) {
+    res.status(404).json({ error: 'error' });
+  }
+};
 
-// newOrder();
-
-module.exports = { newOrder, getOrders };
+module.exports = { newOrder, getOrders, changeStatusOrder };

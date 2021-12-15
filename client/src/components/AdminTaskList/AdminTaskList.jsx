@@ -23,11 +23,10 @@ function AdminTaskList( { status } ) {
  
 
   const dispatch = useDispatch();
-  const state = useSelector(state => state.orders);
+  const state = useSelector(state => state.adminOrders);
   
-  console.log(state);
   useEffect(() => {
-    fetch('/order')
+    fetch('/admin/order')
       .then(data => data.json())
       .then(orders => dispatch({type: adminOrderAT.GET_ORDERS, payload: orders.orders}));
   },[dispatch]);

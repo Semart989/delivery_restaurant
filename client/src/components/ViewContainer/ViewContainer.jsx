@@ -10,8 +10,6 @@ const status = {
 
 function ViewContainer(props) {
 
-  console.log(status);
-
   return (
     <>
       <h1>Маршрут движения задач</h1>

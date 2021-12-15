@@ -1,11 +1,25 @@
 .modal_wrapper{
   position: fixed;
   bottom: 0;  
-  margin-left: -800px;
   margin-top: 0px;
   width: 200%;
   background: black(0,0,0, .2);
   backdrop-filter: blur(10px);
+}
+.awaitOrder{
+  margin-left: -800px;
+}
+.submitOrder{
+  margin-left: -1100px;
+}
+.admitOrder{
+  margin-left: -1400px;
+}
+.successOrder{
+  margin-left: -1700px;
+}
+.sendOrder{
+  margin-left: -2000px;
 }
 .modal_wrapper.open{
   height: 100%;
