@@ -2,7 +2,7 @@
 // import ViewContainer from '../ViewContainer/ViewContainer';
 
 
-import { Provider, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { useEffect } from 'react';
 
@@ -30,7 +30,6 @@ function App() {
 
   // вытягиваем массив товаров из корзины клиента
   const cart = useSelector((state) => state.cart.cart)
-  const store = useSelector(store => store);
 
   // при изменении состояния корзины 
   // дублируем массив товаров в LocalStorage c key = 'user_cart'
