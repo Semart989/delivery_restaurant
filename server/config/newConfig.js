@@ -27,8 +27,8 @@ const config = (app) => {
     extended: true,
   }));
 
-  // Использую клиентский public для deploy
-  // app.use(express.static(path.resolve('public')));
+  //Использую клиентский public для deploy
+  app.use(express.static(path.resolve('public')));
 
   app.use(morgan('dev'));
   app.use(cookieParser());
