@@ -8,48 +8,51 @@ router.post('/', async (req, res) => {
   try {
     console.log('trying to login');
     const { roomid, pincode, phone } = req.body;
-    if (roomid) { //если авторизовывается клиент
+    if (roomid) { // если авторизовывается клиент
       const guestInfo = await fetch(`https://hotel-api-example.herokuapp.com/${roomid}`);
       const data = await guestInfo.json();
-      console.log(data);
-      if (!!data.guest) { //если гость найден, то проверяем пин и если все ок, то сохраняем в базу и кладем в сессию
+      // console.log(data);
+      if (data.guest) { // если гость найден, то проверяем пин и если все ок, то сохраняем в базу и кладем в сессию
         console.log('guest trying to login');
         if (data.guest.pincode === pincode) {
           const name = `${data.guest.firstname} ${data.guest.lastname}`;
-          const phone = data.guest.phone;
-          const user = await User.upsert({ room: roomid, name, phone, pin: pincode });
+          const { phone } = data.guest;
+          const user = await User.upsert({
+            room: roomid, name, phone, pin: pincode,
+          });
           const isAuth = true;
-          const id = user.id;
+          // const { id } = user;
           const role = 'client';
 
+          // console.log('=========', data.guest.id, '=============');
+
           req.session.user = {
-            id,
+            id: data.guest.id,
             name,
             phone,
             roomid,
             role,
-            isAuth
+            isAuth,
           };
           res.status(200).json({ user: req.session.user, message: 'login complete' });
-
         } else {
           return res.status(200).json({ user: false, message: 'wrong pin code' });
         }
       } else {
 
       }
-    } else { //попытка авторизации staff'a
+    } else { // попытка авторизации staff'a
       console.log('staff trying to login');
       const staffInfo = await fetch('https://hotel-api-example.herokuapp.com/staff');
       const data = await staffInfo.json();
-      //console.log(data.staff);
+      // console.log(data.staff);
       const staff = data.staff.filter((el) => el.pincode === pincode && +el.phone === +phone)[0];
       console.log(staff);
-      if (!!staff) {//если нашелся такой сотрудник, то авторизовываем
-        const id = staff.id;
+      if (staff) { // если нашелся такой сотрудник, то авторизовываем
+        const { id } = staff;
         const name = `${staff.firstname} ${staff.lastname}`;
-        const phone = staff.phone;
-        const role = staff.role;
+        const { phone } = staff;
+        const { role } = staff;
         const isAuth = true;
 
         req.session.user = {
@@ -57,7 +60,7 @@ router.post('/', async (req, res) => {
           name,
           phone,
           role,
-          isAuth
+          isAuth,
         };
         res.status(200).json({ user: req.session.user, message: 'login complete' });
       } else {

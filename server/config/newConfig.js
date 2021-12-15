@@ -4,17 +4,16 @@ const morgan = require('morgan');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+const dotenv = require('dotenv');
 const sessionConfig = require('./sessionConfig');
 const userMiddleware = require('../middleware/user');
-const authMiddleware = require('../middleware/auth');//checking if user login, redirects to loginPage if not
-const dotenv = require('dotenv');
+const authMiddleware = require('../middleware/auth');// checking if user login, redirects to loginPage if not
 // routes
 const indexRouter = require('../routes/index.router');
 const loginRouter = require('../routes/login.router');
 const logoutRouter = require('../routes/logout.router');
 
-
-//Добавил API гостиницы
+// Добавил API гостиницы
 const corsOptions = {
   origin: ['http://localhost:3000', 'https://runner-food.herokuapp.com/', 'https://hotel-api-example.herokuapp.com'],
   credentials: true,
@@ -32,7 +31,7 @@ const config = (app) => {
   }));
 
   // Использую клиентский public для deploy
-   app.use(express.static(path.resolve('../../client/public')));
+  app.use(express.static(path.resolve('public')));
 
   app.use(morgan('dev'));
   app.use(cookieParser());
@@ -46,9 +45,9 @@ const config = (app) => {
   app.use('/login', loginRouter);
   app.use('/logout', logoutRouter);
 
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve('../../client/public/index.html'))
-  })
+  // app.get('*', (req, res) => {
+  //   res.sendFile(path.resolve('../public/index.html'));
+  // });
 };
 
 module.exports = config;
