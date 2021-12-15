@@ -1,15 +1,25 @@
 import styles from './ViewContainer.module.css';
-import AdminTaskList from '../AdminTaskList/AdminTaskList';
+import CookTaskList from '../CookTaskList/CookTaskList';
+
+const status = { 
+  await: 'await',
+  submit: 'submit',
+  admit: 'admit',
+  success: 'success',
+  send: 'send' };
 
 function ViewContainer(props) {
+
   return (
     <>
       <h1>Маршрут движения задач</h1>
-      <section className={styles.viewContainer}>
-        <AdminTaskList />
-        <AdminTaskList />
-        <AdminTaskList />
-        <AdminTaskList />
+      <section className={styles.viewContainer}>   
+          
+       
+        <CookTaskList status={status.submit} />
+        <CookTaskList status={status.admit} />
+        <CookTaskList status={status.success} />
+      
       </section>
     </>   
   );

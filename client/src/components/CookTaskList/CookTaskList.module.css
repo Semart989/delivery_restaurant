@@ -1,5 +1,5 @@
 .cookTaskList {
-  max-width: 32%;
+  min-width: 32%;
   height: 85vh;
   background-color: #E0FFFF;
   margin: 5px;
