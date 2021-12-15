@@ -3,7 +3,7 @@ const config = require('./config/newConfig');
 
 const app = express();
 
-const port = process.env.PORT;
+const port = process.env.PORT || 4000;
 
 config(app);
 
