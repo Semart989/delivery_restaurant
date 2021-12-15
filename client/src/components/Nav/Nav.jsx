@@ -36,7 +36,8 @@ const ResponsiveAppBar = () => {
 
   return (
     <AppBar position="sticky">
-      <Container maxWidth="xl"
+      <Container 
+      // maxWidth="xl"
       className={style.nav}>
         <Toolbar disableGutters>
           <Typography 

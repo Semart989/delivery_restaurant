@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import {Card, CardHeader, CardMedia, CardContent, Typography} from '@mui/material/';
+// import {Card, CardHeader, CardMedia, CardContent, Typography} from '@mui/material/';
 
 
 
@@ -19,7 +19,7 @@ function MyOrdersList(props) {
 const dispatch = useDispatch()
   // const state = useSelector(state => state.categories.categories.categories)
 
-console.log(state);
+// console.log(state);
 
   useEffect(() => {
     fetch('/orders')

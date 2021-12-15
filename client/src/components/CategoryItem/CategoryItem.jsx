@@ -17,8 +17,8 @@ function CategoryItem({ category }) {
         />
         <CardMedia
           component="img"
-          maxHeight="200"
-          maxWidth="200"
+          // maxHeight="200"
+          // maxWidth="200"
           image={category.picture}
           alt="Food"
         />

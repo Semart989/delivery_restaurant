@@ -5,8 +5,6 @@
 import { useSelector } from 'react-redux';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { useEffect } from 'react';
-
-
 import './App.css';
 
 // import AdminCardOrder from '../AdminCardOrder/AdminCardOrder';
@@ -21,9 +19,7 @@ import DishesList from '../DishesList/DishesList';
 import MyOrdersList from '../MyOrdersList/MyOrdersList';
 import FindDishesList from '../FindDishesList/FindDishesList';
 
-
 function App() {
-
   // вытягиваем массив товаров из корзины клиента
   const cart = useSelector((state) => state.cart.cart)
 

@@ -1,13 +1,14 @@
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
-import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
+import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import allDishesAT from '../../redux/actionTypes/allDishesAT'
+
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -52,28 +53,50 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function SearchAppBar() {
+
+  const dispatch = useDispatch()
+
+  const allDishes = useSelector((state) => state.allDishes.allDishes.dishes)
+
+  const [search, setSearch] = useState('');
+  // console.log(allDishes)
+  const [products, setProducts] = useState(allDishes || []);
+
+  useEffect(
+    () => {
+      fetch('/search')
+        .then((response) => response.json())
+        .then(data => dispatch({ type: allDishesAT.GET_ALL_DISHES, payload: data }))
+    }, [dispatch]
+  );
+
+  const handleChange = (e) => {
+    if (!e.target.value) {
+      setProducts(allDishes);
+      setSearch('');
+      return;
+    }
+    setSearch(e.target.value);
+    setProducts(
+      products.filter((good) =>
+        good.name.toLowerCase().includes(e.target.value.toLowerCase())
+      ))
+  };
+
+  // (products)
+
+  // const keyPress = (e) => {
+  //   if (e.key === "Enter")
+  //   return 
+  // }
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-          >
-            MUI
-          </Typography>
-          <Search>
+          <Search
+            value={search}
+            onChange={handleChange}>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
