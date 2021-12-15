@@ -24,7 +24,7 @@ const order = {
 
 const newOrder = async (req, res) => {
   const {
-    totalCart, totalSum, totalQuantity, user,
+    totalCart, totalSum, user,
   } = req.body;
 
   try {
@@ -44,6 +44,7 @@ const newOrder = async (req, res) => {
         order_id: createOrder.id,
         dish_id: dish.id,
         quantity: dish.quantity,
+
       });
     });
 

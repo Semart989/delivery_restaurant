@@ -1,11 +1,4 @@
 import React, { useEffect } from 'react';
-
-import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
-import CardMedia from '@mui/material/CardMedia';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
-
 import CategoryItem from '../CategoryItem/CategoryItem';
 import { useDispatch, useSelector } from 'react-redux';
 import categoriesAT from '../../redux/actionTypes/categoriesAT';
@@ -16,14 +9,12 @@ export default function CategoryList() {
   const state = useSelector(state => state.categories.categories.categories)
 
   useEffect(() => {
-    fetch('/categories')
-      .then(data => data.json())
-      .then(data => dispatch({ type: categoriesAT.INIT_CATEGORIES, payload: data }))
+    dispatch({ type: categoriesAT.GET_FETCH_CATEGORIES });
   }, [dispatch]);
 
   return (
-    <>
+    <div style={{ display: 'flex', alignContent: 'stretch', flexWrap: 'wrap', justifyContent: 'center', marginBottom: 80}}>
       {state && state.map(category => <CategoryItem key={category.id} category={category} />)}
-    </>
+    </div>
   );
 }

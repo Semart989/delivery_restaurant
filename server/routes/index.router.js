@@ -7,12 +7,21 @@ const dishRouter = require('./dish.router');
 const orderRouter = require('./order.router');
 const changeStatusRouter = require('./changeStatus.router');
 
-router.use('/cart', cartRouter);
+const testRouter = require('./test_ajax.router');
+
+const myOrdersRouter = require('./myOrders.router');
+
+const findDishesRouter = require('./searchDishes.router');
+
+router.use('/cart', orderRouter);
 router.use('/isauth', isAuthRouter);
 router.use('/categories', categoryRouter);
 // router.use('/', categoryRouter);
 router.use('/dishes', dishRouter);
 router.use('/admin/order', orderRouter);
 router.use('/admin/changeStatus', changeStatusRouter);
+router.use('/test', testRouter);
+router.use('/orders', myOrdersRouter);
+router.use('/search', findDishesRouter);
 
 module.exports = router;

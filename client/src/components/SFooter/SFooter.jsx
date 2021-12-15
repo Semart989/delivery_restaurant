@@ -1,30 +1,22 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
+// import Typography from '@mui/material/Typography';
 import style from '../SFooter/SFooter.module.css'
+import InstagramIcon from '@mui/icons-material/Instagram';
+import TelegramIcon from '@mui/icons-material/Telegram';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
 
 function SFooter() {
   return (
     <>
       <div className={style.footer}>
-        <Box
-          sx={{
-            backgroundColor: '#1c79d0',
-          }}>
-          <Typography variant="body1" color="text.primary"
-            sx={{
-              margin: 2,
-              color: 'white'
-            }}>
-            Тут футер!
-          </Typography>
-          <Typography variant="body2" color="text.secondary"
-            sx={{
-              margin: 2,
-              color: 'white'
-            }}>
-            Ссылочки на контакты или на что угодно
-          </Typography>
+        <Box className={style.icons}>
+          <InstagramIcon />
+          <TelegramIcon />
+          <WhatsAppIcon />
+          <PhoneAndroidIcon />
+          8-800-2000-7007
         </Box>
       </div>
     </>

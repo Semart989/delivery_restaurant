@@ -1,7 +1,13 @@
 .footer{
-  background-color: #1c79d0;
-  /* position: fixed; */
+  background-color: #6868ac;
+  position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
+  height: 56px;
+}
+
+.icons{
+  color:aliceblue;
+  margin-top: 16px;
 }

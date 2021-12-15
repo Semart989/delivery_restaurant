@@ -11,9 +11,8 @@ function CartList() {
   return (
     
     <div className="container">
-      <h1>Корзина</h1>
+      <h1 style={{marginTop: "15px"}}>Корзина</h1>
       {cart.map((product) => <CartView key={product.id} product={product} />)}
-
       <OrderView />
     </div>
   );
