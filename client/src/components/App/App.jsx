@@ -2,12 +2,12 @@
 // import ViewContainer from '../ViewContainer/ViewContainer';
 
 
-import { Provider } from 'react-redux';
+import { Provider, useSelector } from 'react-redux';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { useEffect } from 'react';
 
 
 import './App.css';
-import store from '../../redux/store';
 
 // import AdminCardOrder from '../AdminCardOrder/AdminCardOrder';
 // import AdminEditCardOrder from '../AdminEditCardOrder/AdminEditCardOrder';
@@ -24,12 +24,24 @@ import { CookiesProvider } from "react-cookie";
 import LoginPage from '../LoginPage/LoginPage';
 import StaffLoginPage from '../StaffLoginPage/StaffLoginPage';
 import Logout from '../Logout/Logout';
+import FindDishesList from '../FindDishesList/FindDishesList';
 
 function App() {
 
+  // вытягиваем массив товаров из корзины клиента
+  const cart = useSelector((state) => state.cart.cart)
+  const store = useSelector(store => store);
+
+  // при изменении состояния корзины 
+  // дублируем массив товаров в LocalStorage c key = 'user_cart'
+  useEffect(
+    () => {
+      localStorage.setItem('user_cart', JSON.stringify(cart));
+    }, [cart]
+  );
+
   return (
     <div className="App">
-      <Provider store={store}>
         <CookiesProvider>
           <BrowserRouter>
             <LoginWrapper>
@@ -41,6 +53,7 @@ function App() {
                 <Route path="/categories" exact component={CategoryList} />
                 <Route path="/categories/:id" exact component={DishesList} />
                 <Route path="/orders" exact component={MyOrdersList} />
+                <Route path="/search" exact component={FindDishesList} />
                 <Route path="/login" exact component={LoginPage} />
                 <Route path="/logout" exact component={Logout} />
                 <Route path="/staff" exact component={StaffLoginPage} />
@@ -48,8 +61,6 @@ function App() {
             </LoginWrapper>
           </BrowserRouter>
         </CookiesProvider>
-      </Provider>
-
     </div>
   );
 }

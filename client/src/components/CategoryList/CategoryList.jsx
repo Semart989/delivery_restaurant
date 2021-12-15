@@ -9,13 +9,11 @@ export default function CategoryList() {
   const state = useSelector(state => state.categories.categories.categories)
 
   useEffect(() => {
-    fetch('/categories')
-      .then(data => data.json())
-      .then(data => dispatch({ type: categoriesAT.INIT_CATEGORIES, payload: data }))
+    dispatch({ type: categoriesAT.GET_FETCH_CATEGORIES });
   }, [dispatch]);
 
   return (
-    <div style={{ display: 'flex', alignContent: 'stretch', flexWrap: 'wrap', justifyContent: 'center'}}>
+    <div style={{ display: 'flex', alignContent: 'stretch', flexWrap: 'wrap', justifyContent: 'center', marginBottom: 80}}>
       {state && state.map(category => <CategoryItem key={category.id} category={category} />)}
     </div>
   );
