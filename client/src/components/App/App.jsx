@@ -19,6 +19,7 @@ import DishesList from '../DishesList/DishesList';
 import MyOrdersList from '../MyOrdersList/MyOrdersList';
 import FindDishesList from '../FindDishesList/FindDishesList';
 import SFooter from '../SFooter/SFooter';
+import CallButton from '../CallButton/CallButton';
 
 function App() {
   // вытягиваем массив товаров из корзины клиента
@@ -49,6 +50,7 @@ function App() {
             <Route path="/search" exact component={FindDishesList} />
 
           </Switch>
+          <CallButton />
           <SFooter/>
         </BrowserRouter>
       </LoginWrapper>

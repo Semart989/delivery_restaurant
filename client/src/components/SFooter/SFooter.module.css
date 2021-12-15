@@ -1,5 +1,6 @@
 .footer {
-  background-color: #6868ac;
+  background: rgb(122,90,166);
+  background: radial-gradient(circle, rgba(122,90,166,1) 0%, rgba(106,106,176,1) 0%, rgba(102,59,113,1) 100%, rgba(0,212,255,1) 100%);
   position: fixed;
   bottom: 0;
   left: 0;
@@ -12,12 +13,12 @@
   margin-top: 16px;
 }
 
-.icon:not(:first-child){
+.icon:not(:first-child) {
   margin-left: 50px;
   text-decoration: none;
 }
 
-.icon:visited{
+.icon:visited {
   margin-left: 50px;
   text-decoration: none;
 }
@@ -26,4 +27,3 @@ a {
   text-decoration: none;
   color: aliceblue;
 }
-

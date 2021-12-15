@@ -23,7 +23,7 @@ function ControlledCarousel() {
             alt="Second slide"
           />
           <Carousel.Caption>
-            <p>Быстрая достава</p>
+            <p>Быстрая доставка</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item interval={2500}>
