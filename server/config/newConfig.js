@@ -21,7 +21,6 @@ const corsOptions = {
 dotenv.config();
 
 const config = (app) => {
-  app.set('views', path.join(__dirname, '..', 'views'));
   // middlewares
   app.use(express.json());
   app.use(express.urlencoded({
