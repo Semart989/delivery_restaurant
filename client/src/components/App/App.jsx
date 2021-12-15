@@ -1,7 +1,3 @@
-
-// import ViewContainer from '../ViewContainer/ViewContainer';
-
-
 import { useSelector } from 'react-redux';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { useEffect } from 'react';
@@ -18,6 +14,7 @@ import CartList from '../CartList/CartList'
 import ResponsiveAppBar from '../Nav/Nav'
 import CategoryList from '../CategoryList/CategoryList';
 import DishesList from '../DishesList/DishesList';
+
 import MyOrdersList from '../MyOrdersList/MyOrdersList';
 import RoomSetter from '../RoomSetter/RoomSetter';
 import { CookiesProvider } from "react-cookie";
@@ -25,6 +22,8 @@ import LoginPage from '../LoginPage/LoginPage';
 import StaffLoginPage from '../StaffLoginPage/StaffLoginPage';
 import Logout from '../Logout/Logout';
 import FindDishesList from '../FindDishesList/FindDishesList';
+import ViewContainer from '../ViewContainer/ViewContainer';
+import AdminViewContainer from '../AdminViewContainer/AdminViewContainer';
 
 function App() {
 
@@ -40,7 +39,9 @@ function App() {
   );
 
   return (
+
     <div className="App">
+
         <CookiesProvider>
           <BrowserRouter>
             <LoginWrapper>
@@ -56,10 +57,14 @@ function App() {
                 <Route path="/login" exact component={LoginPage} />
                 <Route path="/logout" exact component={Logout} />
                 <Route path="/staff" exact component={StaffLoginPage} />
+                <Route path="/cookmaster" exact component={ViewContainer} />
+                <Route path="/admin" exact component={AdminViewContainer} />
+                 
               </Switch>
             </LoginWrapper>
           </BrowserRouter>
         </CookiesProvider>
+
     </div>
   );
 }

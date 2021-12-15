@@ -26,15 +26,16 @@ export default function OrderView() {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const sendOrder = (event) => {
+  const sendOrder =  (event) => {
     event.preventDefault();
-    dispatch({ type: cartAT.POST_SEND_CART, payload: { totalCart, totalSum, totalQuantity, user } });
+     dispatch({ type: cartAT.POST_SEND_CART, payload: { totalCart, totalSum, totalQuantity, user } });
 
     // чистим LocalStorage после оформления заказа
     localStorage.clear();
 
     history.push('/orders');
   }
+
   return (
     <Paper sx={{ p: 2, margin: 'auto', maxWidth: 500, flexGrow: 1 }}>
 
