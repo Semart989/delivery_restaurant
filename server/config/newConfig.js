@@ -6,7 +6,7 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const sessionConfig = require('./sessionConfig');
 const userMiddleware = require('../middleware/user');
-
+const dotenv = require('dotenv');
 // routes
 const indexRouter = require('../routes/index.router');
 
@@ -16,6 +16,9 @@ const corsOptions = {
   credentials: true,
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
+
+// Подключение "секретов"
+dotenv.config();
 
 const config = (app) => {
   app.set('views', path.join(__dirname, '..', 'views'));
@@ -27,6 +30,7 @@ const config = (app) => {
 
   // Использую клиентский public для deploy
   app.use(express.static(path.resolve('../client/build')));
+  
   app.use(morgan('dev'));
   app.use(cookieParser());
   app.use(session(sessionConfig));
