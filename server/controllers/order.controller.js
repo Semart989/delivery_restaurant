@@ -15,6 +15,8 @@ const order = {
 };
 
 const newOrder = async (req, res) => {
+  console.log(req.body);
+
   const {
     totalCart, totalSum, user,
   } = req.body;

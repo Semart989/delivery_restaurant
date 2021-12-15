@@ -15,6 +15,7 @@ export default function OrderView() {
   }));
 
   const user = useSelector((state) => state.user.user);
+  console.log(user)
   const totalCart = useSelector((state) => state.cart.cart);
   const totalSum = totalCart.reduce((a, b) => a + b.price, 0);
   const totalQuantity = totalCart.reduce((a, b) => a + b.quantity, 0);
