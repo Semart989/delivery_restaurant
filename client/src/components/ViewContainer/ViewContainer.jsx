@@ -1,5 +1,5 @@
 import styles from './ViewContainer.module.css';
-import AdminTaskList from '../AdminTaskList/AdminTaskList';
+import CookTaskList from '../CookTaskList/CookTaskList';
 
 const status = { 
   await: 'await',
@@ -15,11 +15,11 @@ function ViewContainer(props) {
       <h1>Маршрут движения задач</h1>
       <section className={styles.viewContainer}>   
           
-        <AdminTaskList status={status.await} />
-        <AdminTaskList status={status.submit} />
-        <AdminTaskList status={status.admit} />
-        <AdminTaskList status={status.success} />
-        <AdminTaskList status={status.send} />
+       
+        <CookTaskList status={status.submit} />
+        <CookTaskList status={status.admit} />
+        <CookTaskList status={status.success} />
+      
       </section>
     </>   
   );

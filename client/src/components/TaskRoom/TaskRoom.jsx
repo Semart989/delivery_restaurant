@@ -1,6 +1,4 @@
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useState } from 'react';
 import AdminCardOrder from '../AdminCardOrder/AdminCardOrder';
 
 import styles from './TaskRoom.module.css';

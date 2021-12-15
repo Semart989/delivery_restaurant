@@ -6,7 +6,8 @@ const categoryRouter = require('./category.router');
 const dishRouter = require('./dish.router');
 const orderRouter = require('./order.router');
 const changeStatusRouter = require('./changeStatus.router');
-
+const cookOrderRouter = require('./cookOrderRouter');
+const cookChangeStatusRouter = require('./cookChangeStatus.router');
 const testRouter = require('./test_ajax.router');
 
 const myOrdersRouter = require('./myOrders.router');
@@ -20,6 +21,8 @@ router.use('/categories', categoryRouter);
 router.use('/dishes', dishRouter);
 router.use('/admin/order', orderRouter);
 router.use('/admin/changeStatus', changeStatusRouter);
+router.use('/cook/order', cookOrderRouter);
+router.use('/cook/changeStatus', cookChangeStatusRouter);
 router.use('/test', testRouter);
 router.use('/orders', myOrdersRouter);
 router.use('/search', findDishesRouter);

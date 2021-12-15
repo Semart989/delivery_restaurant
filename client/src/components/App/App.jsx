@@ -39,7 +39,8 @@ function App() {
   return (
 
     <div className="App">
-      <LoginWrapper>
+      <ViewContainer />
+      {/* <LoginWrapper>
         <BrowserRouter>
 
           <ResponsiveAppBar />
@@ -56,7 +57,7 @@ function App() {
           </Switch>
 
         </BrowserRouter>
-      </LoginWrapper>
+      </LoginWrapper> */}
     </div>
   );
 }
