@@ -5,7 +5,6 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
-// import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import allDishesAT from '../../redux/actionTypes/allDishesAT'
 import { useHistory } from 'react-router-dom';
@@ -55,10 +54,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function SearchAppBar() {
-
   const dispatch = useDispatch()
-  // const allDishes = useSelector((state) => state.allDishes.allDishes.dishes)
-
   const input = useRef()
   const history = useHistory()
 
@@ -67,7 +63,6 @@ export default function SearchAppBar() {
     history.push('/search')
   }
 
-  // const [search, setSearch] = useState('');
   useEffect(
     () => {
       fetch('/search')
@@ -76,47 +71,14 @@ export default function SearchAppBar() {
     }, [dispatch]
   );
 
-  // const [products, setProducts] = useState([]);
-  // useEffect(() => {
-  //   setProducts(allDishes)
-  // }, [allDishes])
-
-  // const handleChange = (e) => {
-  //   if (!e.target.value) {
-  //     setProducts(allDishes);
-  //     setSearch('');
-  //     return;
-  //   }
-  //   setSearch(e.target.value);
-  //   setProducts(
-  //     products.filter((good) =>
-  //       good.name.toLowerCase().includes(e.target.value.toLowerCase())
-  //     ))
-  // };
-
-  // console.log(products, 'products')
-  // console.log(allDishes, 'allDishes')
-
-
-  // const keyPress = (e) => {
-  //   if (e.key === "Enter")
-  //   setProducts(allDishes)
-  //   window.location.href = '/search'
-  // }
-
   return (
     <div>
       <Box sx={{ flexGrow: 1 }}>
         <AppBar color="transparent" position="static">
           <Toolbar>
-            <Search
-            
-            >
-              
+            <Search>
               <SearchIconWrapper>
-                <SearchIcon
-                 
-                />
+                <SearchIcon />
               </SearchIconWrapper>
               <StyledInputBase
                 inputRef={input}
@@ -131,7 +93,5 @@ export default function SearchAppBar() {
         <button onClick={() => handleClick()}>LOL</button>
       </div>
     </div>
-
-
   );
 }
