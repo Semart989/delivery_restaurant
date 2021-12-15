@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import styles from '../CategoryItem/CategoryItem.module.css'
 
 function CategoryItem({ category }) {
-
+console.log(category.picture);
   return (
 
     <Card className={styles.card}

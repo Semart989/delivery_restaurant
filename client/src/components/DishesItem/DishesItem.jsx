@@ -22,7 +22,7 @@ function DishesItem({ dish }) {
     dispatch({ type: cartAT.INCREMENT_CART, payload: {...dish} });
   }
   // Разворачиваем состав блюда
-
+  console.log(dish.picture);
   const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
     return <IconButton {...other} />;
