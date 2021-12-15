@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "cd server && npm start "
+    "start": "cd server && npm install && npm start "
   },
   "license": "ISC",
   "engines": {
