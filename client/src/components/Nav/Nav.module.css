@@ -1,11 +1,19 @@
 .link {
   text-decoration: none;
+  border-radius: 20px;
   color: black;
 }
 
 .link_header {
   text-decoration: none;
   color: white;
+  border-radius: 10px;
+
+}
+
+.link_header:hover{
+  text-decoration: none;
+  border-radius: 20px;
 }
 
 .nav {

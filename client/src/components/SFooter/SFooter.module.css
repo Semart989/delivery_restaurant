@@ -10,4 +10,10 @@
 .icons{
   color:aliceblue;
   margin-top: 16px;
+  /* margin: 0 auto; */
 }
+
+.icon{
+margin-left: 50px;
+}
+

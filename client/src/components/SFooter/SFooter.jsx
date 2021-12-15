@@ -12,11 +12,12 @@ function SFooter() {
     <>
       <div className={style.footer}>
         <Box className={style.icons}>
-          <InstagramIcon />
-          <TelegramIcon />
-          <WhatsAppIcon />
-          <PhoneAndroidIcon />
-          8-800-2000-7007
+          <InstagramIcon 
+          sx={{weight: 150}}
+          className={style.icon}/>
+          <TelegramIcon className={style.icon}/>
+          <WhatsAppIcon className={style.icon}/>
+          <PhoneAndroidIcon className={style.icon}/>
         </Box>
       </div>
     </>

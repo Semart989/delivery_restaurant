@@ -37,6 +37,7 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: 'inherit',
+  backgroundColor: '',
   '& .MuiInputBase-input': {
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
@@ -59,9 +60,6 @@ export default function SearchAppBar() {
   const allDishes = useSelector((state) => state.allDishes.allDishes.dishes)
 
   const [search, setSearch] = useState('');
-  // console.log(allDishes)
-  const [products, setProducts] = useState(allDishes || []);
-
   useEffect(
     () => {
       fetch('/search')
@@ -69,6 +67,11 @@ export default function SearchAppBar() {
         .then(data => dispatch({ type: allDishesAT.GET_ALL_DISHES, payload: data }))
     }, [dispatch]
   );
+
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    setProducts(allDishes)
+  }, [allDishes])
 
   const handleChange = (e) => {
     if (!e.target.value) {
@@ -83,7 +86,10 @@ export default function SearchAppBar() {
       ))
   };
 
-  // (products)
+  // console.log(products, 'products')
+
+  // console.log(allDishes, 'allDishes')
+   
 
   // const keyPress = (e) => {
   //   if (e.key === "Enter")
@@ -92,7 +98,7 @@ export default function SearchAppBar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar color="transparent" position="static">
         <Toolbar>
           <Search
             value={search}
@@ -101,7 +107,7 @@ export default function SearchAppBar() {
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
-              placeholder="Search…"
+              placeholder="Найти..."
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
