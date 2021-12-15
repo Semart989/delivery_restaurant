@@ -6,6 +6,7 @@ const {
   Order_Dish,
   Order_Status,
   User,
+  Category,
 } = require('../db/models');
 
 const order = {
@@ -56,37 +57,63 @@ const newOrder = async (req, res) => {
 // Вынимаем из базы массив заказов для отрисовки у администратора и повара
 // При этом нам ещё понадобятся имя, номер комнаты и телефон клиента, для
 // этого используем цикл for в функции
+// Также понадобятся блюда и категории.
 const getOrders = async (req, res) => {
   try {
     const pureOrders = await Order.findAll({
+      include: [User,
+        {
+          model: Dish,
+          include: [Category],
+        }],
       raw: true,
     });
-    const users = [];
-    for (let i = 0; i < pureOrders.length; i += 1) {
-      const user = await User.findOne({
-        where: {
-          id: {
-            [Op.eq]: pureOrders[i].user_id,
-          }
-        },
-        raw: true,
-      });
-      users.push(user);
-    }
-    const orders = pureOrders.map((pureOrder, index) => {
-      const order = {
-        ...pureOrder,
-        room: users[index].room,
-        name: users[index].name,
-        phone: users[index].phone,
-      };
-      return order;
+
+    const objOrders = {};
+    pureOrders.forEach((obj) => {
+      objOrders[obj.id] = [...pureOrders.filter((el) => el.id === obj.id)];
     });
+
+    const orders = Object.entries(objOrders).map(([key, value]) => {
+      const result = {};
+      result.id = value[0].id;
+      result.totalSum = value[0].totalSum;
+      result.currentStatus = value[0].currentStatus;
+      result.userName = value[0]['User.name'];
+      result.room = value[0]['User.room'];
+      result.phone = value[0]['User.phone'];
+      result.dishes = [];
+      value.forEach((item) => {
+        const dish = {};
+        dish.name = item['Dishes.name'];
+        dish.picture = item['Dishes.picture'];
+        dish.price = item['Dishes.price'];
+        dish.quantity = item['Dishes.Order_Dish.quantity'];
+        dish.time = item['Dishes.time'];
+        dish.description = item['Dishes.description'];
+        dish.ingredients = item['Dishes.ingredients'];
+        dish.category = item['Dishes.Category.name'];
+        dish.categoryPicture = item['Dishes.Category.picture'];
+        result.dishes.push(dish);
+      });
+      return result;
+    });
+
     res.status(200).json({ orders });
   } catch (error) {
     res.status(404).json({ error: 'error' });
   }
 };
+
+// const statusOrder = async (req, res) => {
+//   const { id } = req.param;
+//   const order = await Order.findOne({
+//     where: {
+//       id,
+//     },
+//   });
+//   console.log(order);
+// };
 
 // const submitOrder = async (req, res) => {
 //   const { order_id, dishesList } = req.body;

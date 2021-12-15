@@ -18,6 +18,7 @@ import CartList from '../CartList/CartList'
 import ResponsiveAppBar from '../Nav/Nav'
 import CategoryList from '../CategoryList/CategoryList';
 import DishesList from '../DishesList/DishesList';
+import Dish from '../Dish/Dish';
 
 
 function App() {
@@ -47,7 +48,14 @@ function App() {
     // </div>
     // <div className='App'>
       <Provider store={store}>
-        <ViewContainer />
+         <BrowserRouter>
+          <ViewContainer />
+          <Switch>
+            <Route path="/orders" exact component={ViewContainer} />
+            <Route path="/orders/:id" exact component={Dish} />
+          </Switch>
+         </BrowserRouter> 
+        
       </Provider>
     // </div>
     

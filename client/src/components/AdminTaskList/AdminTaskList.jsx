@@ -25,7 +25,7 @@ function AdminTaskList( { status } ) {
   const dispatch = useDispatch();
   const state = useSelector(state => state.orders);
   
-  // console.log(status);
+  console.log(state);
   useEffect(() => {
     fetch('/order')
       .then(data => data.json())
@@ -42,6 +42,7 @@ function AdminTaskList( { status } ) {
           .filter(task => task.currentStatus === `${status}Order`)
           .map(task => <TaskRoom key = {task.id} order = {task}/>)}       
       </div>
+     
     </div>
   );
 }
