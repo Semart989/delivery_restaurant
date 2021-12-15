@@ -6,9 +6,13 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const sessionConfig = require('./sessionConfig');
 const userMiddleware = require('../middleware/user');
+const authMiddleware = require('../middleware/auth');//checking if user login, redirects to loginPage if not
 
 // routes
 const indexRouter = require('../routes/index.router');
+const loginRouter = require('../routes/login.router');
+const logoutRouter = require('../routes/logout.router');
+
 
 const corsOptions = {
   origin: ['http://localhost:3000'],
@@ -28,9 +32,14 @@ const config = (app) => {
   app.use(cookieParser());
   app.use(session(sessionConfig));
   app.use(cors(corsOptions));
-  app.use('/', indexRouter);
 
   app.use(userMiddleware);
+  app.use(authMiddleware);
+
+  app.use('/', indexRouter);
+  app.use('/login', loginRouter);
+  app.use('/logout', logoutRouter);
+
 };
 
 module.exports = config;
