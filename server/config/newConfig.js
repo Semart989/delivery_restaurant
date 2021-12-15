@@ -6,12 +6,8 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const sessionConfig = require('./sessionConfig');
 const userMiddleware = require('../middleware/user');
-<<<<<<< HEAD
 const authMiddleware = require('../middleware/auth');//checking if user login, redirects to loginPage if not
-
-=======
 const dotenv = require('dotenv');
->>>>>>> 98f9cf49bfba017e4e193beb3b77589ec5168600
 // routes
 const indexRouter = require('../routes/index.router');
 const loginRouter = require('../routes/login.router');
@@ -36,7 +32,7 @@ const config = (app) => {
   }));
 
   // Использую клиентский public для deploy
-  // app.use(express.static(path.resolve('public')));
+   app.use(express.static(path.resolve('../../client/public')));
 
   app.use(morgan('dev'));
   app.use(cookieParser());
@@ -51,7 +47,7 @@ const config = (app) => {
   app.use('/logout', logoutRouter);
 
   app.get('*', (req, res) => {
-    res.sendFile(path.resolve('../public/index.html'))
+    res.sendFile(path.resolve('../../client/public/index.html'))
   })
 };
 
