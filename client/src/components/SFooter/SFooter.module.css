@@ -1,4 +1,4 @@
-.footer{
+.footer {
   background-color: #6868ac;
   position: fixed;
   bottom: 0;
@@ -7,13 +7,23 @@
   height: 56px;
 }
 
-.icons{
-  color:aliceblue;
+.icons {
+  color: aliceblue;
   margin-top: 16px;
-  /* margin: 0 auto; */
 }
 
-.icon{
-margin-left: 50px;
+.icon:not(:first-child){
+  margin-left: 50px;
+  text-decoration: none;
+}
+
+.icon:visited{
+  margin-left: 50px;
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+  color: aliceblue;
 }
 

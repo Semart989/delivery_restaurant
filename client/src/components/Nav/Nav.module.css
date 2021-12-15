@@ -8,7 +8,12 @@
   text-decoration: none;
   color: white;
   border-radius: 10px;
+}
 
+.link_header:visited {
+  text-decoration: none;
+  color: white;
+  border-radius: 10px;
 }
 
 .link_header:hover{

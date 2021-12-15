@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 import { AppBar, Box, Toolbar, IconButton, Typography, Menu, Container, MenuItem, Tooltip, Badge, styled } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
 import HistoryIcon from '@mui/icons-material/History';
 import style from '../Nav/Nav.module.css'
@@ -37,7 +36,6 @@ const ResponsiveAppBar = () => {
   return (
     <AppBar style={{background: '#6868ac'}} position="sticky">
       <Container
-        // maxWidth="xl"
         className={style.nav}>
         <Toolbar disableGutters>
           <Typography
@@ -94,16 +92,6 @@ const ResponsiveAppBar = () => {
                   </Typography>
                 </Link>
               </MenuItem>
-
-              {/* <MenuItem onClick={handleCloseNavMenu}>
-                <Link to="#"
-                  className={style.link}>
-                  <Typography textAlign="center">
-                    <LocalPhoneIcon style={{color: '#6868ac', marginRight: '10px'}}> </LocalPhoneIcon>
-                    Позвонить
-                  </Typography>
-                </Link>
-              </MenuItem> */}
             </Menu>
           </Box>
 
@@ -135,15 +123,6 @@ const ResponsiveAppBar = () => {
                 </Typography>
               </Link>
             </MenuItem>
-
-            {/* <MenuItem onClick={handleCloseNavMenu}>
-              <Link to="#"
-                className={style.link_header}>
-                <Typography textAlign="center">
-                  Позвонить
-                </Typography>
-              </Link>
-            </MenuItem> */}
           </Box>
 
           {/* Корзина  */}
