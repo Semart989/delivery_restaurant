@@ -1,10 +1,18 @@
 import * as React from 'react';
 import { Grid, Paper, Typography, Button } from '@mui/material';
+import { styled } from '@mui/material/styles';
 import { useSelector, useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import cartAT from '../../redux/actionTypes/cartAT';
+import style from './OrderView.module.css';
 
 export default function OrderView() {
+
+  const Div = styled('div')(({ theme }) => ({
+    ...theme.typography.button,
+    backgroundColor: theme.palette.background.paper,
+    padding: theme.spacing(3),
+  }));
 
   const user = useSelector((state) => state.user.user);
   const totalCart = useSelector((state) => state.cart.cart);
@@ -29,40 +37,57 @@ export default function OrderView() {
   return (
     <Paper sx={{ p: 2, margin: 'auto', maxWidth: 500, flexGrow: 1 }}>
 
-      <Grid container >
-
-        <Grid item xs={12} sm container>
-          <Grid item xs container direction="column" spacing={2}>
-
-            <Grid item xs >
-              <Typography variant="body1" component="div">
-                ОБЩАЯ СУММА ЗАКАЗА:
-              </Typography>
-
-              <Grid item>
-                <Typography variant="body1" component="div">
-                  {totalSum} руб.
-                </Typography>
-              </Grid>
-
-              <Typography variant="body2" gutterBottom>
-                Количество блюд: {totalQuantity}
-              </Typography>
-
-              {orderTime &&
-              <Typography variant="body2" color="text.secondary">
-                Время доставки: {orderTime + 5} минут
-              </Typography>}
-              
-            </Grid>
-            <Grid item>
-              <Button onClick={sendOrder} variant="contained" color="success">
-                ОФОРМИТЬ ЗАКАЗ
+      {totalCart.length < 1
+        ? <div>
+            <Div>{"Ваша корзина пока что пустая"}</Div>
+            <Link to='/categories'
+              className={style.link}
+              >
+              <Button
+                sx={{ margin: 1 }}
+                variant="contained" color="success">
+                Перейти в меню
               </Button>
+            </Link>
+          </div>
+        :
+        <Grid container >
+          <Grid item xs={12} sm container>
+            <Grid item xs container direction="column" spacing={2}>
+
+              <Grid item xs >
+                <Typography variant="body1" component="div">
+                  ОБЩАЯ СУММА ЗАКАЗА:
+                </Typography>
+
+                <Grid item>
+                  <Typography variant="body1" component="div">
+                    {totalSum} руб.
+                  </Typography>
+                </Grid>
+
+                <Typography variant="body2" gutterBottom>
+                  Количество блюд: {totalQuantity}
+                </Typography>
+
+                {orderTime &&
+                  <Typography variant="body2" color="text.secondary">
+                    Время доставки: {orderTime + 5} минут
+                  </Typography>}
+
+              </Grid>
+              <Grid item>
+                <Button onClick={sendOrder} variant="contained" color="success">
+                  ОФОРМИТЬ ЗАКАЗ
+                </Button>
+              </Grid>
             </Grid>
           </Grid>
         </Grid>
-      </Grid>
+      }
+
+
+
     </Paper>
   );
 }
