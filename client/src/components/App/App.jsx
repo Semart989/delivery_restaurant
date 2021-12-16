@@ -47,6 +47,7 @@ function App() {
         <CookiesProvider>
           <BrowserRouter>
             <LoginWrapper>
+              
               <ResponsiveAppBar />
               <Switch>
                 <Route path="/" exact component={MainPage} />
@@ -60,8 +61,7 @@ function App() {
                 <Route path="/logout" exact component={Logout} />
                 <Route path="/staff" exact component={StaffLoginPage} />
                 <Route path="/cookmaster" exact component={ViewContainer} />
-                <Route path="/admin" exact component={AdminViewContainer} />
-                 
+                <Route path="/admin" exact component={AdminViewContainer} />                 
               </Switch>
                <CallButton />
           <SFooter/>
