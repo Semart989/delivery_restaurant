@@ -3,6 +3,8 @@ const { Order, Dish } = require('../db/models');
 const myOrders = async (req, res) => {
   const { user } = req.session;
 
+  console.log(req.body, '55555555');
+
   try {
     const array = await Dish.findAll({
       include: { model: Order, where: { user_id: user.id } }, raw: true,
