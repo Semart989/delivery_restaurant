@@ -24,10 +24,12 @@ function MyOrdersList() {
       .then(data => data.json())
       // .then(data => console.log(data))
       .then(data => dispatch({ type: myOrdersAT.INIT_MY_ORDERS, payload: data.objOrders }))
-  }, []);
+  }, [dispatch]);
 
   return (
-    <div style={{ display: 'flex', alignContent: 'stretch', flexWrap: 'wrap', justifyContent: 'center'}}>
+    <div 
+      className="container"
+      style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }}>
       {state && Object.entries(state).map(([key, value]) => <MyOrderItem key={key} order={value}  />)}
     </div>
 

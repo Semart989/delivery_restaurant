@@ -1,45 +1,84 @@
-import React, { useState } from 'react';
-import { Card, CardContent, CardHeader, CardMedia, Typography, Button } from '@mui/material';
+import React from 'react';
 
-
-import { useDispatch } from 'react-redux'
-import { Link } from 'react-router-dom';
-import styles from '../DishesItem/DishesItem.module.css'
-import IconButton from '@mui/material/IconButton';
+import { Card, CardContent, CardMedia, Typography, Box, Badge, CardHeader } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import Collapse from '@mui/material/Collapse';
-import cartAT from '../../redux/actionTypes/cartAT';
+
+
+// кастомный бэйдж через метод {style} из MUI-styles
+const StyledBadge = styled(Badge)(({ theme }) => ({
+  '& .MuiBadge-badge': {
+    right: 10,
+    top: 14,
+    border: `2px solid ${theme.palette.background.paper}`,
+    padding: '13px 10px',
+    borderRadius: '20px'
+  },
+}));
 
 function MyOrderItem({ order }) {
+
+  // форматируем дату создания заказа из поля createdAt в БД в формат ГГГГ-ММ-ДД ЧАСЫ:МИНУТЫ
+  const date = order[0]['Orders.createdAt'].replace(/[a-zA-Z]/g, ' ').slice(0, 16)
+
   return (
-    <Card className={styles.card}
-      sx={{ maxWidth: 345, margin: 4, justifyContent: 'space-between' }}>
-      {/* <Link to={`/categories/${categoryID}/${dish.id}`}> */}
+
+    <Card
+      sx={{
+        borderRadius: '10px',
+        marginTop: '10px',
+        marginBottom: '10px',
+
+      }}>
       <CardHeader
         title={`№ заказа ${order[0]['Orders.id']}`}
+        subheader={date}
       />
-      <Typography variant="body1" color="text.secondary">
-          {/* {order[0]['Orders.currentStatus']} */}
-          {`Статус: ${order[0]['Orders.currentStatus']}`}
-        </Typography>
-      {order.map(dish => {
-        return <CardMedia
-          component="img"
-          maxHeight="50"
-          maxWidth="50"
-          image={dish.picture}
-          alt="Food"
-        />
-      })}
 
-      <CardContent>
-        <Typography variant="body2" color="text.primary">
-          {order[0]['Orders.totalSum']} ₽
-        </Typography>
-      </CardContent>
-      <CardContent>
-        
-      </CardContent>
+      {order.map((dish) => {
+        return (
+          <Card
+
+            sx={{
+              display: 'flex',
+              justifyContent: 'space-evenly',
+              marginTop: '10px',
+              marginBottom: '10px',
+              marginRight: '10px',
+              marginLeft: '10px',
+              borderRadius: '10px',
+            }}>
+
+            <StyledBadge badgeContent={dish['Orders.Order_Dish.quantity']} color="secondary">
+              <CardMedia
+                component="img"
+                sx={{ width: 150, margin: '10px', borderRadius: '10px' }}
+                image={dish.picture}
+                alt="button"
+              />
+            </StyledBadge>
+
+            <Box sx={{
+              display: 'flex',
+              flexDirection: 'column'
+            }}>
+
+              <CardContent sx={{ flex: '1 0 auto' }}>
+                <Typography component="div" variant="h5">
+                  {dish.name}
+                </Typography>
+
+                <Typography variant="subtitle1" color="text.secondary" component="div">
+                  Цена за шт {dish.price}₽
+                </Typography>
+              </CardContent>
+
+            </Box>
+          </Card>
+        )
+      })}
+      <Typography variant="h6" color="text.secondary" component="div">
+        ИТОГО: {order[0]['Orders.totalSum']} ₽
+      </Typography>
     </Card>
   );
 }
