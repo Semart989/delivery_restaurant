@@ -1,8 +1,6 @@
 import { useSelector } from 'react-redux';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { useEffect } from 'react';
-
-
 import './App.css';
 
 // import AdminCardOrder from '../AdminCardOrder/AdminCardOrder';
@@ -22,11 +20,14 @@ import LoginPage from '../LoginPage/LoginPage';
 import StaffLoginPage from '../StaffLoginPage/StaffLoginPage';
 import Logout from '../Logout/Logout';
 import FindDishesList from '../FindDishesList/FindDishesList';
+
+import SFooter from '../SFooter/SFooter';
+import CallButton from '../CallButton/CallButton';
+
 import ViewContainer from '../ViewContainer/ViewContainer';
 import AdminViewContainer from '../AdminViewContainer/AdminViewContainer';
 
 function App() {
-
   // вытягиваем массив товаров из корзины клиента
   const cart = useSelector((state) => state.cart.cart)
 
@@ -41,6 +42,7 @@ function App() {
   return (
 
     <div className="App">
+
 
         <CookiesProvider>
           <BrowserRouter>
@@ -61,9 +63,12 @@ function App() {
                 <Route path="/admin" exact component={AdminViewContainer} />
                  
               </Switch>
+               <CallButton />
+          <SFooter/>
             </LoginWrapper>
           </BrowserRouter>
         </CookiesProvider>
+
 
     </div>
   );

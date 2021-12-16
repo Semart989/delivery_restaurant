@@ -6,6 +6,8 @@ import { dishesReducer } from './dishesReducer';
 
 import { adminOrdersReducer } from './adminOrdersReducer';
 import { myOrdersReducer } from './myOrdersReducer';
+import { allDishesReducer } from './allDishesReducer';
+// import { searchReducer } from './searchReducer'
 
 const rootReducer = combineReducers({
   user: userReducer,
@@ -14,6 +16,8 @@ const rootReducer = combineReducers({
   categories: categoriesReducer,
   dishes: dishesReducer,
   myOrders: myOrdersReducer,
+  allDishes: allDishesReducer,
+  // mySearch: searchReducer,
 });
 
 export default rootReducer;

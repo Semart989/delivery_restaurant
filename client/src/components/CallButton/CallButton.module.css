@@ -1,0 +1,88 @@
+.phonecall {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  left: 85%;
+  bottom: 70px;
+  background: #6868ac;
+  position: fixed;
+  text-align: center;
+  color: #ffffff;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 99;
+display: inline-block;
+line-height: 65px;
+}
+
+.phonecall:before {
+  position: absolute;
+  content: " ";
+  z-index: -1;
+  top: -15px;
+  left: -15px;
+  background-color: #6868ac;
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+  animation-fill-mode: both;
+  -webkit-animation-fill-mode: both;
+  opacity: 0.6;
+  -webkit-animation: pulse 1s ease-out;
+  animation: pulse 1.8s ease-out;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+.phone {
+  position: absolute;
+  right: 8px;
+  bottom: -11px;
+  color: #fff;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+      -webkit-transform: scale(0);
+      opacity: 0;
+  }
+  25% {
+      -webkit-transform: scale(0.3);
+      opacity: 1;
+  }
+  50% {
+      -webkit-transform: scale(0.6);
+      opacity: .6;
+  }
+  75% {
+      -webkit-transform: scale(0.9);
+      opacity: .3;
+  }
+  100% {
+      -webkit-transform: scale(1);
+      opacity: 0;
+  }
+}
+
+@keyframes pulse {
+  0% {
+      transform: scale(0);
+      opacity: 0;
+  }
+  25% {
+      transform: scale(0.3);
+      opacity: 1;
+  }
+  50% {
+      transform: scale(0.6);
+      opacity: .6;
+  }
+  75% {
+      transform: scale(0.9);
+      opacity: .3;
+  }
+  100% {
+      transform: scale(1);
+      opacity: 0;
+  }
+}
