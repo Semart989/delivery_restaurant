@@ -1,6 +1,6 @@
 // const axios = require('axios');
 const {
-  Op
+  Op,
 } = require('sequelize');
 const {
   Order,
@@ -55,11 +55,11 @@ const newOrder = async (req, res) => {
     });
 
     res.status(200).json({
-      success: true
+      success: true,
     });
   } catch (error) {
     res.status(404).json({
-      error: 'error'
+      error: 'error',
     });
     console.log(error);
   }
@@ -75,7 +75,7 @@ const getOrders = async (req, res) => {
         {
           model: Dish,
           include: [Category],
-        }
+        },
       ],
       raw: true,
     });
@@ -111,11 +111,11 @@ const getOrders = async (req, res) => {
     });
 
     res.status(200).json({
-      orders
+      orders,
     });
   } catch (error) {
     res.status(404).json({
-      error: 'error'
+      error: 'error',
     });
   }
 };
@@ -123,7 +123,7 @@ const getOrders = async (req, res) => {
 const changeStatusOrder = async (req, res) => {
   const {
     id,
-    currentStatus
+    currentStatus,
   } = req.body;
   try {
     const orderUpdate = await Order.update({
@@ -132,18 +132,18 @@ const changeStatusOrder = async (req, res) => {
       where: {
         id,
       },
-    }, );
+    });
 
     await Order_Status.create({
       order_id: id,
       status: currentStatus,
     });
     res.status(200).json({
-      order: orderUpdate
+      order: orderUpdate,
     });
   } catch (error) {
     res.status(404).json({
-      error: 'error'
+      error: 'error',
     });
   }
 };
@@ -151,5 +151,5 @@ const changeStatusOrder = async (req, res) => {
 module.exports = {
   newOrder,
   getOrders,
-  changeStatusOrder
+  changeStatusOrder,
 };
