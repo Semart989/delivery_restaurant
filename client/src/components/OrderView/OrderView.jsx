@@ -36,7 +36,7 @@ export default function OrderView() {
     // чистим LocalStorage после оформления заказа
     localStorage.clear();
 
-    history.push('/orders');
+    // history.push('/orders');
 
     setAlert(() => {
       return (
