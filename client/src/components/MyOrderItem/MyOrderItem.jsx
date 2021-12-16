@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import { Card, CardContent, CardHeader, CardMedia, Typography, Button } from '@mui/material';
+import React from 'react';
+import { Card, CardContent, CardHeader, CardMedia, Typography } from '@mui/material';
 
 
-import { useDispatch } from 'react-redux'
-import { Link } from 'react-router-dom';
+// import { useDispatch } from 'react-redux'
+// import { Link } from 'react-router-dom';
 import styles from '../DishesItem/DishesItem.module.css'
-import IconButton from '@mui/material/IconButton';
-import { styled } from '@mui/material/styles';
-import Collapse from '@mui/material/Collapse';
-import cartAT from '../../redux/actionTypes/cartAT';
+// import IconButton from '@mui/material/IconButton';
+// import { styled } from '@mui/material/styles';
+// import Collapse from '@mui/material/Collapse';
+// import cartAT from '../../redux/actionTypes/cartAT';
 
 function MyOrderItem({ order }) {
   return (
@@ -19,13 +19,13 @@ function MyOrderItem({ order }) {
         title={`№ заказа ${order[0]['Orders.id']}`}
       />
       <Typography variant="body1" color="text.secondary">
-          {/* {order[0]['Orders.currentStatus']} */}
-          {`Статус: ${order[0]['Orders.currentStatus']}`}
-        </Typography>
+        {/* {order[0]['Orders.currentStatus']} */}
+        {`Статус: ${order[0]['Orders.currentStatus']}`}
+      </Typography>
       {order.map(dish => {
         return <CardMedia
           component="img"
-          maxHeight="50"
+          // maxHeight="50"
           maxWidth="50"
           image={dish.picture}
           alt="Food"
@@ -38,7 +38,7 @@ function MyOrderItem({ order }) {
         </Typography>
       </CardContent>
       <CardContent>
-        
+
       </CardContent>
     </Card>
   );

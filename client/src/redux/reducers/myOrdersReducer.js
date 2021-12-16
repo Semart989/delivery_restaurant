@@ -9,11 +9,7 @@ const initialState = {
 export const myOrdersReducer = ( state = initialState, action) => {
   switch (action.type) {
 
-
     case myOrdersAT.INIT_MY_ORDERS:
-
-    console.log(action.payload);
-
       return { ...state, myOrders: action.payload };
 
     

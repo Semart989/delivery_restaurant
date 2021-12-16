@@ -5,18 +5,26 @@ import style from '../SFooter/SFooter.module.css'
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
+// import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
+// import { Link } from 'react-router-dom'
 
 function SFooter() {
   return (
     <>
       <div className={style.footer}>
         <Box className={style.icons}>
-          <InstagramIcon />
-          <TelegramIcon />
-          <WhatsAppIcon />
-          <PhoneAndroidIcon />
-          8-800-2000-7007
+          <InstagramIcon
+          className={style.icon} 
+          onClick={() => window.location.assign('https://www.instagram.com')}/>
+          <TelegramIcon
+          onClick={() => window.location.assign('https://web.telegram.org/')}
+          className={style.icon} />
+          <WhatsAppIcon 
+          onClick={() => window.location.assign('https://www.whatsapp.com/')}
+          className={style.icon} />
+          {/* <a href="tel:+79992191259" className={style.icon}>
+            <PhoneAndroidIcon
+          /></a> */}
         </Box>
       </div>
     </>

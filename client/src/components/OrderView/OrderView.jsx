@@ -15,6 +15,7 @@ export default function OrderView() {
   }));
 
   const user = useSelector((state) => state.user.user);
+  console.log(user)
   const totalCart = useSelector((state) => state.cart.cart);
   const totalSum = totalCart.reduce((a, b) => a + b.price, 0);
   const totalQuantity = totalCart.reduce((a, b) => a + b.quantity, 0);
@@ -25,15 +26,16 @@ export default function OrderView() {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const sendOrder = (event) => {
+  const sendOrder =  (event) => {
     event.preventDefault();
-    dispatch({ type: cartAT.POST_SEND_CART, payload: { totalCart, totalSum, totalQuantity, user } });
+     dispatch({ type: cartAT.POST_SEND_CART, payload: { totalCart, totalSum, totalQuantity, user } });
 
     // чистим LocalStorage после оформления заказа
     localStorage.clear();
 
     history.push('/orders');
   }
+
   return (
     <Paper sx={{ p: 2, margin: 'auto', maxWidth: 500, flexGrow: 1 }}>
 

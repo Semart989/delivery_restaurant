@@ -8,11 +8,11 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       phone: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false,
       },
       pin: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false,
       },
       name: {
@@ -22,6 +22,7 @@ module.exports = {
       room: {
         type: Sequelize.STRING,
         allowNull: false,
+        unique: true,
       },
       createdAt: {
         allowNull: false,
