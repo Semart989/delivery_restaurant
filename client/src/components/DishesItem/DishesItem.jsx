@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardMedia, Typography, Button } from '@m
 
 
 import { useDispatch } from 'react-redux'
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 import styles from '../DishesItem/DishesItem.module.css'
 import IconButton from '@mui/material/IconButton';
@@ -47,55 +47,55 @@ function DishesItem({ dish }) {
 
   return (
     <Card className={styles.card}
-      sx={{ maxWidth: 345, margin: 4, justifyContent: 'space-between' }}>
+      sx={{ maxWidth: 350, margin: 2, justifyContent: 'space-between', borderRadius: 3 }}>
       {/* <Link to={`/categories/${categoryID}/${dish.id}`}> */}
       <CardHeader
         title={dish.name}
+        sx={{ minHeight: 86 }}
       />
       <CardMedia
+       sx={{ minHeight: 145 }}
         component="img"
-        maxHeight="200"
-        maxWidth="200"
         image={dish.picture}
         alt="Food"
       />
 
       <CardContent>
-        <Typography variant="h5" color="text.primary" style={{marginBottom: -20}}>
+        <Typography variant="h5" color="text.primary" style={{ marginBottom: -20 }}>
           {dish.price} ₽
         </Typography>
       </CardContent>
 
-      <CardContent>
+      <CardContent  sx={{ minHeight: 290 }}>
         <Typography paragraph>
           {dish.description}
         </Typography>
       </CardContent>
-      
-      <Button
-        sx={{ margin: 1 }}
-        onClick={addToCart}
-        variant="contained" color="success">
-        В корзину
-      </Button>
+      <CardContent>
+        <Button
+          sx={{ margin: 1 }}
+          onClick={addToCart}
+          variant="contained" color="success">
+          В корзину
+        </Button>
 
 
-      <ExpandMore
-        expand={expanded}
-        onClick={handleExpandClick}
-        aria-expanded={expanded}
-        aria-label="Состав"
-      >        
-        <Button variant="outlined">Состав</Button>
-    
-      </ExpandMore>
+        <ExpandMore
+          expand={expanded}
+          onClick={handleExpandClick}
+          aria-expanded={expanded}
+          aria-label="Состав"
+        >
+          <Button variant="outlined">Состав</Button>
 
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography variant="body2" color="text.secondary">Состав: {dish.ingredients}</Typography>
-        </CardContent>   
-      </Collapse>
-     
+        </ExpandMore>
+
+        <Collapse in={expanded} timeout="auto" unmountOnExit>
+          <CardContent>
+            <Typography variant="body2" color="text.secondary">Состав: {dish.ingredients}</Typography>
+          </CardContent>
+        </Collapse>
+      </CardContent>
 
     </Card>
 

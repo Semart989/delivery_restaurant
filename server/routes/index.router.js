@@ -1,21 +1,30 @@
 const router = require('express').Router();
 
-const orderRouter = require('./order.router');
+const cartRouter = require('./cart.router');
 const isAuthRouter = require('./isAuth.router');
 const categoryRouter = require('./category.router');
 const dishRouter = require('./dish.router');
-
-const testRouter = require('./test_ajax.router')
+const orderRouter = require('./order.router');
+const changeStatusRouter = require('./changeStatus.router');
+const cookOrderRouter = require('./cookOrderRouter');
+const cookChangeStatusRouter = require('./cookChangeStatus.router');
+const testRouter = require('./test_ajax.router');
 
 const myOrdersRouter = require('./myOrders.router');
 
+const findDishesRouter = require('./searchDishes.router');
 
-router.use('/cart', orderRouter);
+router.use('/cart', cartRouter);
 router.use('/isauth', isAuthRouter);
 router.use('/categories', categoryRouter);
 // router.use('/', categoryRouter);
 router.use('/dishes', dishRouter);
+router.use('/admin/order', orderRouter);
+router.use('/admin/changeStatus', changeStatusRouter);
+router.use('/cook/order', cookOrderRouter);
+router.use('/cook/changeStatus', cookChangeStatusRouter);
 router.use('/test', testRouter);
 router.use('/orders', myOrdersRouter);
+router.use('/search', findDishesRouter);
 
 module.exports = router;

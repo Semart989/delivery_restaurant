@@ -1,7 +1,11 @@
 import React, { useEffect } from 'react';
 import CategoryItem from '../CategoryItem/CategoryItem';
 import { useDispatch, useSelector } from 'react-redux';
+import ResponsiveAppBar from '../Nav/Nav.jsx';
+import CallButton from '../CallButton/CallButton';
+import SFooter from '../SFooter/SFooter.jsx';
 import categoriesAT from '../../redux/actionTypes/categoriesAT';
+import style from '../CategoryList/CategoryList.module.css';
 
 export default function CategoryList() {
 
@@ -13,8 +17,13 @@ export default function CategoryList() {
   }, [dispatch]);
 
   return (
-    <div style={{ display: 'flex', alignContent: 'stretch', flexWrap: 'wrap', justifyContent: 'center', marginBottom: 80}}>
-      {state && state.map(category => <CategoryItem key={category.id} category={category} />)}
-    </div>
+    <>
+      {/* <ResponsiveAppBar /> */}
+      <div className={style.card}>
+        {state && state.map(category => <CategoryItem key={category.id} category={category} />)}
+      </div>
+      <CallButton />
+      <SFooter />
+    </>
   );
 }

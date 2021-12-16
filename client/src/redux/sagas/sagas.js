@@ -11,6 +11,7 @@ async function fetchData({ url, method, headers, body }) {
 }
 
 function* postFetchSendOrder(action) {
+  console.log(action.payload, 'saga');
   try {
     const sendOrder = yield call(fetchData, {
       url: '/cart',

@@ -1,8 +1,10 @@
 import React from 'react';
 
+
 import { Card, CardContent, CardMedia, Typography, Box, Badge, CardHeader } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
+import styles from '../DishesItem/DishesItem.module.css'
 
 // кастомный бэйдж через метод {style} из MUI-styles
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -14,6 +16,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
     borderRadius: '20px'
   },
 }));
+
 
 function MyOrderItem({ order }) {
 
@@ -33,6 +36,7 @@ function MyOrderItem({ order }) {
         title={`№ заказа ${order[0]['Orders.id']}`}
         subheader={date}
       />
+
 
       {order.map((dish) => {
         return (
@@ -79,6 +83,7 @@ function MyOrderItem({ order }) {
       <Typography variant="h6" color="text.secondary" component="div">
         ИТОГО: {order[0]['Orders.totalSum']} ₽
       </Typography>
+
     </Card>
   );
 }

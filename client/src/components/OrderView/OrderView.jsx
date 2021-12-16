@@ -2,9 +2,11 @@ import * as React from 'react';
 import { Grid, Paper, Typography, Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import cartAT from '../../redux/actionTypes/cartAT';
 import style from './OrderView.module.css';
+import Alert from '@mui/material/Alert';
+import Stack from '@mui/material/Stack';
 
 export default function OrderView() {
 
@@ -22,24 +24,35 @@ export default function OrderView() {
   const allOrdersTime = useSelector((state) => state.cart.cart);
   const orderTime = allOrdersTime.map(dish => dish.time).sort((a, b) => b - a)[0];
 
-  const history = useHistory();
   const dispatch = useDispatch();
+  const [alert, setAlert] = React.useState('');
 
   const sendOrder = (event) => {
     event.preventDefault();
     dispatch({ type: cartAT.POST_SEND_CART, payload: { totalCart, totalSum, totalQuantity, user } });
-
+    
     // чистим LocalStorage после оформления заказа
     localStorage.clear();
 
     history.push('/orders');
-  }
-  return (
-    <Paper sx={{ p: 2, margin: 'auto', maxWidth: 500, flexGrow: 1 }}>
 
+    setAlert(() => {
+      return (
+        <Stack sx={{ width: '100%' }} spacing={2}>
+          <Alert severity="success">Ваш заказ принят!</Alert>
+        </Stack>
+      )
+    })
+
+  }
+
+  return (
+    <Paper 
+    sx={{ p: 2, margin: 'auto', marginBottom: 10,  maxWidth: 600, flexGrow: 1, borderRadius: 3 }}>  
       {totalCart.length < 1
         ? <div>
-            <Div>{"Ваша корзина пока что пустая"}</Div>
+
+            {alert === '' ? <Div>{"Ваша корзина пока что пустая"}</Div> : <div>{alert}</div>}
             <Link to='/categories'
               className={style.link}
               >
@@ -54,7 +67,6 @@ export default function OrderView() {
         <Grid container >
           <Grid item xs={12} sm container>
             <Grid item xs container direction="column" spacing={2}>
-
               <Grid item xs >
                 <Typography variant="body1" component="div">
                   ОБЩАЯ СУММА ЗАКАЗА:
@@ -85,9 +97,8 @@ export default function OrderView() {
           </Grid>
         </Grid>
       }
-
-
-
     </Paper>
   );
 }
+
+

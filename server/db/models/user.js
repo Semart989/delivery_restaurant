@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate({ Order }) {
-      User.hasMany(Order, {foreignKey: 'user_id'});
+      User.hasMany(Order, { foreignKey: 'user_id' });
     }
   };
   User.init({
@@ -20,11 +20,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
     },
     phone: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     pin: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     name: {
@@ -34,6 +34,7 @@ module.exports = (sequelize, DataTypes) => {
     room: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
     },
     createdAt: {
       allowNull: false,
