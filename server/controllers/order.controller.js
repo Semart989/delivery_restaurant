@@ -1,5 +1,7 @@
 // const axios = require('axios');
-const { Op } = require('sequelize');
+const {
+  Op
+} = require('sequelize');
 const {
   Order,
   Dish,
@@ -23,10 +25,12 @@ const order = {
 };
 
 const newOrder = async (req, res) => {
-  console.log(req.body);
+  console.log(req.body, 'body======');
 
   const {
-    totalCart, totalSum, user,
+    totalCart,
+    totalSum,
+    user,
   } = req.body;
 
   try {
@@ -50,9 +54,13 @@ const newOrder = async (req, res) => {
       });
     });
 
-    res.status(200).json({ success: true });
+    res.status(200).json({
+      success: true
+    });
   } catch (error) {
-    res.status(404).json({ error: 'error' });
+    res.status(404).json({
+      error: 'error'
+    });
     console.log(error);
   }
 };
@@ -67,7 +75,8 @@ const getOrders = async (req, res) => {
         {
           model: Dish,
           include: [Category],
-        }],
+        }
+      ],
       raw: true,
     });
 
@@ -101,34 +110,46 @@ const getOrders = async (req, res) => {
       return result;
     });
 
-    res.status(200).json({ orders });
+    res.status(200).json({
+      orders
+    });
   } catch (error) {
-    res.status(404).json({ error: 'error' });
+    res.status(404).json({
+      error: 'error'
+    });
   }
 };
 
 const changeStatusOrder = async (req, res) => {
-  const { id, currentStatus } = req.body;
+  const {
+    id,
+    currentStatus
+  } = req.body;
   try {
-    const orderUpdate = await Order.update(
-      {
-        currentStatus,
+    const orderUpdate = await Order.update({
+      currentStatus,
+    }, {
+      where: {
+        id,
       },
-      {
-        where: {
-          id,
-        },
-      },
-    );
+    }, );
 
     await Order_Status.create({
       order_id: id,
       status: currentStatus,
     });
-    res.status(200).json({ order: orderUpdate });
+    res.status(200).json({
+      order: orderUpdate
+    });
   } catch (error) {
-    res.status(404).json({ error: 'error' });
+    res.status(404).json({
+      error: 'error'
+    });
   }
 };
 
-module.exports = { newOrder, getOrders, changeStatusOrder };
+module.exports = {
+  newOrder,
+  getOrders,
+  changeStatusOrder
+};
