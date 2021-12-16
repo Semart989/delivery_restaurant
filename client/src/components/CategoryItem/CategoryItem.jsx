@@ -4,14 +4,10 @@ import { Link } from 'react-router-dom';
 import styles from '../CategoryItem/CategoryItem.module.css'
 
 function CategoryItem({ category }) {
-
-  // console.log(category);
-
   return (
 
     <Card className={styles.card}
-      sx={{ maxWidth: 345, margin: 2, justifyContent: 'space-between', borderRadius: 3}}>
- 
+      sx={{ maxWidth: 345, margin: 2, justifyContent: 'space-between', borderRadius: 3 }}>
       <Link to={`/categories/${category.id}`}
         className={styles.link}>
         <CardHeader

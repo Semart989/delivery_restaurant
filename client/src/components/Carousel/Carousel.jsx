@@ -13,7 +13,7 @@ function ControlledCarousel() {
             alt="First slide"
           />
           <Carousel.Caption>
-            <p>Всегда свежие блюда</p>
+            <h6>Всегда свежие блюда</h6>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item interval={2500}>
@@ -23,7 +23,7 @@ function ControlledCarousel() {
             alt="Second slide"
           />
           <Carousel.Caption>
-            <p>Быстрая доставка</p>
+            <h6>Быстрая доставка</h6>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item interval={2500}>
@@ -33,7 +33,7 @@ function ControlledCarousel() {
             alt="Third slide"
           />
           <Carousel.Caption>
-            <p>Высокое качество</p>
+            <h6>Высокое качество</h6>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
