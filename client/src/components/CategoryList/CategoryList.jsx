@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom'
 import CategoryItem from '../CategoryItem/CategoryItem';
 import { useDispatch, useSelector } from 'react-redux';
 import ResponsiveAppBar from '../Nav/Nav.jsx';
@@ -15,10 +16,14 @@ export default function CategoryList() {
   useEffect(() => {
     dispatch({ type: categoriesAT.GET_FETCH_CATEGORIES });
   }, [dispatch]);
+  const router = useLocation()
 
   return (
     <>
-      {/* <ResponsiveAppBar /> */}
+    {router.pathname !== '/' ?
+      <ResponsiveAppBar />
+    : null
+    }
       <div className={style.card}>
         {state && state.map(category => <CategoryItem key={category.id} category={category} />)}
       </div>

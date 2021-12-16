@@ -59,11 +59,11 @@ function LoginPage(props) {
       {roomid ?
         <div>
           <br />
-          <Typography variant="h5">Введите ваш номер телефона и PinCode, выданный на ресепшне</Typography>
+          <Typography variant="h6">Введите ваш номер телефона и PinCode, выданный на ресепшне</Typography>
           <br />
           <form onSubmit={loginOnSubmit}>
             <TextField
-              style={{ width: "200px", margin: "5px" }}
+              style={{ width: "163px", margin: "5px" }}
               type="text"
               label="phone"
               variant="outlined"
@@ -71,14 +71,17 @@ function LoginPage(props) {
             />
             <br />
             <TextField
-              style={{ width: "200px", margin: "5px" }}
+              style={{ width: "163px", margin: "5px" }}
               type="text"
               label="pincode"
               variant="outlined"
               name="pincode"
             />
             <br />
-            <Button type="submit" variant="contained" color="primary">
+            <Button
+              type="submit"
+              variant="contained"
+              color="secondary">
               Авторизоваться
             </Button>
           </form>
