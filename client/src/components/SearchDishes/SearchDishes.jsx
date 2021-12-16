@@ -77,9 +77,7 @@ export default function SearchAppBar() {
         <AppBar color="transparent" position="static">
           <Toolbar>
             <Search>
-              <SearchIconWrapper>
-                <SearchIcon />
-              </SearchIconWrapper>
+              <SearchIcon onClick={() => handleClick()} />
               <StyledInputBase
                 inputRef={input}
                 placeholder="Найти..."
@@ -89,9 +87,6 @@ export default function SearchAppBar() {
           </Toolbar>
         </AppBar>
       </Box>
-      <div>
-        <button onClick={() => handleClick()}>LOL</button>
-      </div>
     </div>
   );
 }
