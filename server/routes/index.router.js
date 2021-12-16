@@ -14,7 +14,7 @@ const myOrdersRouter = require('./myOrders.router');
 
 const findDishesRouter = require('./searchDishes.router');
 
-router.use('/cart', orderRouter);
+router.use('/cart', cartRouter);
 router.use('/isauth', isAuthRouter);
 router.use('/categories', categoryRouter);
 // router.use('/', categoryRouter);
