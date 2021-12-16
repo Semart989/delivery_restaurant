@@ -43,7 +43,6 @@ function AdminCardOrder({ order, isOpen, isClose, isEditOpen, isEditClose }) {
     }
 
   }
-  console.log(order.currentStatus);
 
   return (
     <>   

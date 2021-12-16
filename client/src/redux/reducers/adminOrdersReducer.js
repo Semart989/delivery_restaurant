@@ -6,8 +6,6 @@ const initialState = {
 };
 
 let arr = [];
-let obj = {};
-let index = -1;
 
 export const adminOrdersReducer = ( state = initialState, action) => {
 

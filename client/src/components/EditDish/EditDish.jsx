@@ -1,7 +1,20 @@
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useState, useRef } from 'react';
+import categoriesAT from '../../redux/actionTypes/categoriesAT';
 import styles from './EditDish.module.css';
-import { useState } from 'react';
 
-function EditDish({ dish }) {
+function EditDish({ dish: editDish }) {
+  const stateCategories = useSelector(state => state.categories.categories.categories);
+  const stateCategoriesDishes = useSelector(state => state.dishes.dishes);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    fetch('/categories')
+      .then((res) => res.json())
+      .then((categories) => dispatch({type: categoriesAT.INIT_CATEGORIES, payload: categories}));
+  }, [dispatch]);
+
+  const categoryId = useRef(null);
   
   const [amount, setAmount] = useState(1);
   const [category, setCategory] = useState('Category1');
@@ -10,7 +23,6 @@ function EditDish({ dish }) {
   for (let i = 0; i < 100; i += 1) {
     arrAmount.push(i + 1);
   }
-  const arrCategories = ['Category1', 'Category2', 'Category3'];
   const arrDishes = ['Dish1', 'Dish2', 'Dish3', 'Dish4'];
   let price = 100;
   const handlerCategory = (event) => {
@@ -30,7 +42,7 @@ function EditDish({ dish }) {
       <div className={styles.select}>
         <label forHtml='category' >Категория</label>
         <select className={styles.marginSelect} onChange={handlerCategory} name='category'>
-          {arrCategories.map(item => <option value={item}>{item}</option>)}
+          {stateCategories.map(item => <option value={item.name}>{item.name}</option>)}
         </select>
       </div>
       

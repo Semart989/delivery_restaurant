@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
+
 import adminOrderAT from '../../redux/actionTypes/adminOrderAT';
 import styles from './AdminEditCardOrder.module.css';
 import './AdminEditCardOrder.css';
@@ -14,8 +15,8 @@ const pStatus = {
 function AdminEditCardOrder({ order, isEditOpen, isEditClose }) {
 
   const dispatch = useDispatch();
-  const state = useSelector(state => state.adminOrders);
 
+  
   const funcFetch = () => {
     fetch('/admin/changeOrder', {
       method: 'PUT',
@@ -52,7 +53,7 @@ function AdminEditCardOrder({ order, isEditOpen, isEditClose }) {
       <h3>
         Заказ № {order.id}
       </h3>
-      {order && order.dishes.map((dish) => <EditDish key={dish.id} dish={dish} />)}
+      {order && order.dishes.map((editDish) => <EditDish key={editDish.id} editDish={editDish} />)}
       <p>Итого: {order.totalSum} рублей</p>
     </div>
     <div className={styles.card__fieldButton}>       
