@@ -34,9 +34,10 @@ const ResponsiveAppBar = () => {
   }));
 
   return (
-    <AppBar style={{background: '#6868ac'}} position="sticky">
-      <Container
-        className={style.nav}>
+    <AppBar
+      className={style.nav}
+      position="sticky">
+      <Container>
         <Toolbar disableGutters>
           <Typography
             variant="h6"

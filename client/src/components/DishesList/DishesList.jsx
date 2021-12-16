@@ -1,8 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import DishesItem from '../DishesItem/DishesItem';
 import dishesAT from '../../redux/actionTypes/dishesAT';
-import { useParams } from 'react-router-dom';
+import ResponsiveAppBar from '../Nav/Nav.jsx';
+import CallButton from '../CallButton/CallButton';
+import SFooter from '../SFooter/SFooter.jsx';
+
 
 export default function DishesList() {
 
@@ -12,14 +16,17 @@ export default function DishesList() {
   const { id } = useParams()
 
   useEffect(() => {
-      dispatch({ type: dishesAT.GET_FETCH_DISHES, payload: Number(id) })
+    dispatch({ type: dishesAT.GET_FETCH_DISHES, payload: Number(id) })
   }, [dispatch, id])
 
   return (
-
-    <div style={{ display: 'flex', alignContent: 'stretch', flexWrap: 'wrap', justifyContent: 'center'}}>
-      {state && state.map(dish => <DishesItem key={dish.id} dish={dish} />)}
-    </div>
-
+    <>
+      <ResponsiveAppBar />
+      <div style={{ display: 'flex', alignContent: 'stretch', flexWrap: 'wrap', justifyContent: 'center' }}>
+        {state && state.map(dish => <DishesItem key={dish.id} dish={dish} />)}
+      </div>
+      <CallButton />
+      <SFooter />
+    </>
   );
 }

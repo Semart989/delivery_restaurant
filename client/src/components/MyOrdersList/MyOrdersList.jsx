@@ -1,14 +1,10 @@
 import React, { useEffect } from 'react';
-
-// import {Card, CardHeader, CardMedia, CardContent, Typography} from '@mui/material/';
-
-
-
-// import CategoryItem from '../CategoryItem/CategoryItem';
 import { useDispatch, useSelector } from 'react-redux';
 import myOrdersAT from '../../redux/actionTypes/myOrders';
 import MyOrderItem from '../MyOrderItem/MyOrderItem';
-// import categoriesAT from '../../redux/actionTypes/categoriesAT';
+import ResponsiveAppBar from '../Nav/Nav.jsx';
+import CallButton from '../CallButton/CallButton';
+import SFooter from '../SFooter/SFooter.jsx';
 
 function MyOrdersList() {
 
@@ -27,10 +23,14 @@ function MyOrdersList() {
   }, []);
 
   return (
-    <div style={{ display: 'flex', alignContent: 'stretch', flexWrap: 'wrap', justifyContent: 'center'}}>
-      {state && Object.entries(state).map(([key, value]) => <MyOrderItem key={key} order={value}  />)}
-    </div>
-
+    <>
+      <ResponsiveAppBar />
+      <div style={{ display: 'flex', alignContent: 'stretch', flexWrap: 'wrap', justifyContent: 'center' }}>
+        {state && Object.entries(state).map(([key, value]) => <MyOrderItem key={key} order={value} />)}
+        <CallButton />
+        <SFooter />
+      </div>
+    </>
   );
 }
 
