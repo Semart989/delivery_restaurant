@@ -25,8 +25,6 @@ export default function OrderView() {
   const history = useHistory();
   const dispatch = useDispatch();
 
-
-
   const sendOrder = (event) => {
     event.preventDefault();
     dispatch({ type: cartAT.POST_SEND_CART, payload: { totalCart, totalSum, totalQuantity, user } });
@@ -37,8 +35,8 @@ export default function OrderView() {
   }
 
   return (
-    <Paper sx={{ p: 2, margin: 'auto', marginBottom: 10, maxWidth: 500, flexGrow: 1, borderRadius: 3 }}>
-  
+    <Paper 
+    sx={{ p: 2, margin: 'auto', marginBottom: 10,  maxWidth: 600, flexGrow: 1, borderRadius: 3 }}>  
       {totalCart.length < 1
         ? <div>
           <Div>{"Ваша корзина пока что пустая"}</Div>
@@ -56,7 +54,6 @@ export default function OrderView() {
         <Grid container >
           <Grid item xs={12} sm container>
             <Grid item xs container direction="column" spacing={2}>
-
               <Grid item xs >
                 <Typography variant="body1" component="div">
                   ОБЩАЯ СУММА ЗАКАЗА:
@@ -82,7 +79,6 @@ export default function OrderView() {
                 <Button onClick={sendOrder} variant="contained" color="success">
                   ОФОРМИТЬ ЗАКАЗ
                 </Button>
-            
               </Grid>
             </Grid>
           </Grid>

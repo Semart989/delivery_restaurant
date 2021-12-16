@@ -47,7 +47,7 @@ function DishesItem({ dish }) {
 
   return (
     <Card className={styles.card}
-      sx={{ maxWidth: 350, margin: 2, justifyContent: 'space-between' }}>
+      sx={{ maxWidth: 350, margin: 2, justifyContent: 'space-between', borderRadius: 3 }}>
       {/* <Link to={`/categories/${categoryID}/${dish.id}`}> */}
       <CardHeader
         title={dish.name}

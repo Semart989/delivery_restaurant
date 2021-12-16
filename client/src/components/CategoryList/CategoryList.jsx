@@ -18,7 +18,7 @@ export default function CategoryList() {
 
   return (
     <>
-      <ResponsiveAppBar />
+      {/* <ResponsiveAppBar /> */}
       <div className={style.card}>
         {state && state.map(category => <CategoryItem key={category.id} category={category} />)}
       </div>
