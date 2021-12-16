@@ -26,6 +26,10 @@ export const adminOrdersReducer = ( state = initialState, action) => {
       });
 
       return { ...state, orders: [...arr] };
+
+    case adminOrderAT.CHANGE_ORDER:
+      
+      return state;
     
     case adminOrderAT.INIT_ERROR_ORDER:
       return { ...state, error: action.payload };

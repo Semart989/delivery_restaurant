@@ -1,7 +1,8 @@
 import styles from './EditDish.module.css';
 import { useState } from 'react';
 
-function EditDish(props) {
+function EditDish({ dish }) {
+  
   const [amount, setAmount] = useState(1);
   const [category, setCategory] = useState('Category1');
   const [dish, setDish] = useState('Dish1');
