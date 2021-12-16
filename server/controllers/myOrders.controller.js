@@ -1,11 +1,7 @@
 const { Order, Dish } = require('../db/models');
 
 const myOrders = async (req, res) => {
-  const user = {
-    id: 3,
-  };
-
-  // const user = req.session.user;
+  const { user } = req.session;
 
   try {
     const array = await Dish.findAll({

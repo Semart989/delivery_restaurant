@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardMedia, Typography, Button } from '@m
 
 
 import { useDispatch } from 'react-redux'
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 import styles from '../DishesItem/DishesItem.module.css'
 import IconButton from '@mui/material/IconButton';
@@ -56,8 +56,8 @@ function DishesItem({ dish }) {
       <CardMedia
        sx={{ minHeight: 185 }}
         component="img"
-        maxHeight="200"
-        maxWidth="200"
+        // maxHeight="200"
+        // maxWidth="200"
         image={dish.picture}
         alt="Food"
       />

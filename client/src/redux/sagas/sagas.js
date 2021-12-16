@@ -11,9 +11,10 @@ async function fetchData({ url, method, headers, body }) {
 }
 
 function* postFetchSendOrder(action) {
+  console.log(action.payload, 'saga');
   try {
     const sendOrder = yield call(fetchData, {
-      url: '/cart',
+      url: 'http://localhost:4000/cart',
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(action.payload),

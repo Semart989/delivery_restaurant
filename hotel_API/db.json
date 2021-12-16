@@ -1,0 +1,46 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "firstname": "fname1",
+      "lastname": "lname1",
+      "room": 1,
+      "phone": 9999999991
+    },
+    {
+      "id": 2,
+      "firstname": "fname2",
+      "lastname": "lname2",
+      "room": 2,
+      "phone": 9999999992
+    },
+    {
+      "id": 3,
+      "firstname": "fname3",
+      "lastname": "lname3",
+      "room": 3,
+      "phone": 9999999993
+    },
+    {
+      "id": 4,
+      "firstname": "fname4",
+      "lastname": "lname4",
+      "room": 4,
+      "phone": 9999999994
+    },
+    {
+      "id": 5,
+      "firstname": "fname5",
+      "lastname": "lname5",
+      "room": 5,
+      "phone": 9999999995
+    },
+    {
+      "id": 6,
+      "firstname": "fname6",
+      "lastname": "lname6",
+      "room": 6,
+      "phone": 9999999996
+    }
+  ]
+}

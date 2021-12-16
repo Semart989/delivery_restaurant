@@ -9,7 +9,7 @@ export const categoriesReducer = ( state = initialState, action) => {
   switch (action.type) {
 
     case categoriesAT.INIT_CATEGORIES:
-      // console.log('CATEGORIES');
+      // ('CATEGORIES');
       return { ...state, categories:action.payload };
 
     
