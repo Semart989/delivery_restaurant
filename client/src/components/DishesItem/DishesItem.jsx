@@ -47,17 +47,15 @@ function DishesItem({ dish }) {
 
   return (
     <Card className={styles.card}
-      sx={{ maxWidth: 350, margin: 2, justifyContent: 'space-between' }}>
+      sx={{ maxWidth: 350, margin: 2, justifyContent: 'space-between', borderRadius: 3 }}>
       {/* <Link to={`/categories/${categoryID}/${dish.id}`}> */}
       <CardHeader
         title={dish.name}
-        sx={{ minHeight: 80 }}
+        sx={{ minHeight: 86 }}
       />
       <CardMedia
-       sx={{ minHeight: 185 }}
+       sx={{ minHeight: 145 }}
         component="img"
-        // maxHeight="200"
-        // maxWidth="200"
         image={dish.picture}
         alt="Food"
       />
@@ -68,7 +66,7 @@ function DishesItem({ dish }) {
         </Typography>
       </CardContent>
 
-      <CardContent  sx={{ minHeight: 300 }}>
+      <CardContent  sx={{ minHeight: 290 }}>
         <Typography paragraph>
           {dish.description}
         </Typography>

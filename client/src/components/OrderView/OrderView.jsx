@@ -27,12 +27,15 @@ export default function OrderView() {
   const dispatch = useDispatch();
   const [alert, setAlert] = React.useState('');
 
-  const sendOrder =  (event) => {
+  const sendOrder = (event) => {
     event.preventDefault();
-     dispatch({ type: cartAT.POST_SEND_CART, payload: { totalCart, totalSum, totalQuantity, user } });
-
+    dispatch({ type: cartAT.POST_SEND_CART, payload: { totalCart, totalSum, totalQuantity, user } });
+    
     // чистим LocalStorage после оформления заказа
     localStorage.clear();
+
+    history.push('/orders');
+
     setAlert(() => {
       return (
         <Stack sx={{ width: '100%' }} spacing={2}>
@@ -40,13 +43,15 @@ export default function OrderView() {
         </Stack>
       )
     })
+
   }
 
   return (
-    <Paper sx={{ p: 2, margin: 'auto', maxWidth: 500, flexGrow: 1 }}>
-
+    <Paper 
+    sx={{ p: 2, margin: 'auto', marginBottom: 10,  maxWidth: 600, flexGrow: 1, borderRadius: 3 }}>  
       {totalCart.length < 1
         ? <div>
+
             {alert === '' ? <Div>{"Ваша корзина пока что пустая"}</Div> : <div>{alert}</div>}
             <Link to='/categories'
               className={style.link}
@@ -62,7 +67,6 @@ export default function OrderView() {
         <Grid container >
           <Grid item xs={12} sm container>
             <Grid item xs container direction="column" spacing={2}>
-
               <Grid item xs >
                 <Typography variant="body1" component="div">
                   ОБЩАЯ СУММА ЗАКАЗА:
@@ -93,9 +97,8 @@ export default function OrderView() {
           </Grid>
         </Grid>
       }
-
-
-
     </Paper>
   );
 }
+
+

@@ -5,13 +5,13 @@ import styles from '../CategoryItem/CategoryItem.module.css'
 
 function CategoryItem({ category }) {
 
-  console.log(category);
+  // console.log(category);
 
   return (
 
     <Card className={styles.card}
-      sx={{ maxWidth: 345, margin: 4, justifyContent: 'space-between' }}>
-
+      sx={{ maxWidth: 345, margin: 2, justifyContent: 'space-between', borderRadius: 3}}>
+ 
       <Link to={`/categories/${category.id}`}
         className={styles.link}>
         <CardHeader
@@ -19,8 +19,6 @@ function CategoryItem({ category }) {
         />
         <CardMedia
           component="img"
-          // maxHeight="200"
-          // maxWidth="200"
           image={category.picture}
           alt="Food"
         />
