@@ -31,7 +31,7 @@ const config = (app) => {
   }));
 
   // Использую клиентский public для deploy
-  app.use(express.static(path.resolve('../public')));
+  app.use(express.static(path.resolve('public')));
 
   app.use(morgan('dev'));
   app.use(cookieParser());
@@ -46,7 +46,7 @@ const config = (app) => {
   app.use('/logout', logoutRouter);
 
   app.get('*', (req, res) => {
-    res.sendFile(path.resolve('../public/index.html'));
+    res.sendFile(path.resolve('public/index.html'));
   });
 };
 
