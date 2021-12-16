@@ -45,9 +45,9 @@ const config = (app) => {
   app.use('/login', loginRouter);
   app.use('/logout', logoutRouter);
 
-  // app.get('*', (req, res) => {
-  //   res.sendFile(path.resolve('../public/index.html'));
-  // });
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve('public/index.html'));
+  });
 };
 
 module.exports = config;
