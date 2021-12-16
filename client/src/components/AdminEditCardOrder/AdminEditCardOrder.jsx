@@ -1,8 +1,10 @@
 import styles from './AdminEditCardOrder.module.css'
 import EditDish from '../EditDish/EditDish';
 
-function AdminEditCardOrder(props) {
+function AdminEditCardOrder({isEditOpen, isEditClose}) {
   return (
+    <div className={`modal_wrapper ${isEditOpen ? 'open' : 'close'}`}>
+      <div className='modal_body'>
     <section className={styles.card}>
     <h2>Карта заказа из комнаты 1</h2>
     <div>
@@ -22,6 +24,8 @@ function AdminEditCardOrder(props) {
     </div>
     
   </section>
+   </div>
+   </div>
   );
 }
 

@@ -10,23 +10,21 @@ import myOrdersAT from '../../redux/actionTypes/myOrders';
 import MyOrderItem from '../MyOrderItem/MyOrderItem';
 // import categoriesAT from '../../redux/actionTypes/categoriesAT';
 
-function MyOrdersList(props) {
+function MyOrdersList() {
 
   const state = useSelector(state => state.myOrders.myOrders)
 
-//TODO: достать юзера из сессии
+  //TODO: достать юзера из сессии
 
-const dispatch = useDispatch()
+  const dispatch = useDispatch()
   // const state = useSelector(state => state.categories.categories.categories)
-
-// console.log(state);
 
   useEffect(() => {
     fetch('/orders')
       .then(data => data.json())
       // .then(data => console.log(data))
       .then(data => dispatch({ type: myOrdersAT.INIT_MY_ORDERS, payload: data.objOrders }))
-  }, [dispatch]);
+  }, []);
 
   return (
     <div style={{ display: 'flex', alignContent: 'stretch', flexWrap: 'wrap', justifyContent: 'center'}}>

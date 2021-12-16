@@ -28,7 +28,15 @@ export default function CartView({ product }) {
   return (
     <Card
       className={styles.card}
-      sx={{ display: 'flex', margin: '10px', borderRadius: '10px' }}
+      sx={{ 
+        display: 'flex', 
+        marginTop: '10px',
+        marginBottom: '10px', 
+        marginRight: 'auto', 
+        marginLeft: 'auto', 
+        borderRadius: '10px', 
+        maxWidth: '600px' 
+      }}
     >
       
       <StyledBadge badgeContent={product.quantity} color="secondary">
@@ -41,7 +49,10 @@ export default function CartView({ product }) {
       </StyledBadge>
       
 
-      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+      <Box sx={{ 
+        display: 'flex', 
+        flexDirection: 'column' 
+        }}>
      
         <CardContent sx={{ flex: '1 0 auto' }}>
           <Typography component="div" variant="h5">
@@ -79,7 +90,7 @@ export default function CartView({ product }) {
 
           <Stack sx={{ paddingBottom: '10px' }} spacing={1}>
             <IconButton
-              color="primary"
+              color="default"
               aria-label="delete"
               onClick={() => {
                 dispatch({ type: cartAT.DELETE_ONE_POSITION, payload: product.id });

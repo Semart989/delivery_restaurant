@@ -1,7 +1,3 @@
-
-// import ViewContainer from '../ViewContainer/ViewContainer';
-
-
 import { useSelector } from 'react-redux';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { useEffect } from 'react';
@@ -16,10 +12,20 @@ import CartList from '../CartList/CartList'
 import ResponsiveAppBar from '../Nav/Nav'
 import CategoryList from '../CategoryList/CategoryList';
 import DishesList from '../DishesList/DishesList';
+
 import MyOrdersList from '../MyOrdersList/MyOrdersList';
+import RoomSetter from '../RoomSetter/RoomSetter';
+import { CookiesProvider } from "react-cookie";
+import LoginPage from '../LoginPage/LoginPage';
+import StaffLoginPage from '../StaffLoginPage/StaffLoginPage';
+import Logout from '../Logout/Logout';
 import FindDishesList from '../FindDishesList/FindDishesList';
+
 import SFooter from '../SFooter/SFooter';
 import CallButton from '../CallButton/CallButton';
+
+import ViewContainer from '../ViewContainer/ViewContainer';
+import AdminViewContainer from '../AdminViewContainer/AdminViewContainer';
 
 function App() {
   // вытягиваем массив товаров из корзины клиента
@@ -34,26 +40,36 @@ function App() {
   );
 
   return (
+
     <div className="App">
-      <LoginWrapper>
-        <BrowserRouter>
 
-          <ResponsiveAppBar />
 
-          <Switch>
-
-            <Route path="/" exact component={MainPage} />
-            <Route path="/cart" exact component={CartList} />
-            <Route path="/categories" exact component={CategoryList} />
-            <Route path="/categories/:id" exact component={DishesList} />
-            <Route path="/orders" exact component={MyOrdersList} />
-            <Route path="/search" exact component={FindDishesList} />
-
-          </Switch>
-          <CallButton />
+        <CookiesProvider>
+          <BrowserRouter>
+            <LoginWrapper>
+              <ResponsiveAppBar />
+              <Switch>
+                <Route path="/" exact component={MainPage} />
+                <Route path="/cart" exact component={CartList} />
+                <Route path="/room/:roomid" exact component={RoomSetter} />
+                <Route path="/categories" exact component={CategoryList} />
+                <Route path="/categories/:id" exact component={DishesList} />
+                <Route path="/orders" exact component={MyOrdersList} />
+                <Route path="/search" exact component={FindDishesList} />
+                <Route path="/login" exact component={LoginPage} />
+                <Route path="/logout" exact component={Logout} />
+                <Route path="/staff" exact component={StaffLoginPage} />
+                <Route path="/cookmaster" exact component={ViewContainer} />
+                <Route path="/admin" exact component={AdminViewContainer} />
+                 
+              </Switch>
+               <CallButton />
           <SFooter/>
-        </BrowserRouter>
-      </LoginWrapper>
+            </LoginWrapper>
+          </BrowserRouter>
+        </CookiesProvider>
+
+
     </div>
   );
 }
