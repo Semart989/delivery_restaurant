@@ -14,7 +14,7 @@ function* postFetchSendOrder(action) {
   console.log(action.payload, 'saga');
   try {
     const sendOrder = yield call(fetchData, {
-      url: 'http://localhost:4000/cart',
+      url: '/cart',
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(action.payload),

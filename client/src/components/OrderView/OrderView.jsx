@@ -2,9 +2,11 @@ import * as React from 'react';
 import { Grid, Paper, Typography, Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import cartAT from '../../redux/actionTypes/cartAT';
 import style from './OrderView.module.css';
+import Alert from '@mui/material/Alert';
+import Stack from '@mui/material/Stack';
 
 export default function OrderView() {
 
@@ -22,8 +24,8 @@ export default function OrderView() {
   const allOrdersTime = useSelector((state) => state.cart.cart);
   const orderTime = allOrdersTime.map(dish => dish.time).sort((a, b) => b - a)[0];
 
-  const history = useHistory();
   const dispatch = useDispatch();
+  const [alert, setAlert] = React.useState('');
 
   const sendOrder = (event) => {
     event.preventDefault();
@@ -31,7 +33,17 @@ export default function OrderView() {
     
     // чистим LocalStorage после оформления заказа
     localStorage.clear();
+
     history.push('/orders');
+
+    setAlert(() => {
+      return (
+        <Stack sx={{ width: '100%' }} spacing={2}>
+          <Alert severity="success">Ваш заказ принят!</Alert>
+        </Stack>
+      )
+    })
+
   }
 
   return (
@@ -39,17 +51,18 @@ export default function OrderView() {
     sx={{ p: 2, margin: 'auto', marginBottom: 10,  maxWidth: 600, flexGrow: 1, borderRadius: 3 }}>  
       {totalCart.length < 1
         ? <div>
-          <Div>{"Ваша корзина пока что пустая"}</Div>
-          <Link to='/categories'
-            className={style.link}
-          >
-            <Button
-              sx={{ margin: 1 }}
-              variant="contained" color="success">
-              Перейти в меню
-            </Button>
-          </Link>
-        </div>
+
+            {alert === '' ? <Div>{"Ваша корзина пока что пустая"}</Div> : <div>{alert}</div>}
+            <Link to='/categories'
+              className={style.link}
+              >
+              <Button
+                sx={{ margin: 1 }}
+                variant="contained" color="success">
+                Перейти в меню
+              </Button>
+            </Link>
+          </div>
         :
         <Grid container >
           <Grid item xs={12} sm container>
