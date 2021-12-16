@@ -14,7 +14,7 @@ function LoginWrapper({ children }) {
   useEffect(() => {
     const path = window.location.pathname;
     if (path !== '/login' && path !== '/staff' && path !== '/logout') {
-      fetch('http://localhost:4000/isauth', {
+      fetch('/isauth', {
         method: 'GET',
         credentials: 'include',
       })
