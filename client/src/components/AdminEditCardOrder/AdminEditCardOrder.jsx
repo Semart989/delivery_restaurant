@@ -53,7 +53,7 @@ function AdminEditCardOrder({ order, isEditOpen, isEditClose }) {
       <h3>
         Заказ № {order.id}
       </h3>
-      {order && order.dishes.map((editDish) => <EditDish key={editDish.id} editDish={editDish} />)}
+      {/* {order && order.dishes.map((editDish) => <EditDish key={editDish.id} editDish={editDish} />)} */}
       <p>Итого: {order.totalSum} рублей</p>
     </div>
     <div className={styles.card__fieldButton}>       

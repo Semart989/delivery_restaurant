@@ -24,6 +24,27 @@ export const adminOrdersReducer = ( state = initialState, action) => {
       });
 
       return { ...state, orders: [...arr] };
+    
+    case adminOrderAT.DELETE_DISH:
+      const arr2 = [...state.orders];
+      // console.log(action.payload.dishId, 'action.payload');
+      arr2.forEach((order) => {
+        // console.log(order.id, 'order.id');
+        if (order.id === action.payload.orderId) {
+          // console.log(order, 'AAAAAAAAAAAAA');
+          // order.dishes.findIndex() 
+          
+          order.dishes.filter((dish) => {
+            // console.log(dish.id !== action.payload.dishId)
+            return dish.id !== action.payload.dishId});
+          }
+          console.log(order.dishes); 
+      });
+      // arr.filter((order) => {order.id !== action.payload.orderId})
+
+      // console.log(action.payload.orderId);
+      // console.log(arr2);
+      return { ...state, orders: arr2};
 
     case adminOrderAT.CHANGE_ORDER:
       

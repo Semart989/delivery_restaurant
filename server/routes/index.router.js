@@ -13,6 +13,7 @@ const testRouter = require('./test_ajax.router');
 const myOrdersRouter = require('./myOrders.router');
 
 const findDishesRouter = require('./searchDishes.router');
+const adminDishesRouter = require('./adminDish.router');
 
 router.use('/cart', cartRouter);
 router.use('/isauth', isAuthRouter);
@@ -26,5 +27,6 @@ router.use('/cook/changeStatus', cookChangeStatusRouter);
 router.use('/test', testRouter);
 router.use('/orders', myOrdersRouter);
 router.use('/search', findDishesRouter);
+router.use('/admin/dish', adminDishesRouter);
 
 module.exports = router;
