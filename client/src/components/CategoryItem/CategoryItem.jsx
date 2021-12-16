@@ -5,7 +5,7 @@ import styles from '../CategoryItem/CategoryItem.module.css'
 
 function CategoryItem({ category }) {
 
-  console.log(category);
+  // console.log(category);
 
   return (
 
@@ -19,8 +19,6 @@ function CategoryItem({ category }) {
         />
         <CardMedia
           component="img"
-          // maxHeight="200"
-          // maxWidth="200"
           image={category.picture}
           alt="Food"
         />

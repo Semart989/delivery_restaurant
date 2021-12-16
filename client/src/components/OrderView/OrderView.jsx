@@ -15,7 +15,6 @@ export default function OrderView() {
   }));
 
   const user = useSelector((state) => state.user.user);
-  console.log(user)
   const totalCart = useSelector((state) => state.cart.cart);
   const totalSum = totalCart.reduce((a, b) => a + b.price, 0);
   const totalQuantity = totalCart.reduce((a, b) => a + b.quantity, 0);
@@ -26,32 +25,33 @@ export default function OrderView() {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const sendOrder =  (event) => {
-    event.preventDefault();
-     dispatch({ type: cartAT.POST_SEND_CART, payload: { totalCart, totalSum, totalQuantity, user } });
 
+
+  const sendOrder = (event) => {
+    event.preventDefault();
+    dispatch({ type: cartAT.POST_SEND_CART, payload: { totalCart, totalSum, totalQuantity, user } });
+    
     // чистим LocalStorage после оформления заказа
     localStorage.clear();
-
     history.push('/orders');
   }
 
   return (
-    <Paper sx={{ p: 2, margin: 'auto', maxWidth: 500, flexGrow: 1 }}>
-
+    <Paper sx={{ p: 2, margin: 'auto', marginBottom: 10, maxWidth: 500, flexGrow: 1, borderRadius: 3 }}>
+  
       {totalCart.length < 1
         ? <div>
-            <Div>{"Ваша корзина пока что пустая"}</Div>
-            <Link to='/categories'
-              className={style.link}
-              >
-              <Button
-                sx={{ margin: 1 }}
-                variant="contained" color="success">
-                Перейти в меню
-              </Button>
-            </Link>
-          </div>
+          <Div>{"Ваша корзина пока что пустая"}</Div>
+          <Link to='/categories'
+            className={style.link}
+          >
+            <Button
+              sx={{ margin: 1 }}
+              variant="contained" color="success">
+              Перейти в меню
+            </Button>
+          </Link>
+        </div>
         :
         <Grid container >
           <Grid item xs={12} sm container>
@@ -82,14 +82,14 @@ export default function OrderView() {
                 <Button onClick={sendOrder} variant="contained" color="success">
                   ОФОРМИТЬ ЗАКАЗ
                 </Button>
+            
               </Grid>
             </Grid>
           </Grid>
         </Grid>
       }
-
-
-
     </Paper>
   );
 }
+
+

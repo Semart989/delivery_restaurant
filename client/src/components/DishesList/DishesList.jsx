@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import DishesItem from '../DishesItem/DishesItem';
 import dishesAT from '../../redux/actionTypes/dishesAT';
+import style from '../DishesList/DishesList.module.css'
 import ResponsiveAppBar from '../Nav/Nav.jsx';
 import CallButton from '../CallButton/CallButton';
 import SFooter from '../SFooter/SFooter.jsx';
@@ -22,7 +23,7 @@ export default function DishesList() {
   return (
     <>
       <ResponsiveAppBar />
-      <div style={{ display: 'flex', alignContent: 'stretch', flexWrap: 'wrap', justifyContent: 'center' }}>
+      <div className={style.card}>
         {state && state.map(dish => <DishesItem key={dish.id} dish={dish} />)}
       </div>
       <CallButton />

@@ -25,11 +25,11 @@ function MyOrdersList() {
   return (
     <>
       <ResponsiveAppBar />
-      <div style={{ display: 'flex', alignContent: 'stretch', flexWrap: 'wrap', justifyContent: 'center' }}>
+      <div style={{ display: 'flex', alignContent: 'stretch', flexWrap: 'wrap', justifyContent: 'center', marginBottom: 60 }}>
         {state && Object.entries(state).map(([key, value]) => <MyOrderItem key={key} order={value} />)}
-        <CallButton />
-        <SFooter />
       </div>
+      <CallButton />
+      <SFooter />
     </>
   );
 }
