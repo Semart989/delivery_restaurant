@@ -12,6 +12,7 @@ const authMiddleware = require('../middleware/auth');// checking if user login, 
 const indexRouter = require('../routes/index.router');
 const loginRouter = require('../routes/login.router');
 const logoutRouter = require('../routes/logout.router');
+//const roomRouter = require('../routes/room.router');
 
 // Добавил API гостиницы
 const corsOptions = {
@@ -31,7 +32,8 @@ const config = (app) => {
   }));
 
   // Использую клиентский public для deploy
-  app.use(express.static(path.resolve('public')));
+  //app.use(express.static(path.resolve('public')));
+  app.use(express.static(path.resolve('../client/build')));
 
   app.use(morgan('dev'));
   app.use(cookieParser());
@@ -44,9 +46,12 @@ const config = (app) => {
   app.use('/', indexRouter);
   app.use('/login', loginRouter);
   app.use('/logout', logoutRouter);
+  //app.use('/room', roomRouter);
+  
 
   app.get('*', (req, res) => {
-    res.sendFile(path.resolve('public/index.html'));
+    //res.sendFile(path.resolve('public/index.html'));
+    res.sendFile(path.resolve('../client/build/index.html'));   
   });
 };
 
