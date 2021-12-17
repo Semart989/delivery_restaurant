@@ -12,7 +12,7 @@ import SFooter from '../SFooter/SFooter.jsx';
 function LoginPage(props) {
   const [cookies] = useCookies(["roomid"]);
   const roomid = cookies.roomid;
-
+  console.log(roomid);
   let history = useHistory();
   const dispatch = useDispatch();
 

@@ -14,7 +14,6 @@ router.post('/', async (req, res) => {
       pincode,
       phone,
     } = req.body;
-
     if (roomid) { // если авторизовывается клиент
       
       const guestInfo = await fetch(`https://hotel-api-example.herokuapp.com/${roomid}`);
