@@ -15,7 +15,6 @@ function MyOrdersList() {
   useEffect(() => {
     fetch('/orders')
       .then(data => data.json())
-      // .then(data => console.log(data))
       .then(data => dispatch({ type: myOrdersAT.INIT_MY_ORDERS, payload: data.objOrders }))
   }, [dispatch]);
 
@@ -23,7 +22,7 @@ function MyOrdersList() {
 
     <>
       <ResponsiveAppBar />
-      <div style={{ display: 'flex', alignContent: 'stretch', flexWrap: 'wrap', justifyContent: 'center', marginBottom: 60 }}>
+      <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', marginBottom: 60 }}>
         {state && Object.entries(state).map(([key, value]) => <MyOrderItem key={key} order={value} />)}
       </div>
       <CallButton />

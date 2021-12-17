@@ -1,10 +1,8 @@
 import React from 'react';
 
-
 import { Card, CardContent, CardMedia, Typography, Box, Badge, CardHeader } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-import styles from '../DishesItem/DishesItem.module.css'
 
 // кастомный бэйдж через метод {style} из MUI-styles
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -30,8 +28,10 @@ function MyOrderItem({ order }) {
         borderRadius: '10px',
         marginTop: '10px',
         marginBottom: '10px',
-
+        marginRight: '10px',
+        marginLeft: '10px',
       }}>
+
       <CardHeader
         title={`№ заказа ${order[0]['Orders.id']}`}
         subheader={date}
