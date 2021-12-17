@@ -20,7 +20,7 @@ function LoginPage(props) {
       phone: data.get('phone'),
       pincode: data.get('pincode'),
     };
-    fetch('http://localhost:4000/login', {
+    fetch('/login', {
       method: 'POST',
       credentials: 'include',
       headers: {
@@ -52,12 +52,12 @@ function LoginPage(props) {
   return (
     <div>
       <br />
-      <Typography variant="h4">Форма для авторизации персонала ресторана</Typography>
-      <Typography variant="h5">Введите ваш номер телефона и PinCode</Typography>
+      <Typography variant="h6">Форма для авторизации персонала ресторана</Typography>
+      <Typography variant="h6">Введите ваш номер телефона и PinCode</Typography>
       <br />
       <form onSubmit={loginOnSubmit}>
         <TextField
-          style={{ width: "200px", margin: "5px" }}
+          style={{ width: "163px", margin: "5px" }}
           type="text"
           label="phone"
           variant="outlined"
@@ -65,7 +65,7 @@ function LoginPage(props) {
         />
         <br />
         <TextField
-          style={{ width: "200px", margin: "5px" }}
+          style={{ width: "163px", margin: "5px" }}
           type="text"
           label="pincode"
           variant="outlined"

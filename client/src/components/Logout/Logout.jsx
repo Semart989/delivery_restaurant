@@ -10,7 +10,7 @@ const Logout = () => {
   const dispatch = useDispatch()
   let history = useHistory();
 
-  fetch('http://localhost:4000/logout', {
+  fetch('/logout', {
       method: 'POST',
       credentials: 'include',
       headers: {

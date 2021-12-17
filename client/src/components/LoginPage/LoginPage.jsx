@@ -5,6 +5,9 @@ import { userInitAC } from '../../redux/actionCreators/userAC';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
 import { useState } from 'react';
+import ResponsiveAppBar from '../Nav/Nav.jsx';
+import CallButton from '../CallButton/CallButton';
+import SFooter from '../SFooter/SFooter.jsx';
 
 function LoginPage(props) {
   const [cookies] = useCookies(["roomid"]);
@@ -12,7 +15,7 @@ function LoginPage(props) {
 
   let history = useHistory();
   const dispatch = useDispatch();
-  
+
   const [error, setError] = useState(false);
   const [errortext, setErrorText] = useState('Неверный pincode');
 
@@ -39,10 +42,10 @@ function LoginPage(props) {
           setError(true);
           setErrorText(data.error);
         } else {
-          if(data.user){
+          if (data.user) {
             dispatch(userInitAC(data.user));
             history.push('/');
-          }else{
+          } else {
             console.log('error set to false!');
             setError(true);
           }
@@ -50,17 +53,17 @@ function LoginPage(props) {
       })
   }
 
-
   return (
     <>
+      <ResponsiveAppBar />
       {roomid ?
         <div>
           <br />
-          <Typography variant="h5">Введите ваш номер телефона и PinCode, выданный на ресепшне</Typography>
+          <Typography variant="h6">Введите ваш номер телефона и PinCode, выданный на ресепшне</Typography>
           <br />
           <form onSubmit={loginOnSubmit}>
             <TextField
-              style={{ width: "200px", margin: "5px" }}
+              style={{ width: "163px", margin: "5px" }}
               type="text"
               label="phone"
               variant="outlined"
@@ -68,22 +71,27 @@ function LoginPage(props) {
             />
             <br />
             <TextField
-              style={{ width: "200px", margin: "5px" }}
+              style={{ width: "163px", margin: "5px" }}
               type="text"
               label="pincode"
               variant="outlined"
               name="pincode"
             />
             <br />
-            <Button type="submit" variant="contained" color="primary">
+            <Button
+              type="submit"
+              variant="contained"
+              color="secondary">
               Авторизоваться
             </Button>
           </form>
-          { error && <div id="errorBlock" className="highLightError">{errortext}</div>}
+          {error && <div id="errorBlock" className="highLightError">{errortext}</div>}
         </div>
         :
         <div>Используйте QR код для входа</div>
       }
+      <CallButton />
+      <SFooter />
     </>
   );
 }

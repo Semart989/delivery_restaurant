@@ -7,19 +7,19 @@
   backdrop-filter: blur(10px);
 }
 .awaitOrder{
-  margin-left: -800px;
+  margin-left: -54%;
 }
 .submitOrder{
-  margin-left: -1100px;
+  margin-left: -72%;
 }
 .admitOrder{
-  margin-left: -1400px;
+  margin-left: -92%;
 }
 .successOrder{
-  margin-left: -1700px;
+  margin-left: -110%;
 }
 .sendOrder{
-  margin-left: -2000px;
+  margin-left: -132%;
 }
 .modal_wrapper.open{
   height: 100%;
