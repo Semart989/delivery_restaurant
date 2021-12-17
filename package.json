@@ -9,8 +9,5 @@
   "license": "ISC",
   "engines": {
     "node": "14.x"
-  },
-  "dependencies": {
-    "react-toastify": "^8.1.0"
   }
 }
