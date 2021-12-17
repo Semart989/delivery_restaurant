@@ -11,14 +11,12 @@ const cookChangeStatusRouter = require('./cookChangeStatus.router');
 const testRouter = require('./test_ajax.router');
 
 const myOrdersRouter = require('./myOrders.router');
-
 const findDishesRouter = require('./searchDishes.router');
 const adminDishesRouter = require('./adminDish.router');
 
 router.use('/cart', cartRouter);
 router.use('/isauth', isAuthRouter);
 router.use('/categories', categoryRouter);
-// router.use('/', categoryRouter);
 router.use('/dishes', dishRouter);
 router.use('/admin/order', orderRouter);
 router.use('/admin/changeStatus', changeStatusRouter);

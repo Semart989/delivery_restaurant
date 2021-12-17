@@ -15,7 +15,7 @@ const logoutRouter = require('../routes/logout.router');
 
 // Добавил API гостиницы
 const corsOptions = {
-  origin: ['http://localhost:3000', 'https://runner-food.herokuapp.com/', 'https://hotel-api-example.herokuapp.com'],
+  origin: ['http://localhost:3000', 'http://localhost:4000', 'https://runner-food.herokuapp.com/', 'https://hotel-api-example.herokuapp.com'],
   credentials: true,
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
@@ -31,7 +31,7 @@ const config = (app) => {
   }));
 
   // Использую клиентский public для deploy
-  app.use(express.static(path.resolve('public')));
+  app.use(express.static(path.resolve('../client/build')));
 
   app.use(morgan('dev'));
   app.use(cookieParser());
@@ -46,7 +46,7 @@ const config = (app) => {
   app.use('/logout', logoutRouter);
 
   app.get('*', (req, res) => {
-    res.sendFile(path.resolve('public/index.html'));
+    res.sendFile(path.resolve('../client/build/index.html'));
   });
 };
 

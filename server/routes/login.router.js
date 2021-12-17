@@ -15,26 +15,19 @@ router.post('/', async (req, res) => {
       phone,
     } = req.body;
 
-    if (roomid) { // если авторизовывается клиент
+    if (roomid) {
       
       const guestInfo = await fetch(`https://hotel-api-example.herokuapp.com/${roomid}`);
       const data = await guestInfo.json();
-      // console.log(data);
-      if (data.guest) { // если гость найден, то проверяем пин и если все ок, то сохраняем в базу и кладем в сессию
-        console.log('guest trying to login');
+      console.log(data);
+      if (data.guest) { 
         if (data.guest.pincode === pincode) {
-          // const name = `${data.guest.firstname} ${data.guest.lastname}`;
-          // const { phone } = data.guest;
           const user = await User.upsert({
             room: roomid,
             name: `${data.guest.firstname} ${data.guest.lastname}`,
             phone: data.guest.phone,
             pin: pincode,
           });
-          // const isAuth = true;
-          // const { id } = user;
-          // const role = 'client';
-          console.log('=========', '=============');
 
           req.session.user = {
             // id: data.guest.id,
@@ -56,14 +49,14 @@ router.post('/', async (req, res) => {
           });
         }
       } 
-      // else {
+      else {
 
-      // }
+      }
     } else { // попытка авторизации staff'a
       console.log('staff trying to login');
       const staffInfo = await fetch('https://hotel-api-example.herokuapp.com/staff');
       const data = await staffInfo.json();
-      // console.log(data.staff);
+
       const staff = data.staff.filter((el) => el.pincode === pincode && +el.phone === +phone)[0];
       console.log(staff);
       if (staff) { // если нашелся такой сотрудник, то авторизовываем
