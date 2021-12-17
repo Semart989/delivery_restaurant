@@ -1,46 +1,75 @@
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useState, useRef } from 'react';
+import categoriesAT from '../../redux/actionTypes/categoriesAT';
 import styles from './EditDish.module.css';
-import { useState } from 'react';
+import adminOrderAT from '../../redux/actionTypes/adminOrderAT';
 
-function EditDish(props) {
+function EditDish({ dish, index, order }) {
+  // const state = useSelector(state => state.adminOrders.orders[order.id]);
+  const stateDishes = useSelector(state => state.adminOrdersDishes);
+  // const stateCategoriesDishes = useSelector(state => state.dishes.dishes);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    fetch('/categories')
+      .then((res) => res.json())
+      .then((categories) => dispatch({type: categoriesAT.INIT_CATEGORIES, payload: categories}));
+  }, [dispatch]);
+
+  useEffect(() => {
+    fetch('/admin/order')
+      .then(data => data.json())
+      .then(orders => dispatch({type: adminOrderAT.GET_ORDERS, payload: orders.orders}));
+  },[dispatch]);
+
+  
+
+  const categoryId = useRef(null);  
+  
   const [amount, setAmount] = useState(1);
   const [category, setCategory] = useState('Category1');
-  const [dish, setDish] = useState('Dish1');
   const arrAmount = [];
   for (let i = 0; i < 100; i += 1) {
     arrAmount.push(i + 1);
   }
-  const arrCategories = ['Category1', 'Category2', 'Category3'];
-  const arrDishes = ['Dish1', 'Dish2', 'Dish3', 'Dish4'];
-  let price = 100;
+  
+  const deleteHandler = (event) => {
+    event.preventDefault();
+    const obj = {};
+    obj.index = index;
+    obj.orderId = order.id;
+    obj.dishId = dish.id;
+    obj.dishCreatedAt = dish.createdAt;
+    obj.dishUpdateAt = dish.updatedAt;
+      fetch('/admin/dish', {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify(obj),
+      })
+      
+      dispatch({ type: adminOrderAT.DELETE_DISH, payload: obj });
+  }
+
   const handlerCategory = (event) => {
     const select = event.target;
     setCategory(select.value);
   }
-  const handlerDish = (event) => {
-    const select = event.target;
-    setDish(select.value);
-  }
+  
+  // const handlerDish = (event) => {
+  //   const select = event.target;
+  //   setDish(select.value);
+  // }
   const handlerAmount = (event) => {
     const select = event.target;
     setAmount(select.value);
   }
   return (
     <div className={styles.dishesList}>
-      <div className={styles.select}>
-        <label forHtml='category' >Категория</label>
-        <select className={styles.marginSelect} onChange={handlerCategory} name='category'>
-          {arrCategories.map(item => <option value={item}>{item}</option>)}
-        </select>
-      </div>
-      
-      <div className={styles.select}>
-        <label forHtml='dish'>Блюдо</label>
-        <select className={styles.marginSelect} onChange={handlerDish} name='dish'>
-          {arrDishes.map(item => <option value={item}>{item}</option>)}
-        </select>
-      </div>
-      
-      <p className={styles.margin}>Цена {price} рублей</p>
+      <p className={styles.margin}>{dish.category}</p>
+      <p className={styles.margin}>{dish.name}</p>
+      <p className={styles.margin}>{dish.price} рублей</p>
 
       <div className={styles.select}>
         <label forHtml='amount'>Количество</label>
@@ -49,8 +78,8 @@ function EditDish(props) {
         </select>
       </div>
      
-      <p className={styles.margin}>Итого {amount * price} рублей</p>
-      <button className={styles.button}>&times;</button>
+      <p className={styles.margin}>Итого {amount * dish.price} рублей</p>
+      <button className={styles.button} onClick={deleteHandler}>&times;</button>
     </div>
   );
 }

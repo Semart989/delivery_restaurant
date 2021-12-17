@@ -96,6 +96,7 @@ const getOrders = async (req, res) => {
       result.dishes = [];
       value.forEach((item) => {
         const dish = {};
+        dish.id = item['Dishes.id'];
         dish.name = item['Dishes.name'];
         dish.picture = item['Dishes.picture'];
         dish.price = item['Dishes.price'];
@@ -103,8 +104,11 @@ const getOrders = async (req, res) => {
         dish.time = item['Dishes.time'];
         dish.description = item['Dishes.description'];
         dish.ingredients = item['Dishes.ingredients'];
+        dish.categoryId = item['Dishes.Category.id'];
         dish.category = item['Dishes.Category.name'];
         dish.categoryPicture = item['Dishes.Category.picture'];
+        dish.createdAt = item['Dishes.Order_Dish.createdAt'];
+        dish.updatedAt = item['Dishes.Order_Dish.updatedAt'];
         result.dishes.push(dish);
       });
       return result;
@@ -148,8 +152,30 @@ const changeStatusOrder = async (req, res) => {
   }
 };
 
+const deleteDish = async (req, res) => {
+  try {
+    const obj = req.body;
+    const order = await Order_Dish.destroy({
+      where: {
+        [Op.and]: [
+          { order_id: obj.orderId },
+          { dish_id: obj.dishId },
+          { createdAt: obj.dishCreatedAt },
+          { updatedAt: obj.dishUpdateAt },
+        ],
+      },
+    });
+    res.status(200).json({ order });
+  } catch (error) {
+    res.status(404).json({
+      error: 'error',
+    });
+  }
+};
+
 module.exports = {
   newOrder,
   getOrders,
   changeStatusOrder,
+  deleteDish,
 };

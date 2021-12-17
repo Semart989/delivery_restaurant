@@ -33,7 +33,7 @@ function CookTask({ order }) {
 
   }
   return (
-    <div onClick={changeStatusHandler} className={styles.cookTask}>
+    <div onDoubleClick={changeStatusHandler} className={styles.cookTask}>
       <h3>Order {order.id}</h3>
       {order.dishes.length && order.dishes
         .map(dish => <CookDish key={dish.id} dish={dish} />)}

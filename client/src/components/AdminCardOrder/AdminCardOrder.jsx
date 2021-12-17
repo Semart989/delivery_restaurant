@@ -1,10 +1,11 @@
-import { useEffect } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import adminOrderAT from '../../redux/actionTypes/adminOrderAT';
 import styles from './AdminCardOrder.module.css';
 import AdminEditCardOrder from '../AdminEditCardOrder/AdminEditCardOrder';
 import './AdminCardOrder.css';
 import Dish from '../Dish/Dish';
+import EditDish from '../EditDish/EditDish';
 
 const pStatus = { 
   awaitOrder: 'Задачи, ожидающие подтверждения',
@@ -14,6 +15,7 @@ const pStatus = {
   sendOrder: 'Задачи на доставке' };
 
 function AdminCardOrder({ order, isOpen, isClose, isEditOpen, isEditClose }) {
+  const [editModal, setEditModal] = useState(false);
 
   const dispatch = useDispatch();
   const state = useSelector(state => state.adminOrders);
@@ -43,7 +45,6 @@ function AdminCardOrder({ order, isOpen, isClose, isEditOpen, isEditClose }) {
     }
 
   }
-  // console.log(order.currentStatus);
 
   return (
     <>   
@@ -60,15 +61,17 @@ function AdminCardOrder({ order, isOpen, isClose, isEditOpen, isEditClose }) {
             <h3>
               Заказ № {order.id}
             </h3>
-            {order && order.dishes.map((dish) => <Dish key={dish.id} dish={dish} />)}
+
+            {(order && !editModal && order.dishes[0].id) && order.dishes.map((dish) => <Dish key={dish.id} dish={dish} />)}
+            {(order && editModal && order.dishes[0].id) && order.dishes.map((dish, index) => <EditDish key={dish.id} index={index} order={order} dish={dish} />)}
             <p>Итого: {order.totalSum} рублей</p>
           </div>
 
           <div className={styles.card__fieldButton}>       
-            <button className={styles.card__button} style={{backgroundColor: 'red'}} onClick={isClose}>Отменить</button>
+            <button className={styles.card__button} style={{backgroundColor: 'red'}} onClick={() => {setEditModal(false); isClose()}}>Отменить</button>
             {
               order.currentStatus === 'awaitOrder' &&
-            <button className={styles.card__button} style={{backgroundColor: 'yellow'}} onClick={isClose}>Редактировать</button> 
+            <button className={styles.card__button} style={{backgroundColor: 'yellow'}} onClick={() => {setEditModal(true)}} >Редактировать</button> 
             }
             {            
               (order.currentStatus === 'awaitOrder' || order.currentStatus === 'sendOrder') &&                
