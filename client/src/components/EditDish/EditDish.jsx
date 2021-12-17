@@ -1,12 +1,12 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState, useRef } from 'react';
+import { useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
 import categoriesAT from '../../redux/actionTypes/categoriesAT';
 import styles from './EditDish.module.css';
 import adminOrderAT from '../../redux/actionTypes/adminOrderAT';
 
 function EditDish({ dish, index, order }) {
   // const state = useSelector(state => state.adminOrders.orders[order.id]);
-  const stateDishes = useSelector(state => state.adminOrdersDishes);
+  // const stateDishes = useSelector(state => state.adminOrdersDishes);
   // const stateCategoriesDishes = useSelector(state => state.dishes.dishes);
   const dispatch = useDispatch();
 
@@ -24,10 +24,10 @@ function EditDish({ dish, index, order }) {
 
   
 
-  const categoryId = useRef(null);  
+  // const categoryId = useRef(null);  
   
   const [amount, setAmount] = useState(1);
-  const [category, setCategory] = useState('Category1');
+  // const [category, setCategory] = useState('Category1');
   const arrAmount = [];
   for (let i = 0; i < 100; i += 1) {
     arrAmount.push(i + 1);
@@ -52,10 +52,10 @@ function EditDish({ dish, index, order }) {
       dispatch({ type: adminOrderAT.DELETE_DISH, payload: obj });
   }
 
-  const handlerCategory = (event) => {
-    const select = event.target;
-    setCategory(select.value);
-  }
+  // const handlerCategory = (event) => {
+  //   const select = event.target;
+  //   setCategory(select.value);
+  // }
   
   // const handlerDish = (event) => {
   //   const select = event.target;

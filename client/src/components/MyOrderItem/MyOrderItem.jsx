@@ -4,7 +4,6 @@ import React from 'react';
 import { Card, CardContent, CardMedia, Typography, Box, Badge, CardHeader } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-import styles from '../DishesItem/DishesItem.module.css'
 
 // кастомный бэйдж через метод {style} из MUI-styles
 const StyledBadge = styled(Badge)(({ theme }) => ({

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import adminOrderAT from '../../redux/actionTypes/adminOrderAT';
 import styles from './AdminCardOrder.module.css';
 import AdminEditCardOrder from '../AdminEditCardOrder/AdminEditCardOrder';
@@ -18,7 +18,7 @@ function AdminCardOrder({ order, isOpen, isClose, isEditOpen, isEditClose }) {
   const [editModal, setEditModal] = useState(false);
 
   const dispatch = useDispatch();
-  const state = useSelector(state => state.adminOrders);
+  // const state = useSelector(state => state.adminOrders);
 
   const funcFetch = () => {
     fetch('/admin/changeStatus', {
