@@ -32,7 +32,6 @@ const config = (app) => {
 
   // Использую клиентский public для deploy
   app.use(express.static(path.resolve('public')));
-
   app.use(morgan('dev'));
   app.use(cookieParser());
   app.use(session(sessionConfig));
