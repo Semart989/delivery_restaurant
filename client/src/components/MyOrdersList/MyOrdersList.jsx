@@ -17,7 +17,9 @@ function MyOrdersList() {
       .then(data => data.json())
       .then(data => dispatch({ type: myOrdersAT.INIT_MY_ORDERS, payload: data.objOrders }))
   }, [dispatch]);
-
+  
+// console.log(Object.entries(state));
+// console.log(1234);
   return (
 
     <>

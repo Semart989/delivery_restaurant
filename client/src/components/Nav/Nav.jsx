@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { AppBar, Box, Toolbar, IconButton, Typography, Menu, Container, MenuItem, Tooltip, Badge, styled } from '@mui/material';
+import { AppBar, Box, Toolbar, IconButton, Typography, Menu, Container, MenuItem, Badge, styled } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
@@ -103,7 +103,7 @@ const ResponsiveAppBar = () => {
             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
           >
             <Link to="/"
-              className={style.link_header}>Delivery Restraunt</Link>
+              className={style.link_header}>RestoRunner</Link>
           </Typography>
           {/* web навигация  */}
           <Box className={style.link_header} sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }} style={{ justifyContent: 'center' }}>
@@ -128,17 +128,18 @@ const ResponsiveAppBar = () => {
 
           {/* Корзина  */}
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip>
+      
               <Link to="/cart" underline="none">
-                <IconButton sx={{ p: 0, bgcolor: "white" }}>
-                  <IconButton aria-label="cart">
+                <IconButton sx={{ 
+                  p: 1,
+                bgcolor: "white" 
+              }}
+                aria-label="cart">
                     <StyledBadge badgeContent={totalQuantity} color="secondary">
                       <ShoppingCartIcon />
                     </StyledBadge>
-                  </IconButton>
                 </IconButton>
               </Link>
-            </Tooltip>
           </Box>
         </Toolbar>
       </Container>

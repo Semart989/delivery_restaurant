@@ -1,11 +1,11 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import adminOrderAT from '../../redux/actionTypes/adminOrderAT';
 import CookDish from "../CookDish/CookDish";
 import styles from './CookTask.module.css';
 
 function CookTask({ order }) {
   const dispatch = useDispatch();
-  const state = useSelector(state => state.adminOrders);
+  // const state = useSelector(state => state.adminOrders);
 
   const funcFetch = () => {
     fetch('/cook/changeStatus', {

@@ -1,9 +1,9 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 
 import adminOrderAT from '../../redux/actionTypes/adminOrderAT';
 import styles from './AdminEditCardOrder.module.css';
 import './AdminEditCardOrder.css';
-import EditDish from '../EditDish/EditDish';
+// import EditDish from '../EditDish/EditDish';
 
 const pStatus = { 
   awaitOrder: 'Задачи, ожидающие подтверждения',

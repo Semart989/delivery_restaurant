@@ -8,9 +8,10 @@ function RoomSetter() {
   let expires = new Date()
   expires.setTime(expires.getTime() +  24 * 60 * 60 * 1000);//на сутки кука
   setCookie('roomid', roomid, { path: '/',  expires});
+  console.log(cookies);
 
   return (
-    <Redirect to="/login/" />
+    <Redirect to="/login" />
   );
 }
 

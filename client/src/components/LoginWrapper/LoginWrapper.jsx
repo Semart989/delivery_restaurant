@@ -1,12 +1,12 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { userInitAC } from '../../redux/actionCreators/userAC';
 import { useEffect } from 'react';
 import { useHistory } from 'react-router';
 
 function LoginWrapper({ children }) {
 
-  const state = useSelector(state => state);
+  // const state = useSelector(state => state);
   //console.log(state.isUserAuth);
   const dispatch = useDispatch();
   let history = useHistory();
@@ -28,7 +28,7 @@ function LoginWrapper({ children }) {
           }
         })
     }
-  }, []);
+  }, [dispatch, history]);
 
   return (
     <>

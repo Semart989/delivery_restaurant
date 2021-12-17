@@ -66,7 +66,7 @@ function DishesItem({ dish }) {
         </Typography>
       </CardContent>
 
-      <CardContent  sx={{ minHeight: 290 }}>
+      <CardContent  sx={{ minHeight: 200 }}>
         <Typography paragraph>
           {dish.description}
         </Typography>
