@@ -1,0 +1,17 @@
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+.link:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.card:hover {
+  -webkit-box-shadow: 10px 9px 10px 6px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 10px 9px 10px 6px rgba(34, 60, 80, 0.2);
+  box-shadow: 10px 9px 10px 6px rgba(17, 30, 41, 0.2);
+  color: black;
+  background-color: #f3f3f5;
+}

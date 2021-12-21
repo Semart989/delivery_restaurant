@@ -1,0 +1,28 @@
+.link {
+  text-decoration: none;
+  border-radius: 20px;
+  color: black;
+}
+
+.link_header {
+  text-decoration: none;
+  color: white;
+  border-radius: 10px;
+}
+
+.link_header:visited {
+  text-decoration: none;
+  color: white;
+  border-radius: 10px;
+}
+
+.link_header:hover {
+  text-decoration: none;
+  border-radius: 20px;
+}
+
+.nav {
+  /* background-color: #6868ac; */
+  background: rgb(122, 90, 166);
+  background: radial-gradient(circle, rgba(122, 90, 166, 1) 0%, rgba(106, 106, 176, 1) 0%, rgba(102, 59, 113, 1) 100%, rgba(0, 212, 255, 1) 100%);
+}

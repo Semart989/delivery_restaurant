@@ -1,0 +1,50 @@
+.modal_wrapper{
+  position: fixed;
+  bottom: 0;  
+  margin-top: 0px;
+  width: 200%;
+  background: black(0,0,0, .2);
+  backdrop-filter: blur(10px);
+}
+.awaitOrder{
+  margin-left: -54%;
+}
+.submitOrder{
+  margin-left: -72%;
+}
+.admitOrder{
+  margin-left: -92%;
+}
+.successOrder{
+  margin-left: -110%;
+}
+.sendOrder{
+  margin-left: -132%;
+}
+.modal_wrapper.open{
+  height: 100%;
+  display: block;
+}
+.modal_wrapper.close{
+  height: 0;
+  display: none;
+}
+.modal_body{
+  width: 80vw;
+  margin: auto;
+  background-color: azure;
+  margin-top: 0px;
+  padding: 20px;
+  border-radius: 20px;
+  height: 53vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center
+}
+.modal_close{
+  text-align: right;
+  margin-top: -30px;
+  font-size: 40px;
+  color: gray;
+  cursor: pointer;
+}
