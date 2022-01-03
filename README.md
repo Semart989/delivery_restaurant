@@ -1,4 +1,4 @@
-## Anapa Guest House
+## RestoRunner
 ### Web-приложение для доставки еды
 
 Приложение ["RestoRunner"](https://resto--runner.herokuapp.com) позволяет бесконтактно заказать еду в гостиничный номер напрямую из ресторана отеля, в котором проживает постоялец. Заказчик хотел получить современное, функциональное и адаптивное под мобильные устройства веб-приложение с возможностью заказать еду в гостиничный номер напрямую из ресторана отеля. Интерфейс приложения состоит из трех частей: 
@@ -42,11 +42,11 @@
 ![](/readme/cookmaster_main_page.png)
 
 ## Стек технологий:
-JavaScript
+**JavaScript**
 
 **DB**: PostgreSQL, Sequelize
 
-**Back**: Node.js, Express, Sessions, Bcrypt, Cors
+**Back**: Node.js, Express, Sessions, Cookie, Cors
 
 **Front**: React + Redux, Redux-Saga, HTML5, CSS, Material UI
 
