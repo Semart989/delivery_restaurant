@@ -44,9 +44,9 @@
 ## Стек технологий:
 **JavaScript**
 
-**DB**: PostgreSQL, Sequelize
+**DB**: PostgreSQL, Sequelize ORM
 
-**Back**: Node.js, Express, Sessions, Cookie, Cors
+**Back**: Node.js, Express
 
 **Front**: React + Redux, Redux-Saga, HTML5, CSS, Material UI
 
