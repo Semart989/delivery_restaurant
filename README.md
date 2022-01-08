@@ -13,33 +13,33 @@
 
 
 - Авторизация
-  для комнаты №2 (/room/2):
+  для комнаты №2 (**/room/2**):
  phone **9999999902**
- password **0002**
-![](/readme/authorization.png)
+ pincode **0002**
+ <img src="/readme/authorization.png"  height="150" >
 
 - Главная страница
-![](/readme/main_page.png)
+ <img src="/readme/main_page.png"  height="150" >
 
 - Меню
-![](/readme/menu.png)
+ <img src="/readme/menu.png"  height="150" >
 
 - Страница с заказами пользователя
-![](/readme/orders.png)
+ <img src="/readme/orders.png"  height="150" >
 
 - Страница с корзиной пользователя
-![](/readme/cart.png)
+ <img src="/readme/cart.png"  height="150" >
 
 #### Панель управления администратора:
 - Просмотр актуальных заказов, с возможностью изменить состояние заказа и его редактирование
-![](/readme/admin_main_page.png)
+ <img src="/readme/admin_main_page.png"  height="150" >
 
 - Панель редактирования заказа
-![](/readme/edit_panel.png)
+ <img src="/readme/edit_panel.png"  height="150" >
 
 #### Панель управления на кухне:
 - Просмотр актуальных заказов, с возможностью изменить состояние заказа 
-![](/readme/cookmaster_main_page.png)
+ <img src="/readme/cookmaster_main_page.png"  height="150" >
 
 ## Стек технологий:
 **JavaScript**
