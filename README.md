@@ -13,40 +13,40 @@
 
 
 - Авторизация
-  для комнаты №2 (/room/2):
+  для комнаты №2 (**/room/2**):
  phone **9999999902**
- password **0002**
-![](/readme/authorization.png)
+ pincode **0002**
+ <img src="/readme/authorization.png"  height="500" >
 
 - Главная страница
-![](/readme/main_page.png)
+ <img src="/readme/main_page.png"  height="500" >
 
 - Меню
-![](/readme/menu.png)
+ <img src="/readme/menu.png"  height="500" >
 
 - Страница с заказами пользователя
-![](/readme/orders.png)
+ <img src="/readme/orders.png"  height="500" >
 
 - Страница с корзиной пользователя
-![](/readme/cart.png)
+ <img src="/readme/cart.png"  height="500" >
 
 #### Панель управления администратора:
 - Просмотр актуальных заказов, с возможностью изменить состояние заказа и его редактирование
-![](/readme/admin_main_page.png)
+ <img src="/readme/admin_main_page.png"  height="500" >
 
 - Панель редактирования заказа
-![](/readme/edit_panel.png)
+ <img src="/readme/edit_panel.png"  height="500" >
 
 #### Панель управления на кухне:
 - Просмотр актуальных заказов, с возможностью изменить состояние заказа 
-![](/readme/cookmaster_main_page.png)
+ <img src="/readme/cookmaster_main_page.png"  height="500" >
 
 ## Стек технологий:
 **JavaScript**
 
-**DB**: PostgreSQL, Sequelize
+**DB**: PostgreSQL, Sequelize ORM
 
-**Back**: Node.js, Express, Sessions, Cookie, Cors
+**Back**: Node.js, Express
 
 **Front**: React + Redux, Redux-Saga, HTML5, CSS, Material UI
 
