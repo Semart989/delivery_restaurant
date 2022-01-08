@@ -16,30 +16,30 @@
   для комнаты №2 (**/room/2**):
  phone **9999999902**
  pincode **0002**
- <img src="/readme/authorization.png"  height="150" >
+ <img src="/readme/authorization.png"  height="500" >
 
 - Главная страница
- <img src="/readme/main_page.png"  height="150" >
+ <img src="/readme/main_page.png"  height="500" >
 
 - Меню
- <img src="/readme/menu.png"  height="150" >
+ <img src="/readme/menu.png"  height="500" >
 
 - Страница с заказами пользователя
- <img src="/readme/orders.png"  height="150" >
+ <img src="/readme/orders.png"  height="500" >
 
 - Страница с корзиной пользователя
- <img src="/readme/cart.png"  height="150" >
+ <img src="/readme/cart.png"  height="500" >
 
 #### Панель управления администратора:
 - Просмотр актуальных заказов, с возможностью изменить состояние заказа и его редактирование
- <img src="/readme/admin_main_page.png"  height="150" >
+ <img src="/readme/admin_main_page.png"  height="500" >
 
 - Панель редактирования заказа
- <img src="/readme/edit_panel.png"  height="150" >
+ <img src="/readme/edit_panel.png"  height="500" >
 
 #### Панель управления на кухне:
 - Просмотр актуальных заказов, с возможностью изменить состояние заказа 
- <img src="/readme/cookmaster_main_page.png"  height="150" >
+ <img src="/readme/cookmaster_main_page.png"  height="500" >
 
 ## Стек технологий:
 **JavaScript**
