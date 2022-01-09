@@ -10,8 +10,6 @@ const userMiddleware = require('../middleware/user');
 const authMiddleware = require('../middleware/auth');// checking if user login, redirects to loginPage if not
 // routes
 const indexRouter = require('../routes/index.router');
-const loginRouter = require('../routes/login.router');
-const logoutRouter = require('../routes/logout.router');
 
 // Добавил API гостиницы
 const corsOptions = {
@@ -42,8 +40,6 @@ const config = (app) => {
   app.use(authMiddleware);
 
   app.use('/', indexRouter);
-  app.use('/login', loginRouter);
-  app.use('/logout', logoutRouter);
 
   app.get('*', (req, res) => {
     res.sendFile(path.resolve('public/index.html'));
